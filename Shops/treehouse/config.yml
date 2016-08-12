@@ -1,0 +1,12 @@
+---
+:api_key: 07a8267d93bdd34982bd7b04a7984a2d
+:password: aa3ef5ff9282a30b168a4464537057a7
+:store: treehouse-11.myshopify.com
+:theme_id: 
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/
