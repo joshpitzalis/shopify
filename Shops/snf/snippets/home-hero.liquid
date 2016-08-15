@@ -1,17 +1,4 @@
-{% comment %}
-  If hero is first section on homepage, add class that sets
-  negative top-margin for alignment and force full height.
-{% endcomment %}
-
-<style>
-.negativetopMargin {
-  /*margin-top: -200px;*/
-}
-
-/*you also have to make sure the logo and stuff can be seen*/
-</style>
-
-<div class="negativetopMargin homepage-image preventOverflow homepageHero {{ settings.home_hero_height }} {{ settings.home_hero_color }}">
+<div class="homepage-image preventOverflow homepageHero {{ settings.home_hero_height }} {{ settings.home_hero_color }}">
   {% if settings.hero_link_text == '' and settings.hero_link != '' and settings.homepage_hero_cta_image_enable == false %}
     <a href="{{ settings.hero_link }}">
   {% endif %}

@@ -118,9 +118,9 @@
   <main class="main-content" role="main">
     {{ content_for_layout }}
   </main>
-          
+
   <footer class="site-footer-wrapper" role="contentinfo">
-    
+
     {% if settings.footer_logo_enable == 'storefront' %}
     <a href="/" itemprop="url" class="footer-logo" id="footerLogo" style="opacity:0;">
       <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" id="footerLogoImg"/>
@@ -132,7 +132,7 @@
     {% endif %}
     {{ 'colourStrip.png' | asset_url | img_tag: 'Smirking Gnome', 'colourFooterStrip' }}
     <div class="wrapper site-footer">
-      
+
       <div class="grid-uniform">
         {% comment %}
           Calculate the number of footer columns shown
@@ -194,7 +194,7 @@
             <li><a href="/">&copy; {{ shop.name }}, Inc {{ 'now' | date: "%Y" }}<br/> 501(c)(3) Non Profit </a></li>
           {% for link in linklists[settings.footer_secondary_linklist].links %}
             <li><a href="{{ link.url }}">{{ link.title }}</a></li>
-          {% endfor %}  
+          {% endfor %}
         </ul>
 
         {% if settings.footer_payment_enable %}

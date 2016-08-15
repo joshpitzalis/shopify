@@ -613,11 +613,11 @@
             "label": "Medium"
           },
           {
-            "value": "40px",
+            "value": "80px",
             "label": "Large"
           },
           {
-            "value": "50px",
+            "value": "80px",
             "label": "Extra Large"
           }
         ]

@@ -1,13 +1,13 @@
 
-<div itemscope itemtype="http://schema.org/Product" class="product-page"> 
-  
+<div itemscope itemtype="http://schema.org/Product" class="product-page">
+
   {% if product.featured_image %}
-<div class="product-header-image" style="background-image: url('{{ product.featured_image | img_url: '1024x1024' }}');"> 
-  
+<div class="product-header-image" style="background-image: url('{{ product.featured_image | img_url: '1024x1024' }}');">
+
 </div>
   {% endif %}
 
-      
+
   <div class="wrapper">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -19,7 +19,7 @@
     {% endif %}
 
     {% assign current_variant = product.selected_or_first_available_variant %}
-    
+
      <div class="grid product-single">
     <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center">
       <div class="product-single__photos">
@@ -87,7 +87,7 @@
             place the description in a full width container below the image and cart button.
           {% endcomment %}
 
-          {% assign description_position = settings.description_position %}
+          <!-- {% assign description_position = settings.description_position %}
 
           {% if description_position == 'auto' %}
             {% if product.description.size > 1000 or product.description contains 'iframe' %}
@@ -95,9 +95,10 @@
               {% else %}
               {% assign description_position = 'sidebar' %}
             {% endif %}
-          {% endif %}
+          {% endif %} -->
 
-          {% if description_position == 'sidebar' %}
+          {% assign description_position = 'sidebar' %}
+          <!-- {% if description_position == 'sidebar' %} -->
           <div class="product-description rte" itemprop="description">
             {{ product.description }}
           </div>
