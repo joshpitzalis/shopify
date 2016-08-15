@@ -41,17 +41,46 @@
       cursor: pointer;
   }
 
-</style>
+  /*product selectors*/
 
-<div itemscope itemtype="http://schema.org/Product">
+  .flex {
+    display: flex;
+    justify-content: start;
+  }
+
+  .block {
+    width: 40%;
+    min-height: 100%;
+  }
+
+  #retrograde {
+    cursor: url('https://cdn.shopify.com/s/files/1/1432/5818/t/2/assets/back.png'), default;
+  }
+
+  #anterograde {
+    cursor: url('https://cdn.shopify.com/s/files/1/1432/5818/t/2/assets/forward.png'), default;
+  }
+
+</style>
+</div>
+<div itemscope itemtype="http://schema.org/Product" class='flex'>
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
+  <!-- <a href="{{product.url | within: collection.previous_product}}" class='block' id='retrograde'> -->
+
+
+    <a href="{{collection.previous_product}}" class='block' id='retrograde'></a>
+
+<!-- more about this here https://help.shopify.com/themes/liquid/objects/collection#collection-next_product -->
+  </a>
+
   {% assign current_variant = product.selected_or_first_available_variant %}
 
   <div class="grid product-single">
-    <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center">
+    <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
+      <div>
       <div class="product-single__photos" id="product-single__photo">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
 
@@ -74,6 +103,8 @@
         {% endfor %}
       </div>
     </div>
+
+
 
     <div id="myModal" class='modal'>
 
@@ -154,7 +185,16 @@
       </div>
     </div>
     </div>
+
+
   </div>
+
+
+    <a href="{{ collection.next_product }}" class='block' id='anterograde'></a>
+
+
+
+
 
   <!-- {% if collection %}
     <hr class="hr--clear">
@@ -164,6 +204,7 @@
   {% endif %} -->
 
 </div>
+<div>
 
 {% comment %}
 
