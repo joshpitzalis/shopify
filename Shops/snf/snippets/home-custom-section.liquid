@@ -1,3 +1,4 @@
+
 <div class="homepage-image preventOverflow homepageCustom {{ settings.home_custom_height }} {{ settings.home_custom_color }}">
   <div class="content--centered">
     <div class="{{ settings.homepage_custom_align }} preventOverflowContent">
@@ -23,10 +24,10 @@
 
 {% if settings.home_custom_parallax %}
 <script>
-  $('.homepageCustom').parallax({
-    imageSrc: '{{ 'homepage_lower_image.jpg' | asset_url }}',
-    parallax: 'scroll',
-    bleed: '55'
-  });
+  // $('.homepageCustom').parallax({
+  //   imageSrc: '{{ 'homepage_lower_image.jpg' | asset_url }}',
+  //   parallax: 'scroll',
+  //   bleed: '55'
+  // });
 </script>
 {% endif %}

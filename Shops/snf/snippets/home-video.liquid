@@ -1,3 +1,4 @@
+{{ 'topBleed.jpg' | asset_url | img_tag: 'Smirking Gnome', 'widel'}}
 <div class="homepage-image preventOverflow homepageVideo {{ settings.home_video_color }} {{ settings.home_video_height }}">
   <div class="content--centered">
     <div class="{{ settings.homepage_video_align }} preventOverflowContent">
@@ -24,8 +25,10 @@
   {% if settings.home_video_parallax == false and settings.home_video_height != 'use_image' %}
     <div class="background-size-cover" style="background-image: url('{{ 'home_video_image.jpg' | asset_url }}');"></div>
   {% endif %}
+
 </div>
 
+{{ 'bottomBleed.jpg' | asset_url | img_tag: 'Smirking Gnome', 'widel'}}
 <script>
 $(document).ready(function() {
   $('.popupVideo').magnificPopup({

@@ -130,7 +130,7 @@
       <img src="{{ 'footer.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" id="footerLogoImg"/>
     </a>
     {% endif %}
-    {{ 'colourStrip.png' | asset_url | img_tag: 'Smirking Gnome', 'colourFooterStrip' }}
+
     <div class="wrapper site-footer">
 
       <div class="grid-uniform">
@@ -291,6 +291,7 @@
       </div>
     </div>
   </footer>
+
 
   {{ 'fastclick.min.js' | asset_url | script_tag }}
   {{ 'shop.js' | asset_url | script_tag }}
