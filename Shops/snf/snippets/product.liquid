@@ -1,13 +1,6 @@
 
 <div itemscope itemtype="http://schema.org/Product" class="product-page">
 
-  {% if product.featured_image %}
-<div class="product-header-image" style="background-image: url('{{ product.featured_image | img_url: '1024x1024' }}');">
-
-</div>
-  {% endif %}
-
-
   <div class="wrapper">
 
     <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
@@ -28,20 +21,20 @@
         {% comment %}
           Display current variant image, or default first
         {% endcomment %}
-<!--         <div class="product-single__photo-wrapper">
+        <div class="product-single__photo-wrapper">
           <img class="product-single__photo" id="ProductPhotoImg" src="{{ featured_image | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %} alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}">
-        </div> -->
+        </div>
 
         {% comment %}
           Display rest of product images, not repeating the featured one
         {% endcomment %}
-        {% for image in product.images %}
+        <!-- {% for image in product.images %}
           {% unless image contains featured_image %}
             <div class="product-single__photo-wrapper">
               <img class="product-single__photo" src="{{ image.src | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %} alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}">
             </div>
           {% endunless %}
-        {% endfor %}
+        {% endfor %} -->
       </div>
     </div>
 
@@ -87,20 +80,19 @@
             place the description in a full width container below the image and cart button.
           {% endcomment %}
 
-          <!-- {% assign description_position = settings.description_position %}
+          {% assign description_position = 'auto' %}
 
           {% if description_position == 'auto' %}
-            {% if product.description.size > 1000 or product.description contains 'iframe' %}
-              {% assign description_position = 'below' %}
+            <!-- {% if product.description.size > 1000 or product.description contains 'iframe' %}
+              {% assign description_position = 'auto' %}
               {% else %}
-              {% assign description_position = 'sidebar' %}
-            {% endif %}
-          {% endif %} -->
+              {% assign description_position = 'auto' %}
+            {% endif %} -->
+          {% endif %}
 
-          {% assign description_position = 'sidebar' %}
-          <!-- {% if description_position == 'sidebar' %} -->
+          {% if description_position == 'auto' %}
           <div class="product-description rte" itemprop="description">
-            {{ product.description }}
+            {{ product.description | split: '</p>' | first }}
           </div>
           {% endif %}
         </div>
@@ -210,16 +202,41 @@
           {% endif %}
         {% endif %}
       </div>
+        </div>
+</div>
+</div>
+      {% if product.featured_image %}
+    <div class="product-header-image" style="background-image: url('{{ product.images[1] | img_url: '1024x1024' }}');">
+
     </div>
+
+      {% endif %}
+  <div>
+    <div>
+
   </div>
 </div>
-{% if description_position == 'below' %}
+{% if description_position == 'auto' %}
 <div class="wrapper">
   <div class="product-description--below rte" itemprop="description">
-    {{ product.description }}
+    {{ product.description | split: '</p>' | last }}
   </div>
+  <br/>
+  
+</br/>
 </div>
 {% endif %}
+
+</div>
+</div>
+      {% if product.featured_image %}
+    <div class="product-header-image" style="background-image: url('{{ product.images[2] | img_url: '1024x1024' }}');">
+
+    </div>
+
+      {% endif %}
+  <div>
+    <div>
 
 
 <div class="wrapper">

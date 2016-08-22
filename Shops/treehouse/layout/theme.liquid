@@ -169,7 +169,12 @@
 
   <div id="PageContainer" class="is-moved-by-drawer">
 
+
+
+
+
     <div class="header-wrapper{% unless hero_full_height %} header-wrapper--over-hero{% endunless %}">
+      {% unless template == 'index' %}
       <header class="site-header" role="banner">
         <div class="wrapper">
           <div class="grid--full grid--table">
@@ -329,6 +334,8 @@
 
         </div>
       </header>
+
+      {% endunless %}
     </div>
 
     <main class="main-content" role="main">
