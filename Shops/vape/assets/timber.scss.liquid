@@ -188,7 +188,6 @@ $colorTextBody: {{ settings.color_body_text }};
 $colorTopBarText: {{ settings.color_topbar_text }};
 
 // Backgrounds
-$colorBody: {{ settings.color_body_bg }};
 $colorHeader: transparent;
 $colorTopBar: {{ settings.color_topbar_bg }};
 
@@ -293,7 +292,9 @@ html {
 }
 
 body {
-  background-color: $colorBody;
+  background: #D1913C; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #D1913C , #FFD194); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #D1913C , #FFD194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 .wrapper {
@@ -311,6 +312,9 @@ body {
   display: block;
   margin-top: $gutter * 2;
   padding-bottom: $gutter * 2;
+  background: white;
+
+
 }
 
 hr {
@@ -1656,7 +1660,7 @@ $socialIconFontStack: 'icons';
   @include at-query($min, $medium) {
     input {
       max-width: 250px;
-    }   
+    }
   }
 
   .text-center input {
@@ -2016,9 +2020,14 @@ $socialIconFontStack: 'icons';
 .site-header {
   padding: 40px 0;
   background-color: $colorHeader;
+  background-color: #252122;
+
+  a {
+    padding: $gutter 0;
+  }
 
   @include at-query ($min, $large) {
-    padding: $gutter 0;
+    padding: $gutter 0 0 0;
 
     .post-large--display-table {
       min-height: 86px;
@@ -2112,6 +2121,7 @@ $socialIconFontStack: 'icons';
   display: block;
   text-decoration: none;
   padding: $gutter / 2;
+  margin: 0 $gutter;
   white-space: nowrap;
   color: $colorNavText;
 
@@ -2142,7 +2152,7 @@ $socialIconFontStack: 'icons';
   z-index: 20;
   font-size: 0.85em;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
-                      
+
   .supports-no-touch .site-nav--has-dropdown:hover &,
   .site-nav--has-dropdown.nav-hover &,
   .nav-focus + &,
@@ -2151,7 +2161,6 @@ $socialIconFontStack: 'icons';
   }
 
   .site-nav__link {
-    background-color: $colorBody;
     font-weight: normal;
     padding: 7px 20px 7px 15px;
 
@@ -2198,7 +2207,13 @@ $socialIconFontStack: 'icons';
     border-top: 1px solid $colorBorder;
     border-bottom: 1px solid $colorBorder;
     {% endif %}
-    margin-top: $gutter;
+
+
+background: #D1913C; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #D1913C , #FFD194); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #D1913C , #FFD194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
   }
 {% endif %}
 
@@ -2347,7 +2362,7 @@ input.cart__quantity-selector {
     padding: 5px 0 0 5px;
     vertical-align: top;
     line-height: 1;
-    
+
     &:first-child,
     &:empty {
       padding-left: 0px;

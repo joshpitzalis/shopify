@@ -31,8 +31,11 @@
       </li>
     {% else %}
       <li {% if link.active %}class="site-nav--active"{% endif %}>
-        <a href="{{ link.url }}" class="site-nav__link">{{ link.title }}</a>
+        <a href="{{ link.url }}" class="site-nav__link">{{ link.title | upcase }}</a>
       </li>
     {% endif %}
   {% endfor %}
+  <div class="header-bar__module header-bar__module--list">
+    {% include 'social-links' %}
+  </div>
 </ul>

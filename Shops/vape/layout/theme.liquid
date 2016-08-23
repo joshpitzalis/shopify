@@ -59,7 +59,7 @@
   {% include 'header-bar' %}
 
   <header class="site-header" role="banner">
-    <div class="wrapper">
+    <!-- <div class="wrapper"> -->
 
       {% if settings.nav_below_logo %}
 
@@ -129,9 +129,11 @@
 
       {% endif %}
 
-    </div>
+    <!-- </div> -->
   </header>
 
+  {% include settings.home_section_1 %}
+  
   <main class="wrapper main-content" role="main">
     <div class="grid">
         <div class="grid__item">

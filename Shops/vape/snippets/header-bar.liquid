@@ -5,15 +5,6 @@
       {% if settings.header_message != blank or settings.header_search_enable %}
         <div class="header-bar__left post-large--display-table-cell">
 
-          {% comment %}
-            Add social links to header
-          {% endcomment %}
-
-          {% comment %}
-          <div class="header-bar__module header-bar__module--list">
-            {% include 'social-links' %}
-          </div>
-          {% endcomment %}
 
           {% if settings.header_message != blank %}
             <div class="header-bar__module header-bar__message">
@@ -46,7 +37,7 @@
               <li>{{ 'layout.customer.or' | t }}</li>
               <li>
                 {{ 'layout.customer.create_account' | t | customer_register_link }}
-              </li>  
+              </li>
             {% endif %}
           </ul>
         {% endif %}

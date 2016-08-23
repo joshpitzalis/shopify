@@ -688,6 +688,7 @@ h6 {
 .main-content {
   margin-top: $gutter / 2;
 
+
   .template-index & {
      margin-top: 0;
   }
@@ -1426,13 +1427,18 @@ button.mfp-arrow {
     - Contributing author: Tyler Smith (@mbmufffin)
 ==============================================================================*/
 .flexslider {
-  margin: 0;
   padding: 0;
 }
 
 .flexslider li {
   margin: 0;
   max-width: 100%;
+
+
+background: #252122; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #252122 , #e74c3c); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #252122 , #e74c3c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 .flexslider .slides > li {
@@ -1443,9 +1449,10 @@ button.mfp-arrow {
 }
 
 .flexslider .slides img {
-  max-width: 100%;
+  max-width: 1030px;
   margin: 0 auto;
   display: block;
+  padding: 25px 0;
 }
 
 .slides { @include clearfix; }
@@ -1470,7 +1477,7 @@ html[xmlns] .slides { display: block; }
 .flex-direction-nav { *height: 0; }
 .flex-direction-nav a  {
   display: block;
-  width: 45px;
+  width: 185px;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -1580,6 +1587,11 @@ html[xmlns] .slides { display: block; }
 
 .slide-link {
   display: block;
+
+background: #000000; /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #000000 , #e74c3c); /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #000000 , #e74c3c); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 
   img {
     display: block;
