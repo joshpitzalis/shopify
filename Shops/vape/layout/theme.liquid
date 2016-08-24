@@ -131,9 +131,10 @@
 
     <!-- </div> -->
   </header>
-
+{% if template == 'index' %}
   {% include settings.home_section_1 %}
-  
+{% endif %}
+
   <main class="wrapper main-content" role="main">
     <div class="grid">
         <div class="grid__item">

@@ -1,38 +1,35 @@
 {% if settings.home_page_content != empty %}
-  {% unless settings.home_page_full_width %}
-  <div class="grid">
-    <div class="
-    grid__item
-    large--one-half
-    medium--two-thirds ">
-  {% endunless %}
-      {% if settings.home_show_headings and settings.home_page_show_heading %}
-      <div class="section-header section-header--small">
-        <h2 class="section-header__title">{{ pages[settings.home_page_content].title }}</h2>
-      </div>
-      {% endif %}
-      <div class="rte">
-        {{ pages[settings.home_page_content].content }}
-      </div>
-
-    </div>
     <div class="
     grid__item
     large--three-quarters
     medium--two-thirds ">
-      <div class="section-header section-header--small">
-        <h2 class="section-header__title">{{ pages[settings.home_page_content].title }}
-        </h2>
-      </div>
+    {% if settings.home_show_headings and settings.home_page_show_heading %}
+    <div class="section-header section-header--small">
+      <h2 class="section-header__title">{{ pages[settings.home_page_content].title }}</h2>
+    </div>
+    {% endif %}
+    <div class="rte">
+      {{ pages[settings.home_page_content].content }}
+    </div>
     </div>
     <div class="
     grid__item
     large--one-quarter
     medium--one-third
     ">
-          <p class="grid-demo">2.3</p>
+      <div>
+        {{ 'vfaq.jpg' | asset_url | img_tag }}
+        <div>
+          <p>{{'For wholesale inquires, please email us at' | upcase}} vapeempire.us@gmail.com</p>
+        </div>
+      </div>
+
+
+          <div>
+            <h4>BECOME A MEMBER</h4>
+          	<p>Be the first to get exclusive discounts and updates</p>
+          	<a href=""><p>LEARN MORE</p></a>
+          </div>
     </div>
-    {% unless settings.home_page_full_width %}
   </div>
-  {% endunless %}
 {% endif %}
