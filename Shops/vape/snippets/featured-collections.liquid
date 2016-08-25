@@ -6,7 +6,10 @@ medium--two-thirds ">
 {% if settings.home_show_headings %}
 
 <div class="section-header section-header--small">
-  <h2 class="section-header__title">{{ 'home_page.sections.featured_title' | t }}</h2>
+  <h3 class="section-header__title" style='color: #6e1a2f;'>
+    <!-- {{ 'home_page.sections.featured_title' | t }} -->
+    {{'check out our vape products available now:' | upcase }}
+  </h3>
 </div>
 {% endif %}
 
@@ -109,16 +112,32 @@ medium--two-thirds ">
 grid__item
 large--one-quarter
 medium--one-third
+contactBox leftyBorder
 ">
-<div>
-  <h4>
+<div class='contactBox'>
+  <h4 class='centery'>
     {{'Vape empire usa, llc' | upcase}}</h4>
-<p>
+    <hr style='border-color: black; margin: 0;'/>
+<p class='centery'>
   {{'P.O. Box 7046
 Hampton, VA 23669'| upcase}}
   </p>
-  <a href='#'>
-    E: vapeempire.us@gmail.com
+  <br/>
+  <a href='#' class='centery'>
+    vapeempire.us@gmail.com
   </a>
 </div>
 </div>
+
+<style>
+.contactBox {
+  background-color: #8A786D;
+  color: black;
+  padding: 7.5px;
+}
+
+.leftyBorder {
+  border-left: 8px solid white
+}
+
+</style>
