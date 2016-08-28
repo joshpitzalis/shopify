@@ -10,9 +10,19 @@
       <div class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
     {% endif %}
       {% if settings.logo_use_image %}
-        <a href="/" itemprop="url">
-          <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class="logo-image" onerror='this.style.display = "none"'/>
-        </a>
+      {% if template == 'index'%}
+      <a href="/" itemprop="url">
+        <img src="{{ 'whitelogo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class="logo-image" onerror='this.style.display = "none"' height='120px'/>
+      </a>
+    {% else %}
+    <a href="/" itemprop="url">
+      <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class="logo-image" onerror='this.style.display = "none"'/>
+    </a>
+     {% endif %}
+
+
+
+
       {% else %}
         <a href="/" itemprop="url">{{ shop.name }}</a>
       {% endif %}
@@ -38,13 +48,23 @@
       {% assign main_menu_linklist = 'main-menu' %}
     {% endif %}
     {% for link in linklists[main_menu_linklist].links %}
-      {% include 'nav-item' %}    
+      {% include 'nav-item' %}
     {% endfor %}
     <li class="cart-text-link">
-      <a href="/cart" class="CartToggle">
-        {{ 'layout.cart.title' | t }} 
+      {% if template == 'index' %}
+      <a href="/cart" class="CartToggle" style='color:white'>
+        {{ 'layout.cart.title' | t }}
         <span class="cartCost {% if cart.item_count < 1 %} hidden-count {% endif %}">(<span class="money">{{ cart.total_price | money }}</span>)</span>
       </a>
+    {% else %}
+    <a href="/cart" class="CartToggle">
+      {{ 'layout.cart.title' | t }}
+      <span class="cartCost {% if cart.item_count < 1 %} hidden-count {% endif %}">(<span class="money">{{ cart.total_price | money }}</span>)</span>
+    </a>
+     {% endif %}
+
+
+
     </li>
   </ul>
 </div>

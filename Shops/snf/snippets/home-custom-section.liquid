@@ -8,18 +8,18 @@
         </a>
       {% else %}
         {% unless settings.custom_headline == '' %}<h1 class="title--flex">{{ settings.custom_headline }}</h1>{% endunless %}
-        {% unless settings.custom_description == '' %}<p class="content--flex h4--body">{{ settings.custom_description }}</p>{% endunless %}
-        {% unless settings.custom_link_text == '' %}<a class="{{ settings.home_custom_button }}" href="{{ settings.custom_link }}">{{ settings.custom_link_text }}</a>{% endunless %}
+        {% unless settings.custom_description == '' %}<p class="content--flex h4--body" style='color:#959595'>{{ settings.custom_description }}</p>{% endunless %}
+        {% unless settings.custom_link_text == '' %}<a class="{{ settings.home_custom_button }}" href="{{ settings.custom_link }}" style='color: #959595;'>{{ settings.custom_link_text }}</a>{% endunless %}
       {% endif %}
     </div>
   </div>
-  <div class="image-overlay {{ settings.home_custom_overlay }}"></div>
-  {% if settings.home_custom_height == 'use_image' %}
+
+  <!-- {% if settings.home_custom_height == 'use_image' %}
     <img src="{{ 'homepage_lower_image.jpg' | asset_url }}" onerror='this.style.display = "none"' class="responsive-wide-image"{% if settings.home_custom_parallax %} style="opacity: 0;"{% endif %}/>
   {% endif %}
   {% unless settings.home_custom_parallax %}
     <div class="background-size-cover" style="background-image: url('{{ 'homepage_lower_image.jpg' | asset_url }}');"></div>
-  {% endunless %}
+  {% endunless %} -->
 </div>
 
 {% if settings.home_custom_parallax %}

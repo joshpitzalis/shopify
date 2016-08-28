@@ -1,4 +1,13 @@
+</div>
+</div>
+      {% if product.images[1] %}
+    <div class="product-header-image" style="background-image: url('{{ product.images[1] | img_url: '1024x1024' }}');">
 
+    </div>
+
+      {% endif %}
+  <div>
+    <div>
 <div itemscope itemtype="http://schema.org/Product" class="product-page">
 
   <div class="wrapper">
@@ -203,16 +212,6 @@
         {% endif %}
       </div>
         </div>
-</div>
-</div>
-      {% if product.featured_image %}
-    <div class="product-header-image" style="background-image: url('{{ product.images[1] | img_url: '1024x1024' }}');">
-
-    </div>
-
-      {% endif %}
-  <div>
-    <div>
 
   </div>
 </div>
@@ -222,14 +221,14 @@
     {{ product.description | split: '</p>' | last }}
   </div>
   <br/>
-  
+
 </br/>
 </div>
 {% endif %}
 
 </div>
 </div>
-      {% if product.featured_image %}
+      {% if product.images[2] %}
     <div class="product-header-image" style="background-image: url('{{ product.images[2] | img_url: '1024x1024' }}');">
 
     </div>

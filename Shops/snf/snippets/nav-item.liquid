@@ -29,8 +29,11 @@
 {% endif %}
 
 {% if level < 3 %}
-  <li class="{% if grandparent %}grandparent{% elsif parent %}parent{% else %}child{%endif%} {% if link.active %}main-menu--active{% endif %} kids-{{child_count}}">
-    <a href="{{ link.url }}" class="nav-link">{{ link.title | escape }}</a>
+  <li class="{% if grandparent %} grandparent {% elsif parent %}parent{% else %}child{%endif%} {% if link.active %}main-menu--active{% endif %} kids-{{child_count}}">
+    {% if template == 'index' %}
+    <a href="{{ link.url }}" class="nav-link" style='color:white'>{{ link.title | escape }}</a>
+    {% else %}   <a href="{{ link.url }}" class="nav-link">{{ link.title | escape }}</a>
+     {% endif %}
     {% if parent %}
     <a href="#" class="nav-carat"><span class="plus">+</span><span class="minus">-</span></a>
       <div class="main-menu-dropdown">

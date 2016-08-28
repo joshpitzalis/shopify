@@ -2053,8 +2053,8 @@ $searchWidth: 80px;
 }
 .site-header {
   position: relative;
-  background-color: $colorNav;
-  border-bottom: 1px solid $colorNavBorder;
+  background-color: transparent;
+  z-index: 5;
 }
 .logo-wrapper{
   max-width: 80%;
@@ -2188,7 +2188,7 @@ $searchWidth: 80px;
     &:active,
     &:focus,
     &.nav-focus{
-      color: $colorSplash;
+      color: $colorSplash !important;
     }
   }
   a:focus:active{
@@ -2203,6 +2203,10 @@ $searchWidth: 80px;
 }
 .main-menu-dropdown{
   background-color: $colorNav;
+
+  a {
+    color: black !important;
+  }
 }
 .logo-wrapper--image .header-logo{
   line-height: 0;
@@ -2779,6 +2783,13 @@ a .home__subtitle{
 .homepage-image{
   overflow: hidden;
   position: relative;
+}
+
+.invisibleHeader{
+  @include at-query ($min, $medium){
+  margin-top: -182px;
+  padding-bottom: 182px
+  }
 }
 .background-size-cover{
   display: block;
@@ -3646,8 +3657,8 @@ $borderSpacing: 10px;
 .product-header-image{
   background-size: cover;
   background-position: center top;
-  height: 500px;
-  margin-bottom: $gutter*3;
+  height: 550px;
+  margin-bottom: $gutter*2;
 
 }
 

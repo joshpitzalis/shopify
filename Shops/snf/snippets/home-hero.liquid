@@ -1,4 +1,4 @@
-<div class="homepage-image preventOverflow homepageHero {{ settings.home_hero_height }} {{ settings.home_hero_color }}">
+<div class="homepage-image invisibleHeader preventOverflow homepageHero {{ settings.home_hero_height }} {{ settings.home_hero_color }}">
   {% if settings.hero_link_text == '' and settings.hero_link != '' and settings.homepage_hero_cta_image_enable == false %}
     <a href="{{ settings.hero_link }}">
   {% endif %}
@@ -23,7 +23,7 @@
   </div>
   <div id="scroll"></div>
   {% endif %}
-  <div class="image-overlay {{ settings.home_hero_overlay }}"></div>
+  <!-- <div class="image-overlay {{ settings.home_hero_overlay }}"></div> -->
   {% if settings.home_hero_height == 'use_image' %}
     <img src="{{ 'homepage_hero_image.jpg' | asset_url }}" onerror='this.style.display = "none"' class="responsive-wide-image"{% if settings.home_hero_parallax %} style="opacity: 0;"{% endif %}/>
   {% endif %}
