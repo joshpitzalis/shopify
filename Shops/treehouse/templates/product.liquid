@@ -27,13 +27,20 @@
       height: 85%;
   }
 
+  .product-single__description {
+    max-width: 600px;
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 40px;
+  }
+
   /* The Close Button */
   .closeModal {
-      /*color: #aaa;*/
+      color: #aaa;
       font-size: 58px;
       font-weight: bold;
       position: relative;
-      top: 320px;
+      top: 170px;
   }
 
   .closeModal:hover,
@@ -66,8 +73,56 @@
 
   #product-single__photo {
     cursor: url( {{ 'info.svg' | asset_url }}), default;
-
   }
+
+  #product-single__photo:hover {
+    -webkit-animation: swing 0.6s forwards;
+    animation: swing 0.6s forwards;
+  }
+
+  @-webkit-keyframes swing {
+	25% {
+		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+		transform: rotate3d(0, 0, 1, 6deg);
+	}
+
+	50% {
+		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+		transform: rotate3d(0, 0, 1, -4deg);
+	}
+
+	75% {
+		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+		transform: rotate3d(0, 0, 1, 2deg);
+	}
+
+	100% {
+		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+}
+
+@keyframes swing {
+  25% {
+		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+		transform: rotate3d(0, 0, 1, 6deg);
+	}
+
+	50% {
+		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+		transform: rotate3d(0, 0, 1, -4deg);
+	}
+
+	75% {
+		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+		transform: rotate3d(0, 0, 1, 2deg);
+	}
+
+	100% {
+		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+		transform: rotate3d(0, 0, 1, 0deg);
+	}
+}
 
   /*full page prodct height*/
 
@@ -82,17 +137,31 @@
     min-width: 600px;
   }
 
+  .centered {
+    display: block;
+    margin: 0 auto;
+  }
 
+  .verticalLine {
+    border-left: 2px solid #D0D0D0;
+    height: 233px;
+    position: absolute;
+    left: 49%;
+    top: 0px
+}
 
+#flipButton {
+  padding: 25px;
+}
 
 </style>
+</div>
+<div class='verticalLine'>
 </div>
 <div itemscope itemtype="http://schema.org/Product" class='flex'>
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
-
-
 
   <a href="{{collection.previous_product}}" class='block' id='retrograde'></a>
 
@@ -104,7 +173,7 @@
 
     <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
       <!-- <div> -->
-      <div class="product-single__photos" >
+      <div class="product-single__photos">
 
 
 
@@ -123,12 +192,13 @@
         {% for image in product.images %}
           {% unless image contains featured_image %}
             <div class="product-single__photo-wrapper">
-              <img class="product-single__photo" src="{{ image.src | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %} alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}">
+              <img class="product-single__photo" src="{{ image.src | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %} alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" style='visibility: hidden;' id='backside' >
             </div>
           {% endunless %}
         {% endfor %}
       </div>
     </div>
+
 
     <a href="{{ collection.next_product }}" class='block' id='anterograde'></a>
 
@@ -222,6 +292,9 @@
 
 
   </div>
+  <div id='flipButton'>
+    {{'360.png' | asset_url | img_tag: 'rotate image' , 'centered fader' }}
+  </div>
 
 
 
@@ -260,6 +333,30 @@
 {% endcomment %}
 {{ 'variant_selection.js' | asset_url | script_tag }}
 <script>
+
+var backside = document.getElementById('backside');
+
+
+var flipp = document.getElementById('flipButton');
+
+// Get the <span> element that closes the modal
+// var span = document.getElementsByClassName("closeModal")[0];
+
+// When the user clicks on the button, open the modal
+flipp.onclick = function() {
+  if (backside.style.visibility == "visible")
+   {
+       backside.style.visibility = "hidden";
+   }
+   else
+   {
+       backside.style.visibility = "visible";
+   }
+
+    console.log('hello')
+}
+
+
   var selectCallback = function(variant, selector) {
     timber.productPage({
       money_format: "{{ shop.money_format }}",
@@ -306,7 +403,10 @@ var span = document.getElementsByClassName("closeModal")[0];
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
+    console.log('hello')
 }
+
+
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {

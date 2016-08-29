@@ -202,7 +202,7 @@
                   {% endcomment %}
                   {% assign logo_inverted_url = 'logo-inverted.png' | asset_url %}
                   <a href="/collections/smokey-tees" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %}">
-                    <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">
+                    <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class='fader'>
                   </a>
                   {% if settings.logo_use_inverted %}
                     <a href="/collections/smokey-tees" itemprop="url" class="logo--inverted">
@@ -299,7 +299,9 @@
                 <li class="site-nav__item">
                   <a href="/cart" class="site-nav__link site-nav__link--icon cart-link js-drawer-open-right" aria-controls="CartDrawer">
                     <span class="icon-fallback-text">
-                      <span class="icon icon-cart" aria-hidden="true"></span>
+                      <span aria-hidden="true">
+                        {{ 'checoutVutton.png' | asset_url | img_tag:'checkout button', 'fader' }}
+                      </span>
                       <span class="fallback-text">{{ 'layout.cart.title' | t }}</span>
                     </span>
                     <span class="cart-link__bubble{% if cart.item_count > 0 %} cart-link__bubble--visible{% endif %}"></span>
