@@ -120,7 +120,7 @@
   </main>
 
   <footer class="site-footer-wrapper" role="contentinfo">
-
+    {{ 'colourStrip.png' | asset_url | img_tag: 'theme coloured footer divider', 'widel resety' }}
     {% if settings.footer_logo_enable == 'storefront' %}
     <a href="/" itemprop="url" class="footer-logo" id="footerLogo" style="opacity:0;">
       <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" id="footerLogoImg"/>

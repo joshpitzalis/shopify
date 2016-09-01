@@ -10,7 +10,7 @@
       <div class="h4 header-logo" itemscope itemtype="http://schema.org/Organization">
     {% endif %}
       {% if settings.logo_use_image %}
-      {% if template == 'index'%}
+      {% if template == 'index' %}
       <a href="/" itemprop="url">
         <img src="{{ 'whitelogo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class="logo-image" onerror='this.style.display = "none"' height='120px'/>
       </a>

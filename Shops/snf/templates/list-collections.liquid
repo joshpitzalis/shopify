@@ -1,6 +1,7 @@
 <!-- /templates/list-collections.liquid -->
 <div class="wrapper page-margin">
-  {% for collection in collections %}
+  {% for link in linklists.all-collections.links %}
+  {% assign collection = link.object %}
     {% unless collection.handle == 'frontpage' %}
       {% include 'collection-list-item' %}
     {% endunless %}
