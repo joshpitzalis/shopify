@@ -595,7 +595,7 @@ $class-type: unquote(".");
 #{$class-type}grid__item {
   float: left;
   min-height: 1px;
-  padding-left: $gridGutter;
+  padding: 0 $gridGutter;
   vertical-align: top;
   @if $mobile-first == true {
     width: 100%;
@@ -2141,6 +2141,7 @@ $socialIconFontStack: 'icons';
 
 /*================ Dropdowns ================*/
 .site-nav__dropdown {
+  background: white;
   text-transform: none;
   display: none;
   position: absolute;
@@ -2150,6 +2151,7 @@ $socialIconFontStack: 'icons';
   z-index: 20;
   font-size: 0.85em;
   box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+
 
   .supports-no-touch .site-nav--has-dropdown:hover &,
   .site-nav--has-dropdown.nav-hover &,
@@ -2206,12 +2208,8 @@ $socialIconFontStack: 'icons';
     border-bottom: 1px solid $colorBorder;
     {% endif %}
 
-
-background: #D1913C; /* fallback for old browsers */
-background: -webkit-linear-gradient(to left, #D1913C , #FFD194); /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to left, #D1913C , #FFD194); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+  background: url({{'navWood.png' | asset_url }});
+  max-width: 100%;
   }
 {% endif %}
 

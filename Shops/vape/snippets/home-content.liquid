@@ -3,7 +3,7 @@
     <div class="
     grid__item
     large--three-quarters
-    medium--two-thirds noMarginy">
+    medium--two-thirds noMarginy" style='background: url({{'whiteVape.jpg' | asset_url }}) center ;'>
     {% if settings.home_show_headings and settings.home_page_show_heading %}
     <div class="section-header section-header--small">
       <h2 class="section-header__title" style='background-color: #6e1a2f; color: white; padding: 5px;'>{{ pages[settings.home_page_content].title }}</h2>
@@ -21,7 +21,8 @@
       <div class='faqBox'>
         {{ 'vfaq.jpg' | asset_url | img_tag: 'image that says click here for news and updates about all things vape world', 'centery' }}
         <div>
-          <p class='whiteTexty'>{{'For wholesale inquires, please email us at' | upcase}} vapeempire.us@gmail.com</p>
+          <p class='whiteTexty'>{{'For wholesale inquires, please contact us' | upcase}}
+          <a href="/pages/contact" class='blackbacky centery marginy'>CONTACT US</a></p>
         </div>
       </div>
 
@@ -29,7 +30,7 @@
           <div class='burgundy'>
           	<p class='centery'>Be the first to get exclusive discounts and updates</p>
             <br />
-          	<a href=""><p class='blackbacky centery marginy'>LEARN MORE</p></a>
+          	<a href="/account/register"><p class='blackbacky centery marginy'>JOIN</p></a>
           </div>
     </div>
   </div>
@@ -37,9 +38,19 @@
 
 <style>
 .backgroundy {
-  background-color: ;
+  position: relative;
+  bottom: 31px;
+  left: 30px;
   padding: 0;
 }
+
+@media (max-width: 800px) {
+  .backgroundy {
+    display: none;
+  }
+
+}
+
 .faqBox {
   background-color: #9B4F25;
   margin: 0 auto;

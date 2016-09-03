@@ -4,6 +4,8 @@
   More info on linklists:
     - http://docs.shopify.com/themes/liquid-variables/linklists
 {% endcomment %}
+<div class='dividy toppy'>
+</div>
 <ul class="site-nav{% unless settings.nav_below_logo %} post-large--text-right{% endunless %}" role="navigation" id="AccessibleNav">
   {% for link in linklists.main-menu.links %}
     {% comment %}
@@ -39,3 +41,5 @@
     {% include 'social-links' %}
   </div>
 </ul>
+<div class='dividy bottomy'>
+</div>
