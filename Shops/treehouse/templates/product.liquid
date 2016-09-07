@@ -1,7 +1,5 @@
 <!-- /templates/product.liquid -->
-
 <style>
-
 /* The Modal (background) */
   .modal {
       display: none; /* Hidden by default */
@@ -14,6 +12,7 @@
       overflow: auto; /* Enable scroll if needed */
       background-color: rgb(0,0,0); /* Fallback color */
       background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+      z-index: 200;
   }
 
   /* Modal Content/Box */
@@ -57,22 +56,21 @@
   }
 
   .block {
-    width: 40%;
+    width: 30%;
     min-height: 100%;
   }
 
   #retrograde {
     cursor: url({{ 'arrow-left.svg' | asset_url }}), default;
-
   }
 
   #anterograde {
     cursor: url( {{ 'arrow-right.svg' | asset_url }}), default;
-
   }
 
   #product-single__photo {
     cursor: url( {{ 'info.svg' | asset_url }}), default;
+    z-index: 100;
   }
 
   #product-single__photo:hover {
@@ -134,7 +132,7 @@
   }
 
   .product-single__photo-wrapper {
-    min-width: 600px;
+    width: 600px;
   }
 
   .centered {
@@ -146,7 +144,7 @@
     border-left: 2px solid #D0D0D0;
     height: 233px;
     position: absolute;
-    left: 49%;
+    left: 50%;
     top: 0px
 }
 
@@ -169,7 +167,7 @@
 
   {% assign current_variant = product.selected_or_first_available_variant %}
 
-  <div class="grid product-single" id="product-single__photo">
+  <div class="product-single" id="product-single__photo">
 
     <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
       <!-- <div> -->

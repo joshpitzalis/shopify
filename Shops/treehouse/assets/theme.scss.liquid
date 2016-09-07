@@ -3,23 +3,22 @@
   background-color: #DDDDDD;
 }
 
-*{
 
+/*makes the index page buttons go darker on hover*/
+
+.fader{
+  opacity: .75;
 }
 
 .fader:hover {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 
 /*============================================================================
-  Brooklyn by Shopify
-==============================================================================*/
-
-/*================ Variables, theme settings, and Sass mixins from Timber ================*/
-/*============================================================================
   #Sass Mixins
 ==============================================================================*/
+
 .clearfix {
   &:after {
     content: '';
@@ -1020,6 +1019,7 @@ blockquote {
 .ajaxcart__product-name {
   font-size: em(17px);
   line-height: 1.3;
+  opacity: 0.5;
 }
 
 .ajaxcart__price,
@@ -1055,8 +1055,8 @@ blockquote {
 
 .ajaxcart__note {
   @include bodyFontItalic;
-  font-weight: normal;
-  opacity: 0.7;
+  opacity: 0.3;
+  font-size: 12px;
 }
 
 .ajaxcart__savings,
@@ -1068,7 +1068,7 @@ blockquote {
 /*================ Misc typography ================*/
 .drawer__title {
   @include headerFontStack;
-  font-size: em(24px);
+  font-size: em(16px);
 }
 
 .collection-grid__item-title {
@@ -1971,13 +1971,7 @@ $shareCountBg: $colorBody;
   }
 }
 
-.hero--first {
-  margin-top: -$contentTopMarginSmall; // negative .main-content top margin
 
-  @include at-query($min, $large) {
-    margin-top: -$contentTopMargin;
-  }
-}
 
 /*================ Hero text/CTA ================*/
 .hero__text-wrap {
