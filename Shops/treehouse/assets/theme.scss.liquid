@@ -2004,7 +2004,7 @@ $shareCountBg: $colorBody;
 
   .slick-initialized & {
     opacity: 1;
-    @include animation(heroContentIn 1s cubic-bezier(0.44, 0.13, 0.48, 0.87));
+    @include animation(heroContentIn 6s cubic-bezier(0.44, 0.13, 0.48, 0.87));
   }
 
   @include at-query($min, $large) {
@@ -2019,7 +2019,7 @@ $shareCountBg: $colorBody;
 /*================ Extra specificity to override Timber defaults ================*/
 .hero__slide {
   .hero__title {
-    margin-bottom: 20px;
+    margin: 20px 0;
     line-height: 1.25;
     letter-spacing: 0;
     text-transform: capitalize;
