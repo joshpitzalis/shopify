@@ -201,9 +201,18 @@
                     .logo--has-inverted is only applied to the default logo if the inverted logo exists. That way it'll only be hidden on the slider when it has a backup.
                   {% endcomment %}
                   {% assign logo_inverted_url = 'logo-inverted.png' | asset_url %}
-                  <a href="/collections/smokey-tees" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %}">
+
+                  {% if page.handle == 'about-us'%}
+                  <a href="/collections/smokey-tees/products/another-t-shirt" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %}">
+                    <img src="{{ 'housey.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class='fader'>
+                  </a>
+
+                  {% else %}
+                  <a href="/pages/about-us" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %}">
                     <img src="{{ 'logo.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class='fader'>
                   </a>
+                  {% endif %}
+
                   {% if settings.logo_use_inverted %}
                     <a href="/collections/smokey-tees" itemprop="url" class="logo--inverted">
                       <img src="{{ 'logo-inverted.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo">

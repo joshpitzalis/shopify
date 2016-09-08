@@ -2710,12 +2710,12 @@ $socialIconFontStack: 'icons';
 }
 
 .product-single__title {
-  font-size: em(30px);
+  font-size: em(12px) !important;
   margin-bottom: $gutter / 2;
   word-wrap: break-word;
 
   @include at-query($min, $postSmall) {
-    font-size: em(36px);
+    font-size: em(12px);
   }
 }
 
@@ -2726,6 +2726,8 @@ $socialIconFontStack: 'icons';
 .product-single__description {
   margin-top: 40px;
   text-align: left;
+  font-size: em(12px) !important;
+  color: #999;
 }
 
 .product-single__variants {
