@@ -1,3 +1,4 @@
+
 .dividy {
   outline: .5px solid #252122;
   color: none;
@@ -1137,6 +1138,10 @@ $badgeSize: 60px;
 .mobile-cart-page-link {
   font-weight: bold;
 
+  @include at-query($max, $small) {
+      margin-right: 30px;
+  }
+
   .icon {
     position: relative;
     top: -1px;
@@ -1153,10 +1158,16 @@ $badgeSize: 60px;
   padding: 0;
   margin: 0;
 
+  @include at-query($max, $small) {
+      margin-top: 8px;
+
+  }
+
   .icon {
     font-size: 1.4em;
   }
 }
+
 
 .mobile-cart-page-link {
   display: block;

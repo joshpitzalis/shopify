@@ -9,13 +9,11 @@
 
 {% include 'breadcrumb' %}
 
-  <div class="
-  grid__item
-   noMarginy">
+  <!-- <div class="grid__item"> -->
 
   <div class="product-single">
     <div class="grid product-single__hero">
-      <div class="grid__item post-large--one-half">
+      <div class="grid__item post-large--one-half noRighty">
 
         {% if settings.product_thumbnails_position == 'below' or product.images.size < 2 %}
 
@@ -74,7 +72,7 @@
         {% endif %}
 
       </div>
-      <div class="grid__item post-large--one-half">
+      <div class="grid__item post-large--one-half noRighty">
         {% if settings.product_vendor_enable %}
           <span class="h3" itemprop="brand">{{ product.vendor }}</span>
         {% endif %}
@@ -144,7 +142,7 @@
     </div>
 
     <div id="shopify-product-reviews" data-id="{{product.id}}">{{ product.metafields.spr.reviews }}</div>
-  </div>
+  <!-- </div> -->
 
   {% if settings.product_related_enable %}
     {% include 'related-products' %}
@@ -166,7 +164,7 @@
 
 <style>
 
-@media (max-width: 800px) {
+@media (max-width: 1040px) {
   .shippy {
     display: none;
   }
@@ -210,9 +208,11 @@
   font-size: 14px;
 }
 
-.noMarginy {
-  position: relative;
-  right: 30px;
+
+@media(max-width: 480px) {
+  .noRighty {
+    padding-right: 0;
+  }
 }
 
 </style>
