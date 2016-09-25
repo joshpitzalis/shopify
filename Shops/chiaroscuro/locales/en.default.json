@@ -1,0 +1,330 @@
+{
+  "date_formats": {
+    "day_month_year": "%d %B %Y",
+    "month_day_year": "%b %d, %Y"
+  },
+  "general": {
+    "404": {
+      "title": "Whoopsidaises! Something's not quite right here. Be a dear and try again in a bit? If you are searching for a product, its probably SOLD OUT!",
+      "back_to_homepage": "Back to Homepage"
+    },
+    "breadcrumbs": {
+      "home": "Home",
+      "home_link_title_attribute": "Back to Homepage",
+      "viewing": "Viewing:"
+    },
+    "help": {
+      "if_using_unsupported_browser_html": "You are using an <strong>outdated<\/strong> browser. Please <a href=\"http:\/\/browsehappy.com\/\">upgrade your browser<\/a> to improve your experience."
+    },
+    "search": {
+      "no_results_html": "No results for \"{{ terms }}\"",
+      "submit": "Search",
+      "title": "Search"
+    },
+    "pagination": {
+      "previous_link_title_attribute": "Previous",
+      "next_link_title_attribute": "Next"
+    },
+    "meta": {
+      "tagged": "tagged \"{{ tags }}\"",
+      "page": "Page {{ page_number }}"
+    }
+  },
+  "blogs": {
+    "blog": {
+      "feed_link": "Subscribe to our blog"
+    },
+    "article": {
+      "newer_post": "Next",
+      "older_post": "Previous",
+      "tags": "Tags:",
+      "read_more": "Read more",
+      "share": "Share"
+    },
+    "comments": {
+      "link_to_comments_with_count": {
+        "zero": "Leave a first comment",
+        "one": "{{ count }} comment",
+        "other": "{{ count }} comments"
+      },
+      "title_with_count": {
+        "one": "{{ count }} Comment",
+        "other": "{{ count }} Comments"
+      },
+      "comment_meta_html": "{{ comment_date }} at {{ comment_time }}",
+      "form_title": "Leave a comment",
+      "form_error": "Whoopsidaisies! Something's not quite right here. Be a dear, correct the following and submit again:",
+      "form_field_error_html": "The {{ field }} field {{ error }}.",
+      "name": "Name",
+      "name_placeholder": "Your name",
+      "email": "Email",
+      "email_placeholder": "your@email.com",
+      "comment": "Comment",
+      "post": "Post comment",
+      "success_moderated": "Thank you for your thoughts! Your post will need to be approved by Team Chiaroscuro, but we promise it will be published very soon.",
+      "success": "Yippittiee Boo!! Successfully posted your comment."
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "My Bag Of Goodies",
+      "item": "Item",
+      "quantity": "Qty",
+      "price": "Price",
+      "note": "Special Instructions? Tell Us!",
+      "subtotal": "Total",
+      "checkout": "Checkout",
+      "methods_of_payment": "Modes of Payment",
+      "empty": "There's nothing in your bag as yet. Fill it up fast before all our beauties go home with someone else! No pressure, we promise. :)"
+    }
+  },
+  "collections": {
+    "general": {
+      "no_products_in_store": "We are totally and completely sold out!! The Workshop is busy making beautiful new pieces and they will be up for sale soon. Check back again in a day or two. Thank you for your love!",
+      "no_matches": "Sorry, we currently have no products that match your search. But you can send us a suggestion on feedback@chiaroscuro.in. We are always listening!",
+      "no_products_in_collection": "We are all sold out here!! The Workshop is busy making beautiful new pieces and they will be up for sale soon. Check back again in a day or two. Thank you for your love!",
+      "no_collections": "We are totally and completely sold out!! The Workshop is busy making beautiful new pieces and they will be up for sale soon. Check back again in a day or two. Thank you for your love!"
+    },
+    "browse_by_tag": {
+      "see_all": "See all"
+    },
+    "sorting": {
+      "featured": "Featured",
+      "best_selling": "Most Loved",
+      "az": "Alphabetically, A-Z",
+      "za": "Alphabetically, Z-A",
+      "price_ascending": "Price, low to high",
+      "price_descending": "Price, high to low",
+      "date_descending": "Date, new to old",
+      "date_ascending": "Date, old to new"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Your Name Goes Here",
+      "email": "Email",
+      "email_placeholder": "you@youremail.com",
+      "phone": "Contact Number",
+      "phone_placeholder": "9999-99-9999",
+      "message": "Message",
+      "message_placeholder": "Type Out Your Love, Thoughts or Magical Ideas for Chiaroscuro here.",
+      "submit": "Send It!",
+      "error": "Whoopsidaisies! Something's not quite right here. Be a dear, correct the following and submit again:",
+      "field_error_html": "The {{ field }} field {{ error }}.",
+      "post_success": "Thank you for getting in touch with us. We promise to get back to you very, very soon."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Account Details and Order History",
+      "view_addresses": "View Addresses"
+    },
+    "activate_account": {
+      "title": "Activate Account",
+      "subtext": "Create your password to activate your account.",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Activate Account",
+      "cancel": "Decline Invitation"
+    },
+    "addresses": {
+      "title": "Manage Account Addresses",
+      "default_address": "Default Address",
+      "add_new": "Add New Address",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "company": "Company",
+      "address1": "Address1",
+      "address2": "Address2",
+      "city": "City",
+      "country": "Country",
+      "province": "Province",
+      "zip": "Postal\/Zip Code",
+      "phone": "Phone",
+      "set_default": "Set as default address?",
+      "submit": "Add Address",
+      "update": "Update Address",
+      "cancel": "Cancel",
+      "edit": "Edit",
+      "delete": "Delete",
+      "delete_confirm": "Are you sure you want to delete this address?",
+      "return": "Return to account page"
+    },
+    "login": {
+      "title": "Login",
+      "email": "Email Address",
+      "password": "Password",
+      "forgot_password": "Forgot your password?",
+      "submit": "Sign In",
+      "guest_title": "Guest Login",
+      "guest_continue": "Continue as Guest"
+    },
+    "orders": {
+      "order": "Order",
+      "order_cancelled": "Order Cancelled",
+      "payment_status": "Payment Status",
+      "fulfillment_status": "Fulfillment Status",
+      "no_orders": "You haven't bought anything from us as yet!"
+    },
+    "order": {
+      "title": "Order {{ name }}",
+      "date": "Placed on {{ date }}",
+      "cancelled_on_html": "<b>Order Cancelled<\/b> on {{ date }}",
+      "billing_address": "Billing Address",
+      "payment_status": "Payment Status",
+      "shipping_address": "Shipping Address",
+      "fulfillment_status": "Fulfillment Status",
+      "discount": "{{ code }} Discount:",
+      "shipping": "Shipping",
+      "tax": "Tax",
+      "subtotal": "Subtotal:",
+      "total": "Total:",
+      "return": "Return to account page"
+    },
+    "order_details": {
+      "sku": "SKU",
+      "price": "Price",
+      "quantity": "QTY",
+      "total": "Total",
+      "fulfilled_on": "Fulfilled on {{ date }}"
+    },
+    "recover_password": {
+      "title": "Retrieve your password",
+      "email": "Email Address",
+      "submit": "Submit",
+      "cancel": "Cancel",
+      "subtext": "We will send you an email to reset your password.",
+      "success": "We've sent you an email with a link to update your password."
+    },
+    "reset_password": {
+      "title": "Reset account password",
+      "subtext": "Please enter a new password for {{ email }}",
+      "password": "Password",
+      "password_confirm": "Confirm Password",
+      "submit": "Reset Password"
+    },
+    "register": {
+      "title": "Register",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email Address",
+      "password": "Password",
+      "submit": "Create Account"
+    }
+  },
+  "home_page": {
+    "empty": {
+      "no_products_in_store": "We are totally and completely sold out!! The Workshop is busy making beautiful new pieces and they will be up for sale soon. Check back again in a day or two. Thank you for your love!",
+      "add_product_html": "Please <a href=\"{{ collection_url_in_admin }}\">add a product to your {{ collection_title }} collection<\/a>.",
+      "no_content_html": "To add content to your homepage, visit your <a href=\"{{ theme_settings_url }}\">theme settings page<\/a>."
+    }
+  },
+  "layout": {
+    "navigation": {
+      "more": "More"
+    },
+    "cart": {
+      "title": "Shopping bag"
+    },
+    "customer": {
+      "logged_in_as": "My account - {{ first_name }}",
+      "log_out": "Log out",
+      "log_in": "Log in",
+      "or": "or",
+      "register": "Register"
+    },
+    "search": {
+      "link": "Search"
+    },
+    "footer": {
+      "copyright_html": "&copy; Copyright {{ year }} {{ shop_name }}"
+    }
+  },
+  "products": {
+    "general": {
+      "previous_product": "Previous",
+      "next_product": "Next",
+      "from_min_price_html": "From {{ price }}"
+    },
+    "product": {
+      "sold_out": "SOLD OUT! (Fret not. We can make-to-order too! Mail us on sales@chiaroscuro.in and we'll make it happen)",
+      "product_is_sold_out": "SOLD OUT! (Fret not. We can make-to-order too! Mail us on sales@chiaroscuro.in and we'll make it happen)",
+      "unavailable": "SOLD OUT! (Fret not. We can make-to-order too! Mail us on sales@chiaroscuro.in and we'll make it happen)",
+      "add_to_cart": "Add to Cart",
+      "share": "Share"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Here's your {{ value }} gift card for {{ shop }}!",
+      "subtext": "Here's your gift card!",
+      "disabled": "Disabled",
+      "expired": "Expired on {{ expiry }}",
+      "active": "Expires on {{ expiry }}",
+      "redeem": "Use this code at checkout to redeem your gift card",
+      "shop_link": "Start shopping",
+      "print": "Print"
+    }
+  },
+  "shopify": {
+    "checkout": {
+      "general": {
+        "error_title": "Whoopsidaisies!",
+        "complete_purchase_button_label": "Make Payment"
+      },
+      "contact": {
+        "address2_label": "House Number, Locality etc.",
+        "address2_placeholder": "House Number, Locality etc.",
+        "optional_address2_placeholder": "House Number, Locality etc. (optional)",
+        "province_label": "State",
+        "province_placeholder": "State",
+        "phone_label": "Contact Number",
+        "optional_phone_label": "Contact Number (optional)",
+        "phone_placeholder": "Contact Number",
+        "optional_phone_placeholder": "Contact Number (optional)"
+      },
+      "customer_account": {
+        "save_my_information_label": "Save my information for a faster checkout"
+      },
+      "stock": {
+        "sold_out_label": "Sold",
+        "items_unavailable_notice": "Some of the items in your goody bag were sold during your checkout process.",
+        "removed_from_cart_notice": "Removed from your goody bag",
+        "remove_from_cart_button_label": "Remove from goody bag",
+        "go_back_to_cart_button_label": "Go back to my goody bag"
+      },
+      "shipping": {
+        "waiting_on_rate_notice": "Hang on while we check the exact shipping rates...",
+        "no_rates_for_cart_or_destination_notice": "We currently dont ship to your destination but you can write to us on sales@chiaroscuro.in with your chosen items and we can work something out.",
+        "no_rates_for_country_notice": "We currently dont ship to {{country}} but you can write to us on sales@chiaroscuro.in with your chosen items and we can work something out."
+      },
+      "processing": {
+        "intro": "Thank You For Your Love!"
+      },
+      "thank_you": {
+        "title": "Thank You For Your Love!"
+      },
+      "payment_gateway": {
+        "credit_card_label": "Credit Card \/ Debit Card \/ Net Banking"
+      }
+    },
+    "notices": {
+      "order": {
+        "cancel_reason": {
+          "inventory": "Items sold"
+        }
+      },
+      "cart": {
+        "no_items_left": "{{name}} is already sold. Sorry!",
+        "only_n_items_available": "There is one and only one {{name}} you can own. God made her unique like that :)",
+        "product_sold_out": "'{{name}}' is already sold. Sorry!",
+        "all_items_in_cart": "Every {{name}} God made is in your cart already."
+      }
+    },
+    "page_titles": {
+      "shopping_cart": "Your Goody Bag",
+      "not_found": "Whoopsidaises! Something's not quite right here. Be a dear and try again in a bit?"
+    }
+  }
+}

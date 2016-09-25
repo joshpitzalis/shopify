@@ -1,0 +1,270 @@
+{
+  "date_formats": {
+    "day_month_year": "%d de %B de %Y",
+    "month_day_year": "%d de %b de %Y"
+  },
+  "general": {
+    "404": {
+      "title": "404 – Página não encontrada",
+      "back_to_homepage": "Regressar à Página Inicial"
+    },
+    "breadcrumbs": {
+      "home": "Início",
+      "home_link_title_attribute": "Regressar à Página Inicial",
+      "viewing": "A visualizar:"
+    },
+    "help": {
+      "if_using_unsupported_browser_html": "Está a usar um navegador <strong>ultrapassado<\/strong>. Por favor, <a href=\"http:\/\/browsehappy.com\/\">atualize o seu navegador<\/a> para melhorar a sua experiência."
+    },
+    "search": {
+      "no_results_html": "Sem resultados para \"{{ terms }}\"",
+      "submit": "Pesquisar",
+      "title": "Pesquisar"
+    },
+    "pagination": {
+      "previous_link_title_attribute": "Anterior",
+      "next_link_title_attribute": "Seguinte"
+    },
+    "meta": {
+      "tagged": "etiquetado como \"{{ tags }}\"",
+      "page": "Página {{ page_number }}"
+    }
+  },
+  "blogs": {
+    "blog": {
+      "feed_link": "Subscrever o nosso blogue"
+    },
+    "article": {
+      "newer_post": "Seguinte",
+      "older_post": "Anterior",
+      "tags": "Etiquetas:",
+      "read_more": "Ler mais",
+      "share": "Partilhar"
+    },
+    "comments": {
+      "link_to_comments_with_count": {
+        "zero": "Deixe o primeiro comentário",
+        "one": "{{ count }} comentário",
+        "other": "{{ count }} comentários"
+      },
+      "title_with_count": {
+        "one": "{{ count }} Comentário",
+        "other": "{{ count }} Comentários"
+      },
+      "comment_meta_html": "{{ comment_date }} às {{ comment_time }}",
+      "form_title": "Deixe um comentário",
+      "form_error": "Lamentamos, mas parece que alguma coisa correu mal. Por favor, corrija os seguintes elementos e tente novamente:",
+      "form_field_error_html": "O campo {{ field }} {{ error }}.",
+      "name": "Nome",
+      "name_placeholder": "O seu nome",
+      "email": "Email",
+      "email_placeholder": "o-seu@email.com",
+      "comment": "Comentário",
+      "post": "Publicar comentário",
+      "success_moderated": "Obrigado pela sua submissão! O seu comentário terá de ser aprovado pelo dono do blogue, por isso só será exibido mais tarde.",
+      "success": "O seu comentário foi publicado com sucesso."
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "O meu cesto de compras",
+      "item": "Item",
+      "quantity": "QTD",
+      "price": "Preço",
+      "note": "Instruções Especiais\/Comentários",
+      "subtotal": "Total",
+      "checkout": "Check-Out",
+      "methods_of_payment": "Métodos de Pagamento",
+      "empty": "Nenhum item no meu cesto de compras."
+    }
+  },
+  "collections": {
+    "general": {
+      "no_products_in_store": "Esta loja não tem produtos neste momento.",
+      "no_matches": "Lamentamos, mas nenhum produto corresponde à sua pesquisa.",
+      "no_products_in_collection": "Esta coleção ainda não tem produtos. Volte a tentar brevemente!",
+      "no_collections": "Não há coleções neste momento."
+    },
+    "browse_by_tag": {
+      "see_all": "Ver tudo"
+    },
+    "sorting": {
+      "featured": "Em Destaque",
+      "best_selling": "Mais Vendidos",
+      "az": "Alfabeticamente, A-Z",
+      "za": "Alfabeticamente, Z-A",
+      "price_ascending": "Preço, mais baratos",
+      "price_descending": "Preço, mais caros",
+      "date_descending": "Data, mais recentes",
+      "date_ascending": "Data, mais antigos"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Nome",
+      "name_placeholder": "O seu nome",
+      "email": "Email",
+      "email_placeholder": "o-seu@email.com",
+      "phone": "Número de Telefone",
+      "phone_placeholder": "555-555-1234",
+      "message": "Mensagem",
+      "message_placeholder": "A sua mensagem",
+      "submit": "Enviar",
+      "error": "Lamentamos, mas parece que alguma coisa correu mal. Por favor, corrija os seguintes elementos e tente novamente:",
+      "field_error_html": "O campo {{ field }} {{ error }}.",
+      "post_success": "Obrigado por entrar em contacto connosco! Responder-lhe-emos logo que possível."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Detalhes da Conta e Histórico de Pedidos",
+      "view_addresses": "Ver Endereços"
+    },
+    "activate_account": {
+      "title": "Ativar Conta",
+      "subtext": "Crie a sua senha para ativar a sua conta.",
+      "password": "Senha",
+      "password_confirm": "Confirmar Senha",
+      "submit": "Ativar Conta",
+      "cancel": "Recusar Convite"
+    },
+    "addresses": {
+      "title": "Gerir Endereços da Conta",
+      "default_address": "Endereço Predefinido",
+      "add_new": "Adicionar Novo Endereço",
+      "first_name": "Nome Próprio",
+      "last_name": "Sobrenome",
+      "company": "Empresa",
+      "address1": "Endereço1",
+      "address2": "Endereço2",
+      "city": "Localidade",
+      "country": "País",
+      "province": "Província",
+      "zip": "Código Postal",
+      "phone": "Telefone",
+      "set_default": "Selecionar como endereço predefinido?",
+      "submit": "Adicionar Endereço",
+      "update": "Atualizar Endereço",
+      "cancel": "Cancelar",
+      "edit": "Editar",
+      "delete": "Eliminar",
+      "delete_confirm": "Tem a certeza de que quer eliminar este endereço?",
+      "return": "Regressar à página da conta"
+    },
+    "login": {
+      "title": "Login de Cliente",
+      "email": "Endereço de Email",
+      "password": "Senha",
+      "forgot_password": "Esqueceu-se da sua senha?",
+      "submit": "Iniciar Sessão",
+      "guest_title": "Login de Visitante",
+      "guest_continue": "Continuar como Visitante"
+    },
+    "orders": {
+      "order": "Pedido",
+      "order_cancelled": "Pedido Cancelado",
+      "payment_status": "Estado de Pagamento",
+      "fulfillment_status": "Estado de Atendimento",
+      "no_orders": "Ainda não efetuou nenhum pedido."
+    },
+    "order": {
+      "title": "Pedido {{ name }}",
+      "date": "Efetuado em{{ date }}",
+      "cancelled_on_html": "<b>Pedido Cancelado<\/b> em {{ date }}",
+      "billing_address": "Endereço de Faturação",
+      "payment_status": "Estado de Pagamento",
+      "shipping_address": "Endereço de Envio",
+      "fulfillment_status": "Estado de Atendimento",
+      "discount": "Desconto {{ code }}:",
+      "shipping": "Envio",
+      "tax": "Taxa",
+      "subtotal": "Subtotal:",
+      "total": "Total:",
+      "return": "Regressar à página da conta"
+    },
+    "order_details": {
+      "sku": "SKU",
+      "price": "Preço",
+      "quantity": "QTD",
+      "total": "Total",
+      "fulfilled_on": "Concluído em {{ date }}"
+    },
+    "recover_password": {
+      "title": "Recuperar a sua senha",
+      "email": "Endereço de Email",
+      "submit": "Enviar",
+      "cancel": "Cancelar",
+      "subtext": "Vamos enviar-lhe um email para repor a sua senha.",
+      "success": "Enviámos-lhe um email com um link para atualizar a sua senha."
+    },
+    "reset_password": {
+      "title": "Repor senha de conta",
+      "subtext": "Por favor, insira uma nova senha para {{ email }}",
+      "password": "Senha",
+      "password_confirm": "Confirmar Senha",
+      "submit": "Repor Senha"
+    },
+    "register": {
+      "title": "Registar-se",
+      "first_name": "Nome Próprio",
+      "last_name": "Sobrenome",
+      "email": "Endereço de Email",
+      "password": "Senha",
+      "submit": "Criar Conta"
+    }
+  },
+  "home_page": {
+    "empty": {
+      "no_products_in_store": "Esta loja não tem produtos neste momento.",
+      "add_product_html": "Por favor, <a href=\"{{ collection_url_in_admin }}\">adicione um produto à sua coleção {{ collection_title }}<\/a>.",
+      "no_content_html": "Para adicionar conteúdos à sua página inicial, visite a sua <a href=\"{{ theme_settings_url }}\">página de definições de tema<\/a>."
+    }
+  },
+  "layout": {
+    "navigation": {
+      "more": "Mais"
+    },
+    "cart": {
+      "title": "Cesto de compras"
+    },
+    "customer": {
+      "logged_in_as": "A minha conta - {{ first_name }}",
+      "log_out": "Terminar sessão",
+      "log_in": "Iniciar sessão",
+      "or": "ou",
+      "register": "Registar-se"
+    },
+    "search": {
+      "link": "Pesquisar"
+    },
+    "footer": {
+      "copyright_html": "&copy; Direitos reservados {{ year }} {{ shop_name }}"
+    }
+  },
+  "products": {
+    "general": {
+      "previous_product": "Anterior",
+      "next_product": "Seguinte",
+      "from_min_price_html": "Desde {{ price }}"
+    },
+    "product": {
+      "sold_out": "Esgotado",
+      "product_is_sold_out": "O produto está esgotado neste momento",
+      "unavailable": "Indisponível",
+      "add_to_cart": "Adicionar ao Carrinho de Compras",
+      "share": "Partilhar"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Aqui está o seu cartão-presente de {{ value }} para {{ shop }}!",
+      "subtext": "Aqui está o seu cartão-presente!",
+      "disabled": "Inválido",
+      "expired": "Expirou em {{ expiry }}",
+      "active": "Expira em {{ expiry }}",
+      "redeem": "Use este código ao fazer o check-out para redimir o seu cartão-presente",
+      "shop_link": "Começar a fazer compras",
+      "print": "Imprimir"
+    }
+  }
+}

@@ -1,0 +1,97 @@
+{% layout settings.customer_layout %}
+        <section class="page">
+            <div class="page__inner">
+				<div class="page__text">
+
+					<h1>{{ 'customer.account.title' | t }}</h1>
+
+					<p><b>{{ customer.name }}</b>
+					<br>{{ customer.email }}</p>
+					{% if customer.default_address != nil %}
+			        <p>
+					{% if customer.default_address.address1? %}
+						{{ customer.default_address.address1 }}
+					{% endif %}
+			        {% if customer.default_address.address2? %}
+			        	<br>{{ customer.default_address.address2 }}
+			        {% endif %}
+			        {% if customer.default_address.city? %}
+			        	<br>{{ customer.default_address.city}}, {% if address.province_code %}{{customer.default_address.province_code}}, {% endif %}{{customer.default_address.country}}
+			        {% endif %}
+			        {% if customer.default_address.zip? %}
+			        	<br>{{ customer.default_address.zip}}
+			        {% endif %}
+			        {% if customer.default_address.phone? %}
+			        	<br>{{ customer.default_address.phone }}
+			        {% endif %}
+			        </p>
+			        {% endif %}
+			        <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
+
+					{% if customer.orders.size != 0 %}
+					<div class="customerorders">
+						{% for order in customer.orders %}
+						<div class="customerorder lap--hide desk--hide">
+							<header>
+								<div class="grid">
+									<div class="grid__item one-half">
+										<h5><b{% if order.cancelled %} class="order__cancelled"{% endif %}>{% if order.cancelled %}{{ 'customer.orders.order_cancelled' | t }}{% else %}{{ 'customer.orders.order' | t }}{% endif %}</b> {{ order.name | link_to: order.customer_url }}</h5>
+										<p>{{ order.created_at | date: format: 'month_day_year' }}</p>
+									</div>
+									<div class="grid__item one-half">
+										<p class="price">{{ order.total_price | money }}</p>
+									</div>
+								</div>
+							</header>
+							<section class="customerorder__body">
+								<div class="grid customerorder__body">
+									<div class="grid__item one-half">
+										<p><b>{{ 'customer.orders.payment_status' | t }}</b>
+										<br>{{ order.financial_status_label }}</p>
+									</div>
+									<div class="grid__item one-half">
+										<p><b>{{ 'customer.orders.fulfillment_status' | t }}</b>
+										<br>{{ order.fulfillment_status_label }}</p>
+									</div>
+								</div>
+							</section>
+						</div>
+						{% endfor %}
+
+						{% for order in customer.orders %}
+						<div class="customerorder palm--hide lap--show desk--show">
+							<h5 class="customerorder__head"><b{% if order.cancelled %} class="order__cancelled"{% endif %}>{% if order.cancelled %}{{ 'customer.orders.order_cancelled' | t }}{% else %}{{ 'customer.orders.order' | t }}{% endif %}</b> {{ order.name | link_to: order.customer_url }}</h5>
+							<div class="grid">
+								<div class="grid__item one-quarter">
+									<div class="customerorder__sidebar">
+										<p>{{ order.created_at | date: format: 'month_day_year' }}
+										<br>{{ order.total_price | money }}</p>
+									</div>
+								</div>
+								<div class="grid__item three-quarters customerorder__body">
+									<div class="grid">
+										<div class="grid__item one-half">
+											<p><b>{{ 'customer.orders.payment_status' | t }}</b>
+											<br>{{ order.financial_status_label }}</p>
+										</div>
+										<div class="grid__item one-half">
+											<p><b>{{ 'customer.orders.fulfillment_status' | t }}</b>
+											<br>{{ order.fulfillment_status_label }}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+
+					{% else %}
+
+					<div class="customerorders">
+						<p>{{ 'customer.orders.no_orders' | t }}</p>
+					</div>
+
+					{% endif %}
+				</div>
+			</div>
+		</section>

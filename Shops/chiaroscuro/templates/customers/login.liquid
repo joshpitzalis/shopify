@@ -1,0 +1,78 @@
+{% layout settings.customer_layout %}
+
+        <section class="page">
+            <div class="page__inner">
+
+              <div class="page__text">
+                <div class="form__login">
+                  <h1>{{ 'customer.login.title' | t }}</h1>
+
+                  <div class="state__container statelogin--success">
+                    <div class="state">
+                      <p>{{ 'customer.recover_password.success' | t }}</p>
+                    </div>
+                  </div>
+
+                  {% form 'customer_login' %}
+                    {{ form.errors | default_errors }}
+
+                    <div class="form__row">
+                      <label for="customer_email">{{ 'customer.login.email' | t }}</label>
+                      <input type="email" value="" name="customer[email]" id="customer_email"  size="30" />
+                    </div>
+                    <div class="form__row">
+                      <div class="grid--full">
+                        <div class="grid__item one-half">
+                          <label for="customer_password">{{ 'customer.login.password' | t }}</label> 
+                        </div>
+                        <div class="grid__item one-half form__forgotpasswordlink">
+                          <a href="#">{{ 'customer.login.forgot_password' | t }}</a>
+                        </div>
+                      </div>
+                      <input type="password" value="" name="customer[password]" id="customer_password" size="16" />
+                    </div>
+                    <div class="form__row">
+                      <input class="btn__generic" type="submit" value="{{ 'customer.login.submit' | t }}" />
+                    </div>
+                  {% endform %}
+                </div>
+
+                <div class="form__guest">
+                  {% if shop.checkout.guest_login %}
+                    <h1>{{ 'customer.login.guest_title' | t }}</h1>
+                    {% form 'guest_login' %}
+                     <input class="btn__generic" type="submit" value="{{ 'customer.login.guest_continue' | t }}" />
+                    {% endform %}
+                  {% endif %}
+                </div>
+
+                <div class="form__recoverpassword">
+                  <h1>{{ 'customer.recover_password.title' | t }}</h1>
+                  <p>{{ 'customer.recover_password.subtext' | t }}</p>
+                  {% form 'recover_customer_password' %}
+                    {{ form.errors | default_errors }}
+
+                    {% if form.posted_successfully? %}
+                      {% assign reset_success = true %}
+                    {% endif %}
+
+                    <div class="form__row" id="recover_email">
+                      <div class="grid--full">
+                        <div class="grid__item one-half">
+                          <label for="email" class="large">{{ 'customer.recover_password.email' | t }}</label>
+                        </div>
+                        <div class="grid__item one-half">
+                          <a href="#" class="formrecover__cancellink" onclick="return false;">{{ 'customer.recover_password.cancel' | t }}</a>
+                        </div>
+                      </div>
+                      <input type="email" value="" size="30" name="email" id="recover-email" class="large" />
+                    </div>
+                    <div class="form__row">
+                      <input class="btn__generic" type="submit" value="{{ 'customer.recover_password.submit' | t }}" />
+                    </div>
+                  {% endform %}
+                </div>
+
+              </div>
+            </div>
+        </section>

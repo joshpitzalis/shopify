@@ -1,0 +1,64 @@
+<section class="page">
+  <div class="page__inner">
+    <div class="page__text{% if settings.use_footer %} hasfooter{% endif %} rte">
+      <h1>{{ page.title }}</h1>
+      <div class="grid">
+        {% if page.content == "" %}
+        
+        <div class="grid__item lap--two-quarters desk--two-quarters push--lap--one-quarter push--desk--one-quarter">
+        {% else %}
+        
+        <div class="grid__item one-half">
+        {{ page.content }}
+        </div>
+        
+        <div class="grid__item one-half">
+        {% endif %}
+          <div class="form__contact">
+          
+            {% form 'contact' %}
+
+            {% if form.posted_successfully? %}
+            <div class="state__container">
+              <div class="state state--success">
+                <p>{{ 'contact.form.post_success' | t }}</p>
+              </div>
+            </div>
+            {% endif %}
+
+            {% if form.errors %}
+            <div class="state__container">
+              <div class="state state--error">
+                <p>{{ 'contact.form.error' | t }}
+                  {% assign message = 'contact.form.message' | t %}  
+                  {% for f in form.errors %}
+                    {% capture field %}<span class="label">{{ f | replace: 'body', message }}</span>{% endcapture %}
+                    {{ 'contact.form.field_error_html' | t: field: field, error: form.errors.messages[f] }}
+                  {% endfor %}
+                </p>
+              </div>
+            </div>
+            {% endif %}
+
+            <label class="first">{{ 'contact.form.name' | t }}</label>								
+            <input type="text" id="contactFormName" name="contact[{{ 'contact.form.name' | t | handle }}]" placeholder="{{ 'contact.form.name_placeholder' | t }}" />
+  
+            <label>{{ 'contact.form.email' | t }}</label>
+            <input type="email" id="contactFormEmail" name="contact[email]" placeholder="{{ 'contact.form.email_placeholder' | t }}" />
+  
+            <label>{{ 'contact.form.phone' | t }}</label>
+            <input type="telephone" id="contactFormTelephone" name="contact[{{ 'contact.form.phone' | t | handle }}]" placeholder="{{ 'contact.form.phone_placeholder' | t }}" />
+  
+            <label>{{ 'contact.form.message' | t }}</label>
+            <textarea rows="10" cols="75" id="contactFormMessage" name="contact[body]" placeholder="{{ 'contact.form.message_placeholder' | t }}"></textarea>
+  
+            <input type="submit" id="contactFormSubmit" value="{{ 'contact.form.submit' | t }}" class="btn__generic" />
+        
+            {% endform %}
+        
+          </div><!-- end .form__contact -->
+        </div><!-- end .grid__item -->
+      </div><!-- end .grid -->
+    </div><!-- end page__text -->
+  </div><!-- end page__inner -->
+</section><!-- end page -->

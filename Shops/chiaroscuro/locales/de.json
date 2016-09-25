@@ -1,0 +1,270 @@
+{
+  "date_formats": {
+    "day_month_year": "%d %B %Y",
+    "month_day_year": "%b %d, %Y"
+  },
+  "general": {
+    "404": {
+      "title": "404 - Seite nicht gefunden",
+      "back_to_homepage": "Zurück zur Startseite"
+    },
+    "breadcrumbs": {
+      "home": "Startseite",
+      "home_link_title_attribute": "Zurück zur Startseite",
+      "viewing": "Ansicht"
+    },
+    "help": {
+      "if_using_unsupported_browser_html": "Sie nutzen einen <strong>veralteten<\/strong> Browser. Bitte <a href=\"http:\/\/browsehappy.com\/\">aktualisieren Sie Ihren Browser<\/a>, um Ihre Nutzererfahrung zu verbessern."
+    },
+    "search": {
+      "no_results_html": "Keine Ergebnisse für \"{{ terms }}\"",
+      "submit": "Suchen",
+      "title": "Suchen"
+    },
+    "pagination": {
+      "previous_link_title_attribute": "Zurück",
+      "next_link_title_attribute": "Vorwärts"
+    },
+    "meta": {
+      "tagged": "Getaggt \"{{ tags }}\"",
+      "page": "Seite {{ page_number }}"
+    }
+  },
+  "blogs": {
+    "blog": {
+      "feed_link": "Abonnieren Sie unseren Blog"
+    },
+    "article": {
+      "newer_post": "Nächster",
+      "older_post": "Vorheriger",
+      "tags": "Tags:",
+      "read_more": "Weiterlesen",
+      "share": "Teilen"
+    },
+    "comments": {
+      "link_to_comments_with_count": {
+        "zero": "Hinterlassen Sie einen ersten Kommentar",
+        "one": "{{ count }} Kommentar",
+        "other": "{{ count }} Kommentare"
+      },
+      "title_with_count": {
+        "one": "{{ count }} Kommentar",
+        "other": "{{ count }} Kommentare"
+      },
+      "comment_meta_html": "{{ comment_date }} um {{ comment_time }}",
+      "form_title": "Hinterlassen Sie einen Kommentar",
+      "form_error": "Tut uns leid, aber es ist ein Fehler aufgetreten. Folgendes müssten Sie bitte korrigieren und erneut übermitteln:",
+      "form_field_error_html": "Das {{ field }} Feld {{ error }}.",
+      "name": "Name",
+      "name_placeholder": "Ihr Name",
+      "email": "E-Mail",
+      "email_placeholder": "ihre@email.com",
+      "comment": "Kommentar",
+      "post": "Kommentar posten",
+      "success_moderated": "Danke für Ihren Beitrag! Ihr Kommentar muss nun noch vom Eigentümer des Blogs freigegeben werden, wir werden ihn also erst nach kurzer Zeit veröffentlichen.",
+      "success": "Kommentar erfolgreich gepostet."
+    }
+  },
+  "cart": {
+    "general": {
+      "title": "Meine Einkaufstüte",
+      "item": "Produkt",
+      "quantity": "Menge",
+      "price": "Preis",
+      "note": "Besondere Hinweise\/Kommentare",
+      "subtotal": "Gesamt",
+      "checkout": "Zur Kasse",
+      "methods_of_payment": "Zahlungsmethoden",
+      "empty": "Keine Artikel in meiner Einkaufstüte."
+    }
+  },
+  "collections": {
+    "general": {
+      "no_products_in_store": "Dieser Shop führt im Moment keine Artikel.",
+      "no_matches": "Es tut uns leid, aber Ihre Suche nach Produkten hat keine Treffer ergeben.",
+      "no_products_in_collection": "In dieser Zusammenstellung befinden sich noch keine Artikel. Schauen Sie bald noch einmal nach!",
+      "no_collections": "Es gibt zurzeit keine Zusammenstellungen."
+    },
+    "browse_by_tag": {
+      "see_all": "Alle ansehen"
+    },
+    "sorting": {
+      "featured": "Ausgewählt",
+      "best_selling": "Meistverkauft",
+      "az": "Alphabetisch, A-Z",
+      "za": "Alphabetisch, Z-A",
+      "price_ascending": "Preis, niedrig nach hoch",
+      "price_descending": "Preis, hoch nach niedrig",
+      "date_descending": "Datum, neu nach alt",
+      "date_ascending": "Datum, alt nach neu"
+    }
+  },
+  "contact": {
+    "form": {
+      "name": "Name",
+      "name_placeholder": "Ihr Name",
+      "email": "E-Mail",
+      "email_placeholder": "ihre@email.com",
+      "phone": "Telefonnummer",
+      "phone_placeholder": "555-555-1234",
+      "message": "Nachricht",
+      "message_placeholder": "Ihre Nachricht",
+      "submit": "Absenden",
+      "error": "Tut uns leid, aber es ist ein Fehler aufgetreten. Folgendes müssten Sie bitte korrigieren und erneut übermitteln:",
+      "field_error_html": "Das {{ field }} Feld {{ error }}.",
+      "post_success": "Danke, dass Sie uns kontaktiert haben! Wir werden uns so schnell wie möglich bei Ihnen melden."
+    }
+  },
+  "customer": {
+    "account": {
+      "title": "Account-Details und Bestellungen",
+      "view_addresses": "Adressen ansehen"
+    },
+    "activate_account": {
+      "title": "Account aktivieren",
+      "subtext": "Erstellen Sie ein Passwort, um Ihren Account zu aktiveren.",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Account aktivieren",
+      "cancel": "Einladung ablehnen"
+    },
+    "addresses": {
+      "title": "Account-Adressen verwalten",
+      "default_address": "Standard-Adresse",
+      "add_new": "Neue Adresse hinzufügen",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "company": "Firma",
+      "address1": "Adresse1",
+      "address2": "Adresse2",
+      "city": "Stadt",
+      "country": "Land",
+      "province": "Bundesland",
+      "zip": "PLZ",
+      "phone": "Telefon",
+      "set_default": "Als Standard-Adresse festlegen?",
+      "submit": "Adresse hinzufügen",
+      "update": "Adresse aktualisieren",
+      "cancel": "Abbrechen",
+      "edit": "Bearbeiten",
+      "delete": "Löschen",
+      "delete_confirm": "Sind Sie sicher, dass Sie diese Adresse löschen möchten?",
+      "return": "Zur Account-Seite zurückkehren"
+    },
+    "login": {
+      "title": "Kunden-Login",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "forgot_password": "Haben Sie Ihr Passwort vergessen?",
+      "submit": "Anmelden",
+      "guest_title": "Gast-Login",
+      "guest_continue": "Als Gast fortsetzen"
+    },
+    "orders": {
+      "order": "Bestellung",
+      "order_cancelled": "Bestellung storniert",
+      "payment_status": "Zahlungsstatus",
+      "fulfillment_status": "Lieferstatus",
+      "no_orders": "Sie haben keine Bestellungen aufgegeben."
+    },
+    "order": {
+      "title": "Bestellung {{ name }}",
+      "date": "Aufgegeben am {{ date }}",
+      "cancelled_on_html": "<b>Bestellung storniert<\/b> am {{ date }}",
+      "billing_address": "Rechnungsadresse",
+      "payment_status": "Zahlungsstatus",
+      "shipping_address": "Lieferadresse",
+      "fulfillment_status": "Lieferstatus",
+      "discount": "{{ code }} Rabatt:",
+      "shipping": "Versand",
+      "tax": "Steuern",
+      "subtotal": "Zwischensumme:",
+      "total": "Gesamt:",
+      "return": "Zur Account-Seite zurückkehren"
+    },
+    "order_details": {
+      "sku": "SKU",
+      "price": "Preis",
+      "quantity": "Menge",
+      "total": "Gesamt",
+      "fulfilled_on": "Geliefert am {{ date }}"
+    },
+    "recover_password": {
+      "title": "Stellen Sie Ihr Passwort wieder her",
+      "email": "E-Mail-Adresse",
+      "submit": "Absenden",
+      "cancel": "Abbrechen",
+      "subtext": "Wir werden Ihnen eine E-Mail zum Zurücksetzen des Passworts schicken.",
+      "success": "Wir haben Ihnen eine E-Mail mit einem Link zum Aktualisieren des Passworts geschickt."
+    },
+    "reset_password": {
+      "title": "Account-Passwort zurücksetzen",
+      "subtext": "Bitte geben Sie ein neues Passwort für {{ email }}ein",
+      "password": "Passwort",
+      "password_confirm": "Passwort bestätigen",
+      "submit": "Passwort zurücksetzen"
+    },
+    "register": {
+      "title": "Registrieren",
+      "first_name": "Vorname",
+      "last_name": "Nachname",
+      "email": "E-Mail-Adresse",
+      "password": "Passwort",
+      "submit": "Account erstellen"
+    }
+  },
+  "home_page": {
+    "empty": {
+      "no_products_in_store": "Dieser Shop führt im Moment keine Artikel.",
+      "add_product_html": "Bitte <a href=\"{{ collection_url_in_admin }}\">fügen Sie Ihrer {{ collection_title }} Zusammenstellung<\/a> einen Artikel hinzu.",
+      "no_content_html": "Um Ihrer Startseite Inhalte hinzuzufügen, besuchen Sie Ihre <a href=\"{{ theme_settings_url }}\">Seite zu Theme-Einstellungen<\/a>."
+    }
+  },
+  "layout": {
+    "navigation": {
+      "more": "Mehr"
+    },
+    "cart": {
+      "title": "Einkaufstüte"
+    },
+    "customer": {
+      "logged_in_as": "Mein Account - {{ first_name }}",
+      "log_out": "Ausloggen",
+      "log_in": "Einloggen",
+      "or": "oder",
+      "register": "Registrieren"
+    },
+    "search": {
+      "link": "Suchen"
+    },
+    "footer": {
+      "copyright_html": "&copy; Copyright {{ year }} {{ shop_name }}"
+    }
+  },
+  "products": {
+    "general": {
+      "previous_product": "Vorheriger",
+      "next_product": "Nächster",
+      "from_min_price_html": "Von {{ price }}"
+    },
+    "product": {
+      "sold_out": "Ausverkauft",
+      "product_is_sold_out": "Artikel ist momentan ausverkauft",
+      "unavailable": "Nicht verfügbar",
+      "add_to_cart": "In den Einkaufswagen legen",
+      "share": "Teilen"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "title": "Hier ist Ihre {{ value }} Geschenkkarte für {{ shop }}!",
+      "subtext": "Hier ist Ihre Geschenkkarte!",
+      "disabled": "Deaktiviert",
+      "expired": "Abgelaufen am {{ expiry }}",
+      "active": "Läuft ab am {{ expiry }}",
+      "redeem": "Nutzen Sie an der Kasse diesen Code, um Ihre Geschenkkarte einzulösen",
+      "shop_link": "Einkauf beginnen",
+      "print": "Drucken"
+    }
+  }
+}

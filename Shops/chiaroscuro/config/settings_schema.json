@@ -1,0 +1,391 @@
+[
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Default"
+      },
+      {
+        "type": "color",
+        "id": "color_back",
+        "label": "Page Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_back_product",
+        "label": "Product Panel Background",
+        "default": "#000000",
+        "info": "The panel on the left of the product single pages"
+      },
+      {
+        "type": "color",
+        "id": "color_header",
+        "label": "Headers",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#cc0000"
+      },
+      {
+        "type": "color",
+        "id": "color_link",
+        "label": "Links",
+        "default": "#cc0000"
+      },
+      {
+        "type": "color",
+        "id": "color_button",
+        "label": "Buttons",
+        "default": "#cc0000"
+      },
+      {
+        "type": "color",
+        "id": "color_button_text",
+        "label": "Text on Buttons",
+        "default": "#cc0000"
+      },
+      {
+        "type": "header",
+        "content": "Top and Bottom Bars"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_back",
+        "label": "Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_logo",
+        "label": "Logo",
+        "default": "#ffffff",
+        "info": "For text logos"
+      },
+      {
+        "type": "color",
+        "id": "color_nav_text",
+        "label": "Text",
+        "default": "#cc0000"
+      },
+      {
+        "type": "header",
+        "content": "Shopping Bag"
+      },
+      {
+        "type": "color",
+        "id": "color_bag_back",
+        "label": "Background",
+        "default": "#000000"
+      },
+      {
+        "type": "color",
+        "id": "color_bag_price",
+        "label": "Prices",
+        "default": "#ffffff"
+      },
+      {
+        "type": "header",
+        "content": "Misc"
+      },
+      {
+        "type": "color",
+        "id": "color_sale",
+        "label": "Sales\/Promotions",
+        "default": "#000000",
+        "info": "Used for promotional banners and text"
+      },
+      {
+        "type": "color",
+        "id": "color_arrow",
+        "label": "Arrow",
+        "default": "#ffffff",
+        "info": "Appear on the collection\/product pages"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "select",
+        "id": "font_one",
+        "label": "Headlines and buttons",
+        "options": [
+          {
+            "value": "Alegreya Sans",
+            "label": "Alegreya Sans"
+          },
+          {
+            "value": "Arvo",
+            "label": "Arvo"
+          },
+          {
+            "value": "Cabin",
+            "label": "Cabin"
+          },
+          {
+            "value": "Cardo",
+            "label": "Cardo"
+          },
+          {
+            "value": "Crimson Text",
+            "label": "Crimson Text"
+          },
+          {
+            "value": "Exo",
+            "label": "Exo"
+          },
+          {
+            "value": "Gudea",
+            "label": "Gudea"
+          },
+          {
+            "value": "Josefin Sans",
+            "label": "Josefin Sans"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora"
+          },
+          {
+            "value": "Merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "value": "PT Serif",
+            "label": "PT Serif"
+          }
+        ],
+        "default": "Josefin Sans"
+      },
+      {
+        "type": "select",
+        "id": "font_two",
+        "label": "Body text",
+        "options": [
+          {
+            "value": "Alegreya Sans",
+            "label": "Alegreya Sans"
+          },
+          {
+            "value": "Arvo",
+            "label": "Arvo"
+          },
+          {
+            "value": "Cabin",
+            "label": "Cabin"
+          },
+          {
+            "value": "Cardo",
+            "label": "Cardo"
+          },
+          {
+            "value": "Crimson Text",
+            "label": "Crimson Text"
+          },
+          {
+            "value": "Exo",
+            "label": "Exo"
+          },
+          {
+            "value": "Gudea",
+            "label": "Gudea"
+          },
+          {
+            "value": "Josefin Sans",
+            "label": "Josefin Sans"
+          },
+          {
+            "value": "Lora",
+            "label": "Lora"
+          },
+          {
+            "value": "Merriweather",
+            "label": "Merriweather"
+          },
+          {
+            "value": "PT Serif",
+            "label": "PT Serif"
+          }
+        ],
+        "default": "Crimson Text"
+      }
+    ]
+  },
+  {
+    "name": "Header",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_logo",
+        "label": "Use custom logo"
+      },
+      {
+        "type": "image",
+        "id": "logo.png",
+        "max-height": 150
+      },
+      {
+        "type": "checkbox",
+        "id": "use_favicon",
+        "label": "Use custom favicon (16px x 16px)"
+      },
+      {
+        "type": "image",
+        "id": "favicon.png",
+        "max-width": 16,
+        "max-height": 16
+      },
+      {
+        "type": "text",
+        "id": "topbar_height",
+        "label": "Top Bar Height",
+        "default": "50px",
+        "info": "Increase this if you would like your logo to be bigger"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_search",
+        "label": "Add search icon to top bar",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Footer",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_footer",
+        "label": "Use footer",
+        "default": true,
+        "info": "The footer allows you to display additional links and a copyright notice"
+      },
+      {
+        "type": "text",
+        "id": "footer_height",
+        "label": "Footer height",
+        "default": "50px"
+      }
+    ]
+  },
+  {
+    "name": "Homepage",
+    "settings": [
+      {
+        "type": "collection",
+        "id": "fp_collection",
+        "label": "Feature a collection on the homepage"
+      },
+      {
+        "type": "page",
+        "id": "hp_content",
+        "label": "Add this page to the homepage"
+      },
+      {
+        "type": "checkbox",
+        "id": "use_imgbanner",
+        "label": "Add banner image to homepage"
+      },
+      {
+        "type": "image",
+        "id": "imgbanner.jpg",
+        "max-height": 1350
+      },
+      {
+        "type": "checkbox",
+        "id": "rmv_covershp",
+        "label": "Remove homepage collection cover Check this to remove the cover for the featured collection",
+        "default": true
+      },
+      {
+        "type": "text",
+        "id": "sale_description",
+        "label": "Promotion Description",
+        "info": "The promotion tile appears on the homepage underneath the navigation"
+      }
+    ]
+  },
+  {
+    "name": "Collection pages",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "use_covers",
+        "label": "Display collection covers",
+        "default": true,
+        "info": "Turn this off if you want to display collections without a title card"
+      },
+      {
+        "type": "checkbox",
+        "id": "collection_sort",
+        "label": "Display Collection Sort",
+        "default": true,
+        "info": "This is a dropdown menu which allows customers to sort by various options"
+      },
+      {
+        "type": "checkbox",
+        "id": "addarrows",
+        "label": "Display navigation arrows",
+        "default": true,
+        "info": "Change the color of the arrows above"
+      }
+    ]
+  },
+  {
+    "name": "Social Media",
+    "settings": [
+      {
+        "type": "select",
+        "id": "social_display",
+        "label": "Display icons in the",
+        "options": [
+          {
+            "value": "header",
+            "label": "Header"
+          },
+          {
+            "value": "footer",
+            "label": "Footer"
+          }
+        ],
+        "info": "If you display them in the footer, remember to turn on your footer under Footer"
+      },
+      {
+        "type": "text",
+        "id": "facebook_url",
+        "label": "Your Facebook page URL",
+        "info": "Start the URL with https:\/\/"
+      },
+      {
+        "type": "text",
+        "id": "twitter_url",
+        "label": "Your Twitter page URL",
+        "info": "Start the URL with https:\/\/"
+      },
+      {
+        "type": "text",
+        "id": "instagram_url",
+        "label": "Your Instagram page URL",
+        "info": "Start the URL with https:\/\/"
+      },
+      {
+        "type": "text",
+        "id": "pinterest_url",
+        "label": "Your Pinterest page URL",
+        "info": "Start the URL with https:\/\/"
+      },
+      {
+        "type": "text",
+        "id": "google_url",
+        "label": "Your Google+ page URL",
+        "info": "Start the URL with https:\/\/"
+      }
+    ]
+  }
+]
