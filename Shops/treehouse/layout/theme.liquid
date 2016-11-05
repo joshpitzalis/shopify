@@ -32,6 +32,7 @@
   <!-- CSS ================================================== -->
   {{ 'timber.scss.css' | asset_url | stylesheet_tag }}
   {{ 'theme.scss.css' | asset_url | stylesheet_tag }}
+  {{ 'tachyons.min.css' | asset_url | stylesheet_tag }}
   {% include 'google-fonts' %}
 
   <!-- Header hook for plugins ================================================== -->
@@ -203,7 +204,7 @@
                   {% assign logo_inverted_url = 'logo-inverted.png' | asset_url %}
 
                   {% if page.handle == 'about-us'%}
-                  <a href="/collections/smokey-tees/products/another-t-shirt" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %}">
+                  <a href="/collections/smokey-tees/products/another-t-shirt" itemprop="url" class="site-header__logo-link{% if settings.logo_use_inverted %} logo--has-inverted{% endif %} ">
                     <img src="{{ 'housey.png' | asset_url }}" alt="{{ shop.name }}" itemprop="logo" class='fader'>
                   </a>
 

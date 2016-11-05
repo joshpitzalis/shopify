@@ -1,6 +1,6 @@
 {% if settings.home_page_content != empty %}
 
-    <div class="
+    <div class="hello
     grid__item
     large--three-quarters
     medium--two-thirds noMarginy" style='background: url({{'whiteVape.jpg' | asset_url }}) center ;'>
@@ -88,6 +88,13 @@
   .noMarginy {
     position: relative;
     right: 30px;
+  }
+}
+
+@media(max-width: 768px) {
+  .hello {
+    padding: 0;
+    margin-bottom: 30px;
   }
 }
 

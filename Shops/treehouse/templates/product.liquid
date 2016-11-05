@@ -1,6 +1,9 @@
 <!-- /templates/product.liquid -->
 <style>
 /* The Modal (background) */
+* {
+  /*outline: 1px dotted red;*/
+}
 
   .modal {
       display: none; /* Hidden by default */
@@ -18,7 +21,6 @@
 
   /* Modal Content/Box */
   .modal-content {
-      text-align: center;
       background-color: #fefefe;
       padding: 40px 80px;
       width: 700px;
@@ -34,22 +36,10 @@
     max-width: 600px;
     margin: 0 auto;
     display: block;
-    margin: 0 0 40px 0;
+    margin: 0 0 30px 0;
     line-height: 28px !important;
   }
 
-  .moveOver {
-    position: relative;
-    left: 140px;
-    bottom: 20px;
-  }
-
-  .leftJusty {
-    text-align: left;
-    position: relative;
-    bottom: 20px;
-
-  }
   /* The Close Button */
   .closeModal {
       color: #aaa;
@@ -69,6 +59,7 @@
   .justRightHeight {
     position: relative;
     top:5px;
+    left: 5px;
   }
 
   .closeModal:hover,
@@ -80,15 +71,6 @@
 
   /*product selectors*/
 
-  .flex {
-    display: flex;
-  }
-
-  .block {
-    width: 30%;
-    min-height: 100%;
-  }
-
   #retrograde {
     cursor: url({{ 'arrow-left.svg' | asset_url }}), default;
   }
@@ -97,9 +79,9 @@
     cursor: url( {{ 'arrow-right.svg' | asset_url }}), default;
   }
 
-  #product-single__photo {
+  .product-single__photo {
     cursor: url( {{ 'info.svg' | asset_url }}), default;
-    z-index: 100;
+    animation: swing 0.6s forwards;
   }
 
   #product-single__photo:hover {
@@ -151,74 +133,55 @@
 	}
 }
 
-  /*full page prodct height*/
+  /*full page product height*/
 
   .product-single {
-    min-height: 80vh;
     background-image: url("{{ product.featured_image.src | img_url: 'grande' }}");
-    background-repeat: no-repeat;
-    background-position: center; center;
   }
 
-  .product-single__photo-wrapper {
-    width: 600px;
-  }
-
-  .centered {
-    display: block;
-    margin: 0 auto;
-  }
 
   .verticalLine {
     border-left: 2px solid #D0D0D0;
     height: 233px;
     position: absolute;
     left: 50%;
-    top: 0px
+    top: 0px;
 }
 
 #flipButton {
-  padding: 25px;
+  cursor: url( {{ '360.png' | asset_url }}), default;
+  /*height: auto;*/
 }
 
 </style>
 </div>
 <div class='verticalLine'>
 </div>
-<div itemscope itemtype="http://schema.org/Product" class='flex'>
+<div itemscope itemtype="http://schema.org/Product" class='dt'>
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
-  <a href="{{collection.previous_product}}" class='block' id='retrograde'></a>
-
-
-
+  <a href="{{collection.previous_product}}" class='w-30 dtc' id='retrograde'></a>
   {% assign current_variant = product.selected_or_first_available_variant %}
-
-  <div class="product-single" id="product-single__photo">
-
+  <div class="product-single product-single__photo dtc contain bg-center" id="product-single__photo">
     <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
       <!-- <div> -->
       <div class="product-single__photos">
-
-
-
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-
         {% comment %}
           Display current variant image, or default first
         {% endcomment %}
-        <div class="product-single__photo-wrapper">
+        <!-- <div class="product-single__photo-wrapper"> -->
           <!-- <img class="product-single__photo" src="{{ featured_image | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %} alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}"> -->
-        </div>
+        <!-- </div> -->
 
         {% comment %}
           Display rest of product images, not repeating the featured one
         {% endcomment %}
         {% for image in product.images %}
           {% unless image contains featured_image %}
-            <div class="product-single__photo-wrapper">
+            <div class="product-single__photo-wrapper dib" id='tshirtBox'>
               <img class="product-single__photo" src="{{ image.src | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %} alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" style='visibility: hidden;' id='backside' >
             </div>
           {% endunless %}
@@ -226,8 +189,7 @@
       </div>
     </div>
 
-
-    <a href="{{ collection.next_product }}" class='block' id='anterograde'></a>
+    <a href="{{ collection.next_product }}" class='w-30 dtc' id='anterograde'></a>
 
     <div id="myModal" class='modal'>
 
@@ -245,7 +207,7 @@
           </div>
         </span>
 
-        <h1 class="product-single__title leftJusty" itemprop="name">{{ product.title | upcase }}</h1>
+        <h1 class="product-single__title tl pb4 tracked" itemprop="name">{{ product.title | upcase }}</h1>
 
 
 
@@ -255,7 +217,7 @@
           {% endcomment %}
 
           {% if product.compare_at_price_max > product.price %}
-            <span id="PriceA11y" class="visually-hidden">{{ 'products.general.regular_price' | t }}</span>
+            <span id="PriceA11y" class="visually-hidden ">{{ 'products.general.regular_price' | t }}</span>
             <span class="product-single__price--wrapper">
               <span id="ComparePrice" class="product-single__price--compare-at">
                 {% if current_variant.compare_at_price > current_variant.price %}
@@ -275,15 +237,15 @@
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
           <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-          <div class="product-single__description rte" itemprop="description">
+          <div class="product-single__description rte tracked" itemprop="description">
             {{ product.description | upcase }}
           </div>
 
 
-<div class='flex'>
+<div>
 
 
-          <span id="ProductPrice " class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %}" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+          <span id="ProductPrice" class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %} pb3 db tracked" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
             {{ current_variant.price | money }}
           </span>
 
@@ -292,6 +254,8 @@
 
 
           <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form" id="AddToCartForm">
+
+            <div class='dib mr5'>
 
             <select name="id" id="ProductSelect" class="product-single__variants">
               {% for variant in product.variants %}
@@ -304,19 +268,21 @@
                 {% endif %}
               {% endfor %}
             </select>
+                </div>
 
-            {% comment %}
-            <div class="product-single__quantity">
-              <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
-              <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
-            </div>
-            {% endcomment %}
+            <div class="product-single__add-to-cart dib">
+                        <button type="submit" name="add" id="AddToCart" class="btn ">
+                          <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+                        </button>
+                      </div>
 
-            <div class="product-single__add-to-cart">
-              <button type="submit" name="add" id="AddToCart" class="btn moveOver">
-                <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-              </button>
-            </div>
+
+                                  {% comment %}
+                                  <div class="product-single__quantity">
+                                    <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
+                                    <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
+                                  </div>
+                                  {% endcomment %}
           </form>
 
           </div>
@@ -334,12 +300,13 @@
     </div>
 
 
-  </div>
-  <div id='flipButton'>
-    {{'360.png' | asset_url | img_tag: 'rotate image' , 'centered fader' }}
-  </div>
 
 
+  </div>
+
+  <div id='flipButton' class='db tc h3'>
+    {{'360.png' | asset_url | img_tag: 'rotate image' , 'fader' }}
+  </div>
 
 
 
@@ -355,48 +322,43 @@
 
 {% comment %}
 
-  *IMPORTANT:*
-  This theme uses a customized version of `option_selection.js` to support using radio inputs for
-  color and size variants. The custom version is in `variant_selection.js`.
-
-  If you wish to enable the default dropdowns for size and color
-  you can change the liquid asset tag below from:
-
-  {{ 'variant_selection.js' | asset_url | script_tag }}
-
-  to
+  if you want radio inputs for
+  color and size variants, change the liquid asset tag below from:
 
   {{ 'option_selection.js' | shopify_asset_url | script_tag }}
 
-  If you use the default `option_selection.js` the labels for the dropdowns will
-  appear outside the dropdown.
+  to
 
-  You will also need to change `.radio-wrapper` to `.selector-wrapper` below.
+    {{ 'variant_selection.js' | asset_url | script_tag }}
+
+
+  You can also change `.radio-wrapper` to `.selector-wrapper`, If you want the labels for the dropdowns to appear outside the dropdown.
 
 {% endcomment %}
-{{ 'variant_selection.js' | asset_url | script_tag }}
+
+<!-- {{ 'variant_selection.js' | asset_url | script_tag }} -->
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
 <script>
 
 var backside = document.getElementById('backside');
-
+var frontside = document.getElementById('product-single__photo');
 
 var flipp = document.getElementById('flipButton');
 
 // Get the <span> element that closes the modal
 // var span = document.getElementsByClassName("closeModal")[0];
-
 // When the user clicks on the button, open the modal
 flipp.onclick = function() {
   if (backside.style.visibility == "visible")
    {
-       backside.style.visibility = "hidden";
+      backside.style.visibility = "hidden";
+      frontside.style.backgroundImage = 'url("{{ product.featured_image.src | img_url: 'grande' }}")';
    }
    else
    {
        backside.style.visibility = "visible";
+       frontside.style.backgroundImage = "none";
    }
-
-    console.log('hello')
 }
 
 
