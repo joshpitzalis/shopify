@@ -1,105 +1,108 @@
 <!-- /templates/product.liquid -->
 <style>
+/*swing animation only on large screens*/
+@media screen and (min-width: 60em) {
 
+  @-webkit-keyframes swinging{
+    0%{transform: rotate(0deg);}
+    25%{transform: rotate(5deg);}
+    50%{transform: rotate(-5deg)}
+    100%{transform: rotate(0deg);}
+  }
 
+  @keyframes swinging{
+      0%{transform: rotate(0deg);}
+      25%{transform: rotate(5deg);}
+      50%{transform: rotate(-5deg)}
+      100%{transform: rotate(0deg);}
+  }
 
+  .swingimage {
+      -webkit-transform-origin: 50% 0;
+      transform-origin: 50% 0;
+      -webkit-animation: swinging 3.5s ease-in-out forwards 1;
+      animation: swinging 3.5s ease-in-out forwards 1;
+  }
 
-.closeCircle {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
 }
 
+  /*jiggle animation on small screens */
 
-  .justRightHeight {
-    position: relative;
-    top:5px;
-    left: 5px;
+@media screen and (max-width: 60em) {
+    #product-single__photo {
+      -webkit-animation: swing 0.6s forwards;
+      animation: swing 0.6s forwards;
+    }
+
+    @-webkit-keyframes swing {
+  	25% {
+  		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+  		transform: rotate3d(0, 0, 1, 6deg);
+  	}
+
+  	50% {
+  		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+  		transform: rotate3d(0, 0, 1, -4deg);
+  	}
+
+  	75% {
+  		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+  		transform: rotate3d(0, 0, 1, 2deg);
+  	}
+
+  	100% {
+  		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+  		transform: rotate3d(0, 0, 1, 0deg);
+  	}
   }
 
-  .closeModal:hover,
-  .closeModal:focus {
-      color: white;
-      text-decoration: none;
-      cursor: pointer;
+  @keyframes swing {
+    25% {
+  		-webkit-transform: rotate3d(0, 0, 1, 6deg);
+  		transform: rotate3d(0, 0, 1, 6deg);
+  	}
+
+  	50% {
+  		-webkit-transform: rotate3d(0, 0, 1, -4deg);
+  		transform: rotate3d(0, 0, 1, -4deg);
+  	}
+
+  	75% {
+  		-webkit-transform: rotate3d(0, 0, 1, 2deg);
+  		transform: rotate3d(0, 0, 1, 2deg);
+  	}
+
+  	100% {
+  		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+  		transform: rotate3d(0, 0, 1, 0deg);
+  	}
   }
-
-  /*product selectors*/
-
-  #retrograde {
-    cursor: url({{ 'arrow-left.svg' | asset_url }}), default;
-  }
-
-  #anterograde {
-    cursor: url( {{ 'arrow-right.svg' | asset_url }}), default;
-  }
-
-  .product-single__photo {
-    cursor: url( {{ 'info.svg' | asset_url }}), default;
-    animation: swing 0.6s forwards;
-  }
-
-  #product-single__photo:hover {
-    -webkit-animation: swing 0.6s forwards;
-    animation: swing 0.6s forwards;
-  }
-
-  @-webkit-keyframes swing {
-	25% {
-		-webkit-transform: rotate3d(0, 0, 1, 6deg);
-		transform: rotate3d(0, 0, 1, 6deg);
-	}
-
-	50% {
-		-webkit-transform: rotate3d(0, 0, 1, -4deg);
-		transform: rotate3d(0, 0, 1, -4deg);
-	}
-
-	75% {
-		-webkit-transform: rotate3d(0, 0, 1, 2deg);
-		transform: rotate3d(0, 0, 1, 2deg);
-	}
-
-	100% {
-		-webkit-transform: rotate3d(0, 0, 1, 0deg);
-		transform: rotate3d(0, 0, 1, 0deg);
-	}
 }
 
-@keyframes swing {
-  25% {
-		-webkit-transform: rotate3d(0, 0, 1, 6deg);
-		transform: rotate3d(0, 0, 1, 6deg);
-	}
+/*cursors and placemnets tweaks that only apply to this page*/
 
-	50% {
-		-webkit-transform: rotate3d(0, 0, 1, -4deg);
-		transform: rotate3d(0, 0, 1, -4deg);
-	}
-
-	75% {
-		-webkit-transform: rotate3d(0, 0, 1, 2deg);
-		transform: rotate3d(0, 0, 1, 2deg);
-	}
-
-	100% {
-		-webkit-transform: rotate3d(0, 0, 1, 0deg);
-		transform: rotate3d(0, 0, 1, 0deg);
-	}
+#retrograde {
+  cursor: url({{ 'arrow-left.svg' | asset_url }}), default;
 }
 
-  /*full page product height*/
+#anterograde {
+  cursor: url( {{ 'arrow-right.svg' | asset_url }}), default;
+}
 
-  .product-single {
-    background-image: url("{{ product.featured_image.src | img_url: 'grande' }}");
-  }
+.product-single__photo {
+  cursor: url( {{ 'info.svg' | asset_url }}), default;
+}
 
-  .b--line-gray {
-    border-color: #D0D0D0;
-  }
+.product-single {
+  background-image: url("{{ product.featured_image.src | img_url: 'grande' }}");
+}
 
-  .left50 {
-    left: 50%;
+.b--line-gray {
+  border-color: #D0D0D0;
+}
+
+.left50 {
+  left: 50%;
 }
 
 .left-25ish {
@@ -110,6 +113,25 @@
   padding-top: .35rem
 }
 
+.closeCircle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+
+.justRightHeight {
+  position: relative;
+  top:5px;
+  left: 5px;
+}
+
+.closeModal:hover,
+.closeModal:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 #flipButton {
   cursor: url( {{ '360.png' | asset_url }}), default;
 }
@@ -117,22 +139,22 @@
 </style>
 
 </div>
-<div class='bl-l b--line-gray absolute h5 top-0 left50'>
+<div class='bl-l b--line-gray absolute h5 top-0 left50 swingimage'>
 </div>
 
-<div itemscope itemtype="http://schema.org/Product" class='dt mt4 mt0-l'>
+<div itemscope itemtype="http://schema.org/Product" class='dt mt4 mt0-l '>
 
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
 
-  <a href="{{collection.previous_product}}" class='w-30-l dtc w-20-m w-10 v-mid' id='retrograde'>
-    <img src={{ 'arrow-left.svg' | asset_url }} class='dn-ns' />
+  <a href="{{collection.previous_product}}" class='w-30-l dtc w-20 v-mid tc' id='retrograde'>
+    <img src={{ 'leftChevron.svg' | asset_url }} class='dn-l' />
   </a>
   {% assign current_variant = product.selected_or_first_available_variant %}
-  <div class="product-single product-single__photo dtc contain bg-center" id="product-single__photo">
+  <div class="product-single product-single__photo dtc contain bg-center swingimage" id="product-single__photo">
     <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
       <!-- <div> -->
-      <div class="product-single__photos">
+      <div class="product-single__photos dtc v-btm ">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
         {% comment %}
           Display current variant image, or default first
@@ -146,7 +168,7 @@
         {% endcomment %}
         {% for image in product.images %}
           {% unless image contains featured_image %}
-            <div class="product-single__photo-wrapper dib" id='tshirtBox'>
+            <div class="product-single__photo-wrapper" id='tshirtBox'>
               <img class="product-single__photo" src="{{ image.src | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ image.src | img_url: '1024x1024' }}"{% endif %} alt="{{ image.alt | escape }}" data-image-id="{{ image.id }}" style='visibility: hidden;' id='backside' >
             </div>
           {% endunless %}
@@ -154,18 +176,13 @@
       </div>
     </div>
 
-    <a href="{{ collection.next_product }}" class='w-30-l dtc w-20-m w-10 v-mid' id='anterograde' min-height='20px' >
-    <img src={{ 'arrow-right.svg' | asset_url }} class='dn-ns' /></a>
+    <a href="{{ collection.next_product }}" class='w-30-l dtc w-20 v-mid tc' id='anterograde' min-height='20px' >
+    <img src={{ 'rightChevron.svg' | asset_url }} class='dn-l' /></a>
 
 
-    <div id="myModal" class='dn fixed left-0 top-0 w-100 h-100 bg-black-40 z-999 overflow-auto'>
+    <div id="myModal" class='dn absolute absolute--fill bg-black-40 z-999 overflow-auto'>
 
-
-
-
-
-
-    <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths bg-white w-70 w-50-ns absolute center left-0 right-0 mv6">
+    <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths bg-white w-70 w-50-ns absolute center left-0 right-0 mv6 ">
       <span class="closeModal white fr relative left-25ish bottom-1">
         <div class="icon-fallback-text closeCircle bg-black pt15ish tc">
           <span class="icon icon-x dib"></span>
@@ -175,12 +192,12 @@
 
 
 
-      <div class="product-single__meta">
+      <div class="product-single__meta overflow-scroll">
         {% if settings.product_vendor_enable %}
           <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
         {% endif %}
 
-        <h1 class="product-single__title tl pb4 tracked" itemprop="name">{{ product.title | upcase }}</h1>
+        <h1 class="product-single__title tl pv4 tracked" itemprop="name">{{ product.title | upcase }}</h1>
 
 
 
@@ -269,8 +286,8 @@
         {% endif %}
 
   </div>
-    </div>
-    </div>
+  </div>
+</div>
 
 
 
