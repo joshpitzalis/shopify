@@ -81,16 +81,16 @@
 
 /*cursors and placemnets tweaks that only apply to this page*/
 
-#retrograde {
-  cursor: url({{ 'arrow-left.svg' | asset_url }}), default;
+.retrograde {
+    cursor: url({{ 'arrow-left.svg' | asset_url }}), w-resize;
 }
 
-#anterograde {
-  cursor: url( {{ 'arrow-right.svg' | asset_url }}), default;
+.anterograde {
+  cursor: url( {{ 'arrow-right.svg' | asset_url }}), e-resize;
 }
 
 .product-single__photo {
-  cursor: url( {{ 'info.svg' | asset_url }}), default;
+  cursor: url( {{ 'info.svg' | asset_url }}), pointer;
 }
 
 .product-single {
@@ -133,39 +133,53 @@
 }
 
 #flipButton {
-  cursor: url( {{ '360.png' | asset_url }}), default;
+  cursor: url( {{ '360.png' | asset_url }}), s-resize;
+}
+
+.hLine {
+  height: 145px;
+}
+
+.tinyText {
+  font-size: 11px;
+}
+
+.tracked-mega-mega {
+  letter-spacing: .9em;
 }
 
 </style>
 
 </div>
-<div class='bl-l b--line-gray absolute h5 top-0 left50 swingimage'>
+
+  <div class='bl-l b--line-gray absolute dn hLine top-0 left50' id='string'>
 </div>
 
-<div itemscope itemtype="http://schema.org/Product" class='dt mt4 mt0-l '>
-
+<div class='tc'>
+  <div class='dib'>
+<div itemscope itemtype="http://schema.org/Product" class='dt mt4 mt0-l'>
   <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
   <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+  {% if collection.previous_product %}
 
-  <a href="{{collection.previous_product}}" class='w-30-l dtc w-20 v-mid tc' id='retrograde'>
-    <img src={{ 'leftChevron.svg' | asset_url }} class='dn-l' />
-  </a>
+      <a href="{{collection.previous_product}}" class='w-30-l dtc-l dn w-20 v-mid tc retrograde'>
+        <img src={{ 'leftChevron.svg' | asset_url }} class='dn-l' />
+      </a>
+
+      {% else %}
+
+      <a href="https://treehouse-11.myshopify.com/collections/thc/products/rhino" class='w-30-l dtc-l dn v-mid tc retrograde'>
+        <img src={{ 'leftChevron.svg' | asset_url }} class='dn-l' />
+      </a>
+
+{% endif %}
+
   {% assign current_variant = product.selected_or_first_available_variant %}
-  <div class="product-single product-single__photo dtc contain bg-center swingimage" id="product-single__photo">
-    <!-- <div class="grid__item large--seven-twelfths medium--seven-twelfths text-center"> -->
-      <!-- <div> -->
+  <div class="product-single product-single__photo dtc contain bg-center " id="product-single__photo">
+
       <div class="product-single__photos dtc v-btm ">
         {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
-        {% comment %}
-          Display current variant image, or default first
-        {% endcomment %}
-        <!-- <div class="product-single__photo-wrapper"> -->
-          <!-- <img class="product-single__photo" src="{{ featured_image | img_url: 'grande' }}" {% if settings.product_zoom_enable %}data-mfp-src="{{ featured_image | img_url: '1024x1024' }}"{% endif %} alt="{{ featured_image.alt | escape }}" data-image-id="{{ featured_image.id }}"> -->
-        <!-- </div> -->
 
-        {% comment %}
-          Display rest of product images, not repeating the featured one
-        {% endcomment %}
         {% for image in product.images %}
           {% unless image contains featured_image %}
             <div class="product-single__photo-wrapper" id='tshirtBox'>
@@ -176,36 +190,36 @@
       </div>
     </div>
 
-    <a href="{{ collection.next_product }}" class='w-30-l dtc w-20 v-mid tc' id='anterograde' min-height='20px' >
-    <img src={{ 'rightChevron.svg' | asset_url }} class='dn-l' /></a>
+    {% if collection.next_product %}
 
+    <a href="{{ collection.next_product }}" class='w-30-l dtc-l dn v-mid tc anterograde' min-height='20px' >
+      <img src={{ 'rightChevron.svg' | asset_url }} class='dn-l' />
+    </a>
 
-    <div id="myModal" class='dn absolute absolute--fill bg-black-40 z-999 overflow-auto'>
+        {% else %}
 
-    <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths bg-white w-70 w-50-ns absolute center left-0 right-0 mv6 ">
-      <span class="closeModal white fr relative left-25ish bottom-1">
+        <a href="https://treehouse-11.myshopify.com/collections/thc/products/skunk" class='w-30-l dtc-l dn v-mid tc anterograde' min-height='20px' >
+          <img src={{ 'rightChevron.svg' | asset_url }} class='dn-l' />
+        </a>
+
+    {% endif %}
+
+    <div id="myModal" class='dn absolute absolute--fill bg-black-40 z-9 overflow-auto z-1'>
+    <div class="grid__item product-single__meta--wrapper medium--five-twelfths large--five-twelfths bg-white absolute--fill w-40-ns absolute center left-0 right-0 mv6-ns">
+      <span class="closeModal white fr relative-ns db left-25ish bottom-1 mt4 mt0-ns">
         <div class="icon-fallback-text closeCircle bg-black pt15ish tc">
           <span class="icon icon-x dib"></span>
           <span class="fallback-text">Close</span>
         </div>
       </span>
 
-
-
-      <div class="product-single__meta overflow-scroll">
+      <div class="product-single__meta mt6 mt0-ns">
         {% if settings.product_vendor_enable %}
           <h2 class="product-single__vendor" itemprop="brand">{{ product.vendor }}</h2>
         {% endif %}
 
-        <h1 class="product-single__title tl pv4 tracked" itemprop="name">{{ product.title | upcase }}</h1>
-
-
-
+        <h1 class="product-single__title tc pv3 tracked-mega-mega b" itemprop="name">{{ product.title | upcase }}</h1>
         <div itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-          {% comment %}
-            Optionally show the 'compare at' or original price of the product.
-          {% endcomment %}
-
           {% if product.compare_at_price_max > product.price %}
             <span id="PriceA11y" class="visually-hidden ">{{ 'products.general.regular_price' | t }}</span>
             <span class="product-single__price--wrapper">
@@ -223,91 +237,78 @@
           <meta itemprop="priceCurrency" content="{{ shop.currency }}">
           <link itemprop="availability" href="http://schema.org/{% if product.available %}InStock{% else %}OutOfStock{% endif %}">
 
-
-
-
-
-          <div class="product-single__description rte tracked" itemprop="description">
+          <div class="product-single__description rte tracked tc" itemprop="description">
             {{ product.description | upcase }}
           </div>
-
-
-<div>
-
-
-          <span id="ProductPrice" class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %} pb3 db tracked" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
+        <div>
+          <span id="ProductPrice" class="product-single__price{% if product.compare_at_price > product.price %} on-sale{% endif %} pb3 db tracked-mega-mega f6 tc pv3" itemprop="price" content="{{ current_variant.price | divided_by: 100.00 }}">
             {{ current_variant.price | money }}
           </span>
+          <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form mv4 tc" id="AddToCartForm">
 
-
-
-
-
-          <form action="/cart/add" method="post" enctype="multipart/form-data" class="product-single__form mb4" id="AddToCartForm">
-
-            <div class='dib mr5'>
-
-            <select name="id" id="ProductSelect" class="product-single__variants">
-              {% for variant in product.variants %}
-                {% if variant.available %}
-                  <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
-                {% else %}
-                  <option disabled="disabled">
-                    {{ variant.title }} - {{ 'products.product.sold_out' | t }}
-                  </option>
-                {% endif %}
-              {% endfor %}
-            </select>
-                </div>
+            <div class='dib-l db mr5-l tinyText'>
+              <select name="id" id="ProductSelect" class="product-single__variants">
+                {% for variant in product.variants %}
+                  {% if variant.available %}
+                    <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+                  {% else %}
+                    <option disabled="disabled">
+                      {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                    </option>
+                  {% endif %}
+                {% endfor %}
+              </select>
+            </div>
 
             <div class="product-single__add-to-cart dib">
-                        <button type="submit" name="add" id="AddToCart" class="btn ">
-                          <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
-                        </button>
-                      </div>
+              <button type="submit" name="add" id="AddToCart" class="btn mt2 mt0-ns">
+                <span id="AddToCartText" class='tinyText'>{{ 'products.product.add_to_cart' | t }}</span>
+              </button>
+            </div>
 
-
-                                  {% comment %}
-                                  <div class="product-single__quantity">
-                                    <label for="Quantity" class="product-single__quantity-label js-quantity-selector">{{ 'products.product.quantity' | t }}</label>
-                                    <input type="number" hidden="hidden" id="Quantity" name="quantity" value="1" min="1" class="js-quantity-selector">
-                                  </div>
-                                  {% endcomment %}
           </form>
-
           </div>
 
         </div>
-
-
-
         {% if settings.social_sharing_products %}
           {% include 'social-sharing' %}
         {% endif %}
-
   </div>
   </div>
 </div>
-
-
-
-
+  </div>
+  </div>
   </div>
 
-
-  <div id='flipButton' class='db tc h3 fixed bottom-0 w-100'>
-    {{'360.png' | asset_url | img_tag: 'rotate image' , 'fader' }}
-  </div>
-
-
-
-  <!-- {% if collection %}
-    <hr class="hr--clear">
-    <div class="text-center">
-      <a href="{{ collection.url }}" class="return-link">&larr; {{ 'products.general.collection_return' | t: collection: collection.title }}</a>
+  <div class='db'>
+    <div class="dt h3 fixed bottom-0 w-100 z-0 pt4 center">
+    <div class='dtc v-mid tc'>
+      {% if collection.previous_product %}
+          <a href="{{collection.previous_product}}" class='dtc w-33 v-mid tc retrograde'>
+            <img src={{ 'leftArrow.svg' | asset_url }} class='dn-l' height='30px' />
+          </a>
+        {% else %}
+          <a href="https://treehouse-11.myshopify.com/collections/thc/products/rhino" class='dn-l dtc w-33 v-mid tc retrograde'>
+            <img src={{ 'leftArrow.svg' | asset_url }} class='dn-l' height='30px' />
+          </a>
+    {% endif %}
     </div>
-  {% endif %} -->
-
+    <div id='flipButton' class='dtc v-mid tc'>
+      {{'360.png' | asset_url | img_tag: 'rotate image' , 'fader' }}
+    </div>
+    <div class='dtc v-mid tc'>
+      {% if collection.next_product %}
+        <a href="{{ collection.next_product }}" class='dtc w-33 v-mid tc anterograde'  >
+          <img src={{ 'rightArrow.svg' | asset_url }} class='dn-l' height='30px' />
+        </a>
+      {% else %}
+        <a href="https://treehouse-11.myshopify.com/collections/thc/products/skunk" class='dn-l dtc w-33 v-mid tc anterograde' >
+          <img src={{ 'rightArrow.svg' | asset_url }} class='dn-l' height='30px' />
+        </a>
+      {% endif %}
+    </div>
+    </div>
+  </div>
 </div>
 <div>
 
@@ -333,6 +334,12 @@
 
 var backside = document.getElementById('backside');
 var frontside = document.getElementById('product-single__photo');
+
+$(window).load(function() {
+    $('#string').removeClass('dn');
+    $('#string').addClass('swingimage');
+    $('#product-single__photo').addClass('swingimage');
+  });
 
 var flipp = document.getElementById('flipButton');
 
@@ -396,18 +403,22 @@ var btn = document.getElementById('product-single__photo');
 // Get the <span> element that closes the modal
 var span = document.getElementsByClassName("closeModal")[0];
 
+// var cartDrawer = document.getElementById("AddToCartText");
+
 // When the user clicks on the button, open the modal
 btn.onclick = function() {
     modal.style.display = "block";
-    console.log('hello')
 }
-
-
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
 }
+
+// When the user clicks on <span> (x), close the modal
+// cartDrawer.onclick = function() {
+//     modal.style.visibility = "hidden";
+// }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
