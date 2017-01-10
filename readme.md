@@ -1,7 +1,7 @@
 # Develop Shopify Themes Locally
 
 
-## Before You Start
+## If you've never done this before
 
 1. Make sure you have ruby installed.
 2. run `gem install shopify_theme` in your terminal.

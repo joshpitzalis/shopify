@@ -1,0 +1,37 @@
+<div class="footer-linklist">
+  {% if settings.footer-headers %}
+    <h4 class="section-title">{{ 'layout.footer.social_heading'| t }}</h4>
+  {% endif %}
+
+  <ul>
+    {% if settings.social-facebook-link != blank %}
+      <li>
+        <a class="social-icon facebook" href="{{ settings.social-facebook-link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Facebook' }}">Facebook</a>
+      </li>
+    {% endif %}
+    {% if settings.social-twitter-link != blank %}
+      <li>
+        <a class="social-icon twitter" href="{{ settings.social-twitter-link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Twitter' }}">Twitter</a>
+      </li>
+    {% endif %}
+    {% if settings.social-pinterest-link != blank %}
+      <li>
+        <a class="social-icon pinterest" href="{{ settings.social-pinterest-link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Pinterest' }}">Pinterest</a>
+      </li>
+    {% endif %}
+    {% if settings.social-instagram-link != blank %}
+      <li>
+        <a class="social-icon instagram" href="{{ settings.social-instagram-link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Instagram' }}">Instagram</a>
+      </li>
+    {% endif %}
+    {% if settings.social-googleplus-link != blank %}
+      <li>
+        <a class="social-icon google-plus" href="{{ settings.social-googleplus-link }}" rel="publisher" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Google Plus' }}">Google Plus</a>
+      </li>
+    {% endif %} 
+    {% if settings.social-email-link != blank %}
+      <li>
+        <a class="social-icon email" href="mailto:{{ settings.social-email-link }}" title="{{ 'layout.footer.social_platform' | t: name: shop.name, platform: 'Email' }}">{{ 'layout.footer.social_email' | t }}</a>
+      </li>
+    {% endif %}
+  </div>
