@@ -1,0 +1,20 @@
+{% if blog.comments_enabled? %}
+  <div class="comments">
+    {% if number_of_comments > 0 %}
+      {% if comment and comment.created_at %}
+        {% include 'comment', just_created: true %}
+      {% endif %}
+      {% paginate article.comments by 24 %}
+        <div>
+          {% for comment in article.comments %}
+            {% include 'comment' %}
+          {% endfor %}
+        </div>
+        {% include 'pagination' %}
+      {% endpaginate %}
+    {% endif %}
+
+    <h3>{{ 'blogs.comment_form.title' | t }}:</h3>
+    {% include 'form-comment' %}
+  </div>
+{% endif %}

@@ -1,0 +1,52 @@
+<div class="instagram-feed" data-section-id="{{ section.id }}" data-section-type="instagram-feed" data-token="{{ section.settings.instagram_small_victories_access_token }}" data-limit="{{ section.settings.instagram_limit }}">
+  {% if section.settings.title %}
+    <div class="section">
+      <a href="/" target="_blank" class="instagram-title">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </a>
+    </div>
+  {% endif %}
+
+  <div class="instagram-photos">
+    {% if section.settings.instagram_small_victories_access_token == blank %}
+      {% for i in (1..section.settings.instagram_limit) %}
+        <a class="instagram-photo" target="_blank" href="http://www.smallvictories.co/themes/instagram-access-token">
+          {{ 'image' | placeholder_svg_tag: 'placeholder-svg' }}
+        </a>
+      {% endfor %}
+    {% else %}
+      <!-- populated by code -->
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Instagram feed",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_small_victories_access_token",
+      "label": "Instagram Access Token ([?](http://www.smallvictories.co/themes/instagram-access-token))"
+    },
+    {
+      "type": "text",
+      "id": "instagram_limit",
+      "label": "Number of images",
+      "default": "8"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram feed",
+      "category": "Social media"
+    }
+  ]
+}
+{% endschema %}

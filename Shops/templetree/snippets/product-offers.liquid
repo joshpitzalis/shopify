@@ -1,0 +1,10 @@
+<div class="offers" itemprop="offers" itemscope itemtype="http://schema.org/Offer">
+  <meta itemprop="priceCurrency" content="{{ shop.currency }}">
+  {% if product.available %}
+    <link itemprop="availability" href="http://schema.org/InStock">
+  {% else %}
+    <link itemprop="availability" href="http://schema.org/OutOfStock">
+  {% endif %}
+  <h2 class="price" itemprop="price" content="{{ current_variant.price | money_without_currency }}" id="productPrice-{{ section.id }}"><span class="money">{{ current_variant.price | money }}</span></h2>
+  <h2 class="price striped" id="comparePrice-{{ section.id }}">{% if current_variant.compare_at_price %}<span class="money">{{ current_variant.compare_at_price | money }}</span>{% endif %}</h2>
+</div>

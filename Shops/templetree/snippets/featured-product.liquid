@@ -1,0 +1,48 @@
+<div class="featured-product" {{ block.shopify_attributes }}>
+  <div class="image">
+    <div class="container">
+      <div class="right">
+        <a href="{{ product.url }}" tabindex="-1">
+          <div class="picture" style="background-image: url('{{ product.featured_image.src | img_url: '1024x1024' }}');"></div>
+        </a>
+      </div>
+    </div>      
+  </div>
+  <a class="info" href="{{ product.url }}">
+    <div class="container">
+      <div class="left">
+        <div class="table">
+          <div class="cell">
+            <div>
+              <div class="title">
+                {{ product.title | truncate: 50 }}
+              </div>
+              <div class="title mobile">
+                {{ product.title }}
+              </div>
+              <div class="price">
+                {% if on_sale %}
+                  <div class="striped">
+                    <span class='money'>{{ product.compare_at_price_min | money }}</span>
+                  </div>
+                  <span class='money'>{{ product.price_min | money }}</span>
+                {% elsif product.price_varies %}
+                  {% capture price_min %}{{ product.price_min | money }}{% endcapture %}
+                  {% capture price_max %}{{ product.price_max | money }}{% endcapture %}
+                  <span class='money'>{{ price_min }}</span> - <span class='money'>{{ price_max}}</span>
+                {% else %}
+                  <span class='money'>{{ product.price | money }}</span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="button">
+              <span class="btn border {{ settings.button_shape }}">
+                {{ 'products.product.buy_html' | t }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

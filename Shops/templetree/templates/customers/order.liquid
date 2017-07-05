@@ -1,0 +1,118 @@
+<div class="boxes">
+  <div class="box cart">
+    <div class="left">
+      <h2>{{ 'customer.order.title_html' | t: name: order.name }}</h2>
+    </div>
+    <div class="right">
+      {% capture created_at %}
+        {{ order.created_at | date: format: 'date_and_time' }}
+      {% endcapture %}
+      <h3>{{ 'customer.order.date' | t: date: created_at }}.</h3>
+      {% if order.cancelled %}
+        {% capture cancelled_at %}
+          {{ order.cancelled_at | date: format: 'date_and_time' }}
+        {% endcapture %}
+        <h3>{{ 'customer.order.canceled' | t: date: cancelled_at }}.</h3>
+        <h3>{{ 'customer.order.canceled_reason' | t: reason: order.cancel_reason }}.</h3>
+      {% endif %}
+
+      <div class="items">
+        {% for item in order.line_items %}
+          <div class="item {% if forloop.last %}last{% endif %}">
+            <div class="left">
+              <a href="{{ item.product.url }}">
+                <img src="{{ item | img_url: '160x160' }}">
+              </a>
+            </div>
+            <div class="right">
+              <a href="{{ item.url }}" class="name">{{ item.product.title }}</a>
+              {% unless item.variant.title contains 'Default' %}
+                <div class="description">
+                  {{ item.variant.title }}
+                </div>
+              {% endunless %}
+              <div class="description">
+                Price: {{ item.price | money }}
+              </div>
+              <div class="description">
+                Quantity: {{ item.quantity }}
+              </div>
+            </div>
+            <div class="price">
+              {{ item.line_price | money }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="more">
+        <h3 class="row small with-line">
+          {{ 'customer.order.subtotal' | t }}
+          <span class="value">{{ order.subtotal_price | money }}</span>
+        </h3>
+        {% for discount in order.discounts %}
+          <h3 class="row small with-line">
+            {{ discount.code }} {{ 'customer.order.discount' | t }}
+            <span class="value">{{ discount.savings | money }}</span>
+          </h3>
+        {% endfor %}
+        {% for shipping_method in order.shipping_methods %}
+          <h3 class="row small with-line">
+            {{ shipping_method.title }}
+            <span class="value">{{ shipping_method.price | money }}</span>
+          </h3>
+        {% endfor %}
+        {% for tax_line in order.tax_lines %}
+          <h3 class="row small with-line">
+            {{ 'customer.order.tax' | t }} ({{ tax_line.title }} {{ tax_line.rate | times: 100 }}%)
+            <span class="value">{{ tax_line.price | money }}</span>
+          </h3>
+        {% endfor %}
+        <h3 class="row expanded with-line">
+          {{ 'customer.order.total' | t }}
+          <span class="value">{{ order.total_price | money }}</span>
+        </h3>
+
+        <h3 class="row small with-line">
+          {{ 'customer.order.payment_status' | t }}
+          <span class="value">{{ order.financial_status_label }}</span>
+        </h3>
+        <h3 class="row small with-line">
+          {{ 'customer.order.fulfillment_status' | t }}
+          <span class="value">{{ order.fulfillment_status_label }}</span>
+        </h3>
+      </div>
+      
+      <div class="row expanded-top">
+        <h3>{{ 'customer.order.billing_address' | t }}</h3>
+        <p class="expanded">
+          <span class="highlight">{{ order.billing_address.name }}</span><br>
+          {% if order.billing_address.company != '' %}({{ order.billing_address.company }})<br>{% endif %}
+          {{ order.billing_address.street }}<br>
+          {% if order.billing_address.city != "" %}{{ order.billing_address.city }},{% endif %}
+          {% if order.billing_address.province != "" %} {{ order.billing_address.province }}{% endif %}
+          {% if order.billing_address.zip != "" %} {{ order.billing_address.zip | upcase }}{% endif %}<br>
+          {% if order.billing_address.country != "" %} {{ order.billing_address.country }}{% endif %}<br>
+          {% if order.billing_address.phone != "" %} {{ 'customer.addresses.phone_label' | t }}  {{ order.billing_address.phone }}{% endif %}
+        </p>
+      </div>
+
+      <div class="row expanded-top">
+        <h3>{{ 'customer.order.shipping_address' | t }}</h3>
+        <p class="expanded">
+          <span class="highlight">{{ order.shipping_address.name }}</span><br>
+          {% if order.shipping_address.company != '' %}({{ order.shipping_address.company }})<br>{% endif %}
+          {{ order.shipping_address.street }}<br>
+          {% if order.shipping_address.city != "" %}{{ order.shipping_address.city }},{% endif %}
+          {% if order.shipping_address.province != "" %} {{ order.shipping_address.province }}{% endif %}
+          {% if order.shipping_address.zip != "" %} {{ order.shipping_address.zip | upcase }}{% endif %}<br>
+          {% if order.shipping_address.country != "" %} {{ order.shipping_address.country }}{% endif %}<br>
+          {% if order.shipping_address.phone != "" %} {{ 'customer.addresses.phone_label' | t }} {{ order.shipping_address.phone }}{% endif %}
+        </p>
+      </div>
+      <div class="row expanded-top back">
+        <a class="underscore" href="/account">{{ 'customer.order.return_to_account' | t }}</a>
+      </div>
+    </div>
+  </div>
+</div>

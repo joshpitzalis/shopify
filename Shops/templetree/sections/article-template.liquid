@@ -1,0 +1,53 @@
+<div class="blog content">
+  <div class="inner {{ section.settings.article_layout }}">
+    <div class="section">
+      <a href="{{ blog.url }}">
+        <h2>{{ blog.title }}</h2>
+      </a>
+      <a class="rss" href="{{ shop.url }}{{ blog.url }}.atom" target="_blank">
+        <h2>
+          <i class="fc fc-rss"></i>
+        </h2>
+      </a>
+    </div>
+    <div class="article">
+      {% include 'post' %}
+      {% include 'article-comments' %}
+    </div>
+    {% include 'article-pagination' %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Article",
+  "settings": [
+    {
+      "type": "select",
+      "id": "article_layout",
+      "label": "Layout",
+      "default": "left",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "centered",
+          "label": "Centered"
+        },
+        {
+          "value": "expanded",
+          "label": "Expanded"
+        }
+      ]
+    },
+    {
+      "type": "checkbox",
+      "id": "social_sharing_articles",
+      "label": "Enable sharing",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

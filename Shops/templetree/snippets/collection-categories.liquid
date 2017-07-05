@@ -1,0 +1,19 @@
+{% if section.settings.product_grid_tags_enable  %}
+  {% if collection.all_tags.size > 0 %}
+    {% assign tags_count = collection.all_tags.size %}
+    {% assign tags = collection.all_tags %}
+  {% elsif collection.tags.size > 0 %}
+    {% assign tags_count = collection.tags.size %}
+    {% assign tags = collection.tags %}    
+  {% else %}
+    {% assign tags_count = 0 %}
+  {% endif %}
+  {% if tags_count > 0 %}
+    <ul class="categories inline">
+      <li class="all"><a id="all" href="/collections/{{ collection.handle }}" {% unless current_tags %} class="active"{% endunless %}><span>{{ 'collections.tags.all' | t }}</span><sup>{{ collection.all_products_count }}</sup></a></li>
+      {% for tag in tags %}
+        <li><a id="{{ tag | handle }}" href="/collections/{{ collection.handle }}/{{ tag | handle }}" {% if current_tags contains tag %}class="active"{% endif %}><span>{{ tag }}</span><sup>1</sup></a></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+{% endif %}

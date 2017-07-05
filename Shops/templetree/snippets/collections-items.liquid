@@ -1,0 +1,17 @@
+{% assign collection_index = 0 %}
+<div class="collections-items {% if section.settings.collection_interactive_enable %}interactive{% endif %}">
+  {% if linklists[list_name].links.size > 0 %}
+    {% for link in linklists[list_name].links %}
+      {% assign collection = link.object %}
+      {% include 'collections-item' %}
+      {% assign collection_index = collection_index | plus: 1 %}
+    {% endfor %}
+  {% else %}
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' or collection.handle == settings.home_featured_collection %}
+        {% include 'collections-item' %}
+        {% assign collection_index = collection_index | plus: 1 %}
+      {% endunless %}
+    {% endfor %}
+  {% endif %}
+</div>

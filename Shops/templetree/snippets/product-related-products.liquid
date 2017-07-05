@@ -1,0 +1,56 @@
+{% assign current_product = product %}
+{% assign exclusions = 'frontpage,all' | split: ',' %}
+
+{% comment %}
+  Looking for a relevant collection.
+{% endcomment %}
+
+{% if product.metafields.c_f['Related Products'] %}
+  {% assign collection = collections[product.metafields.c_f['Related Products']] %}
+{% endif %}
+
+{% assign found_a_collection = false %}
+{% if collection and collection.all_products_count > 1 %}
+  {% unless exclusions contains collection.handle %}
+    {% assign found_a_collection = true %}
+  {% endunless %}
+{% endif %}
+{% unless found_a_collection %}
+  {% for c in product.collections %}
+    {% unless exclusions contains c.handle %}
+      {% assign found_a_collection = true %}
+      {% assign collection = c %}
+      {% break %}
+    {% endunless %}
+  {% endfor %}
+{% endunless %}
+
+{% comment %}
+  If we have a relevant collection.
+{% endcomment %}
+
+{% if found_a_collection %}
+  {% capture related_items %}
+    {% for product in collection.products %}
+      {% unless product.handle == current_product.handle %}
+        {% include 'collection-product' %}
+      {% endunless %}
+    {% endfor %}
+  {% endcapture %}
+
+  {% assign related_items = related_items | trim %}
+
+  {% unless related_items == blank %}
+    <div class="content related bg-washed-pink" data-section-id="{{ section.id }}" data-section-type="related-products">
+      <div class="section">
+        <h2>{{ 'products.product.related_products' | t }}</h2>
+      </div>
+      <div class="collection">
+        {% include 'get-collection-products-classes', with_previews: false %}
+        <div class="collection-products {{ collection_products_classes }}">
+          {{ related_items }}
+        </div>
+      </div>
+    </div>
+  {% endunless %}
+{% endif %}

@@ -1,0 +1,17 @@
+<div class="boxes">
+  <div class="box">
+    <div class="left">
+      <h2>{{ 'cart.general.title_html' | t }}</h2>
+    </div>
+    <div class="right">
+      {% if cart.item_count > 0 %}
+        {% include 'form-cart' %}
+      {% else %}
+        <h3 class="empty">{{ 'cart.general.empty' | t }}</h3>
+        <div class="row expanded-top">
+          <a href="/" class="btn solid {{ settings.button_shape }}">{{ 'cart.general.continue_browsing_html' | t }}</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</div>

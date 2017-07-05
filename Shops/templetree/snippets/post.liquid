@@ -1,0 +1,73 @@
+{% capture class %}{% cycle blog.handle: 'col-0', 'col-1' %}{% endcapture %}
+
+<div class="post {{ section.settings.layout }} {{ class }}" itemscope itemtype="http://schema.org/BlogPosting">
+  <meta itemprop="articleSection" content="{{ blog.title }}">
+  <meta itemprop="keywords" content="{{ article.tags | join: ', ' }}">
+
+  {% if article.image %}
+    {% if template == 'article' %}
+      <img itemprop="image" src="{{ article.image | img_url: '1024x1024' }}" class="image">
+    {% else %}
+      <a href="{{ article.url }}">
+        {% if section.settings.featured_images_fixed_height_enabled %}
+          <div itemprop="image" style="background-image: url({{ article.image | img_url: '1024x1024' }}); height: {{ section.settings.featured_images_fixed_height }}px; max-height: 800px;" class="image-preview"></div>
+        {% else %}
+          <img itemprop="image" src="{{ article.image | img_url: '1024x1024' }}" class="image">
+        {% endif %}
+      </a>
+    {% endif %}
+  {% endif %}
+
+  <h1 itemprop="headline"><a href="{{ article.url }}">{{ article.title }}</a></h1>
+  {% capture date %}
+    <time pubdate datetime="{{ article.published_at | date: format: 'day_month_and_year' }}" itemprop="datePublished">{{ article.published_at | date: format: 'day_month_and_year' }}</time>
+  {% endcapture %}
+  <h3>{{ 'blogs.article.meta_html' | t: author: article.author, date: date }}</h3>
+  <hr/>
+  {% if template == 'article' %}
+    <div itemprop="articleBody" id="rte">
+      {{ article.content }}
+    </div>
+  {% else %}
+    <div itemprop="about" id="rte">
+      {% if article.excerpt.size > 0 %}
+        <p>{{ article.excerpt }}</p>
+      {% else %}
+        <p>{{ article.content | strip_html | truncatewords: 120 }}</p>
+      {% endif %}
+    </div>
+    <a class="btn border more" href="{{ article.url }}" title="{{ article.title }}">{{ 'blogs.article.read_entire_article_html' | t }}</a>
+  {% endif %}
+
+  {% assign number_of_comments = article.comments_count %}
+  {% if comment and comment.created_at %}
+    {% assign number_of_comments = article.comments_count | plus: 1 %}
+  {% endif %}
+
+  {% if number_of_comments > 0 or article.tags.size > 0 %}
+    <div class="extra" id="comments" >
+      {% if blog.comments_enabled? %}
+        {% if number_of_comments > 0 %}
+          <div class="comments">
+            <a href="{{ article.url }}#comments">
+              <i class="icon fc fc-comment"></i>
+              <span class="number">{{ number_of_comments }}</span>
+            </a>
+          </div>
+        {% endif %}
+      {% endif %}
+
+      {% if article.tags.size > 0 %}
+        <div class="tags">
+          <i class="icon fc fc-tag"></i>
+          {% for tag in article.tags %}
+            <a href="{{ blog.url }}/tagged/{{ tag | handle }}">{{ tag }}</a>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  {% endif %}
+  {% if template == 'article' %}
+    {% include 'article-share' %}
+  {% endif %}
+</div>

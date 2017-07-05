@@ -1,0 +1,17 @@
+{% if blog.previous_article or blog.next_article %}
+  <div class="section pagination">
+    {% if blog.previous_article %}
+      <a href="{{ blog.previous_article }}">
+        <h2>{{ 'blogs.article.previous_article_html' | t }}</h2>
+      </a>
+    {% endif %}
+    {% if blog.previous_article and blog.next_article %}
+      <h2 class="divider">/</h2>
+    {% endif %}
+    {% if blog.next_article %}
+      <a href="{{ blog.next_article }}">
+        <h2>{{ 'blogs.article.next_article_html' | t }}</h2>
+      </a>
+    {% endif %}
+  </div>
+{% endif %}

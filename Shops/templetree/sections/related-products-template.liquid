@@ -1,0 +1,116 @@
+{% if section.settings.related_products_enable %}
+  {% include 'product-related-products' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Related products",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "related_products_enable",
+      "label": "Enable",
+      "info": "Shows products from same collection",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "product_grid_titles_enable",
+      "label": "Show products title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "product_grid_prices_enable",
+      "label": "Show products price",
+      "default": true
+    },
+    {
+      "type": "select",
+      "label": "Products text alignent",
+      "id": "product_grid_text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Interactions",
+      "info": "Desktop and tablet only."
+    },
+    {
+      "type": "checkbox",
+      "id": "product_grid_interactive_enable",
+      "label": "Show product info on mouse over"
+    },
+    {
+      "type": "select",
+      "id": "product_grid_mouseover_opacity",
+      "label": "Mouse over overlay opacity",
+      "default": "70",
+      "options": [
+        {
+          "value": "100",
+          "label": "0%"
+        },
+        {
+          "value": "90",
+          "label": "10%"
+        },
+        {
+          "value": "80",
+          "label": "20%"
+        },
+        {
+          "value": "70",
+          "label": "30%"
+        },
+        {
+          "value": "60",
+          "label": "40%"
+        },
+        {
+          "value": "50",
+          "label": "50%"
+        },
+        {
+          "value": "40",
+          "label": "60%"
+        },
+        {
+          "value": "30",
+          "label": "70%"
+        },
+        {
+          "value": "20",
+          "label": "80%"
+        },
+        {
+          "value": "10",
+          "label": "90%"
+        },
+        {
+          "value": "0",
+          "label": "100%"
+        }
+      ]
+    },{
+      "type": "checkbox",
+      "id": "product_grid_mouseover_gradient_enable",
+      "label": "Use gradient as mouse over overlay"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,107 @@
+{% assign blog = blogs[section.settings.blog] %}
+
+<div class="featured-news blog">
+  <div class="section">
+    {% if blog.empty? %}
+      <h2>{{ 'home_page.onboarding.blog_title' | t }}</h2>
+    {% else %}
+      <a href="{{ blog.url }}">
+        <h2>{{ blog.title }}</h2>
+      </a>
+    {% endif %}
+    <a class="rss" href="{{ shop.url }}{{ blog.url }}.atom" target="_blank">
+      <h2><i class="fc fc-rss"></i></h2>
+    </a>
+  </div>
+  <div class="excerpts">
+    {% unless blog.empty? %}
+      {% for article in blog.articles limit:section.settings.post_limit %}
+        {% include 'post' %}
+      {% endfor %}
+    {% else %}
+      {% for i in (1..section.settings.post_limit) %}
+        {% include 'dummie-post' %}
+      {% endfor %}
+    {% endunless %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog posts",
+  "settings": [
+    {
+      "id": "blog",
+      "type": "blog",
+      "label": "Blog"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "grid",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "list",
+          "label": "List"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "post_limit",
+      "label": "Posts",
+      "default": "2",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "6",
+          "label": "6"
+        },
+        {
+          "value": "8",
+          "label": "8"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Post featured images"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_images_fixed_height_enabled",
+      "label": "Enable fixed height",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "featured_images_fixed_height",
+      "label": "Fixed height",
+      "default": "360",
+      "info": "Defined in pixels. Do not add the 'px' unit. 800px max."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Blog posts",
+      "category": "Blog",
+      "settings": {
+        "blog": "News",
+        "post_limit": "2"
+      }
+    }
+  ]
+}
+{% endschema %}

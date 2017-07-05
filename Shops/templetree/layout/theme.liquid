@@ -1,0 +1,26 @@
+<!doctype html>
+<!-- Colors Theme Version 4.5.4 -->
+<!--[if IE 8]><html class="no-js ie9 lt-ie9" lang="{{ shop.locale }}"> <![endif]-->
+<!--[if IE 9 ]><html class="ie9 no-js"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html class="no-js" lang="{{ shop.locale }}"> <!--<![endif]-->
+<head>
+  {% include 'styles' %}
+  {% include 'metas' %}
+  {% include 'javascript' %}
+  {{ "font.css"  | asset_url | stylesheet_tag }}
+  {{ content_for_header }}
+  <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
+
+</head>
+
+<body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} no-outlines">
+  {% section 'header' %}
+  <div class="main">
+    <div class="layout">
+      {{ content_for_layout }}
+    </div>
+    {% section 'footer' %}
+  </div>
+  {% include 'footer-javascript' %}
+</body>
+</html>

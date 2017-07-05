@@ -1,0 +1,17 @@
+{% if collection_item_width != blank %}
+  {% if collection_item_width == 'one-whole' %}
+    {% assign image_size = "2048x2048" %}
+  {% elsif collection_item_width == 'one-half' %}
+    {% assign image_size = "1024x1024" %}
+  {% else %}
+    {% assign image_size = "600x600" %}
+  {% endif %}
+{% else %}
+  {% assign image_size = "1024x1024" %}
+{% endif %}
+
+{% if collection.image %}
+  {% capture collection_item_image_url %}{{ collection.image.src | img_url: '2048x2048' }}{% endcapture %}
+{% else %}
+  {% capture collection_item_image_url %}{{ collection.products.first.featured_image | img_url: '600x600' }}{% endcapture %}
+{% endif %}

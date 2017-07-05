@@ -1,0 +1,74 @@
+<form action="/cart" method="post" novalidate class="cart">
+  <div class="items">
+    {% for item in cart.items %}
+      <div class="item {% if forloop.last %}last{% endif %}" data-line="{{ forloop.index }}">
+        <div class="left">
+          <a href="{{ item.product.url }}">
+            <img src="{{ item | img_url: '480x480' }}">
+          </a>
+        </div>
+        <div class="right">
+          <a href="{{ item.url }}" class="name">{{ item.product.title }}</a>
+          {% unless item.variant.title contains 'Default' %}
+            <div class="description">
+              {{ item.variant.title }}
+            </div>
+          {% endunless %}
+
+          {% assign property_size = item.properties | size %}
+          {% if property_size > 0 %}
+            <div class="description">
+              {% for p in item.properties %}
+                {% unless p.last == blank %}
+                  {{ p.first }}:
+                  {% if p.last contains '/uploads/' %}
+                    <a href="{{ p.last }}">{{ p.last | split: '/' | last }}</a>
+                  {% else %}
+                    {{ p.last }}
+                  {% endif %}
+                  {% if forloop.last == false %}
+                    <br>
+                  {% endif %}
+                {% endunless %}
+              {% endfor %}
+            </div>
+          {% endif %}
+
+          <div class="quantity">
+            <input type="number" name="updates[]" value="{{ item.quantity }}" min="0" pattern="[0-9]*">
+          </div>
+        </div>
+        <div class="price"><span class="money">{{ item.price | money }}</span></div>
+        <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="remove">
+          <i class="fc fc-close"></i>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="more">
+    <h3 class="row with-line">
+      {{ 'cart.general.subtotal' | t }}
+      <span class="value money">{{ cart.total_price | money }}</span>
+    </h3>
+    <div class="row">
+      {% if settings.show_multiple_currencies %}
+        <h4>{{ 'cart.general.currency_conversion_html' | t: name: shop.name, currency: shop.currency }}</h4>
+      {% endif %}
+      <h4>{{ 'cart.general.shipping_at_checkout' | t }}</h4>
+    </div>
+    {% if settings.cart_notes_enable %}
+      <div class="row instructions">
+        <label for="CartSpecialInstructions">{{ 'cart.general.note' | t }}</label>
+        <textarea class="text" name="note" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+      </div>
+    {% endif %}
+    {% include 'form-errors' %}
+    <div class="row right">
+      <button type="submit" name="update" class="btn solid update">{{ 'cart.general.update_html' | t }}</button>
+      <button type="submit" name="checkout" class="btn accent {{ settings.button_shape }}">{{ 'cart.general.checkout_html' | t }}</button>
+      {% if additional_checkout_buttons %}
+        <div class="additional_checkout_buttons">{{ content_for_additional_checkout_buttons }}</div>
+      {% endif %}
+    </div>
+  </div>
+</form>

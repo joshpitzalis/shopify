@@ -1,0 +1,58 @@
+<div class="boxes">
+  <div class="box">
+    <div class="left">
+      <h2>{{ 'customer.account.title_html' | t }}</h2>
+    </div>
+    <div class="right">
+      <div class="row">
+        <p class="expanded">
+          {{ 'customer.account.user_info_html' | t: name: customer.name, email: customer.email }}
+          {% if customer.default_address %}
+            {% capture address %}
+              {{ customer.default_address.address1 }}{% if customer.default_address.address2 != "" %}, {{ customer.default_address.address2 }}{% endif %} 
+              {% if customer.default_address.city != "" %}<br>in {{ customer.default_address.city }},{% endif %}
+              {% if customer.default_address.province_code != "" %} {{ customer.default_address.province_code | upcase }}{% endif %}
+              {% if customer.default_address.zip != "" %} {{ customer.default_address.zip | upcase }}{% endif %}
+              {% if customer.default_address.country != "" %} {{ customer.default_address.country }}{% endif %}
+            {% endcapture %}
+            <br><br>{{ 'customer.account.address_info_html' | t: address: address }}
+          {% endif %}
+        </p>
+      </div>
+      <div class="row expanded-top actions">
+        {% if customer.addresses_count == 0 %}
+          <a href="/account/addresses" class="btn solid {{ settings.button_shape }}">{{ 'customer.account.add_address_html' | t }}</a>
+        {% else %}
+          <a href="/account/addresses" class="btn solid {{ settings.button_shape }}">{{ 'customer.account.edit_addresses_html' | t: count: customer.addresses_count }}</a>
+        {% endif %}      
+      </div>
+      {% include 'return-to-store' %}
+    </div>
+  </div>
+  
+  {% if customer.orders.size != 0 %}
+    <div class="box">
+      <div class="left">
+        <h2>{{ 'customer.orders.title_html' | t }}</h2>
+      </div>
+      <div class="right">
+        <div class="row orders">
+          {% paginate customer.orders by 12 %}
+            {% for order in customer.orders %}
+              <div class="order">
+                {% capture date %}{{ order.created_at | date: format: 'day_month_and_year' }}{% endcapture %}
+                {% capture link %}<a class="underline" href="{{ order.customer_url }}"><span class="highlight">{{ order.name }}</span></a>{% endcapture %}
+                <p class="expanded">{{ 'customer.orders.order_description_html' | t: date: date, link: link, financial_status: order.financial_status_label, fulfillment_status: order.fulfillment_status_label }}</p>
+              </div>
+              {% unless forloop.last %}
+                <hr class="short">
+              {% endunless %}
+            {% endfor %}
+            {% include 'pagination' %}
+          {% endpaginate %}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+
+</div>

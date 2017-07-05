@@ -1,0 +1,19 @@
+{% form 'customer' %}
+  {% if form.posted_successfully? %}
+    <p class="success">{{ 'layout.footer.newsletter_success' | t }}</p>
+  {% else %}
+    <div class="table">
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <input class="text {% if form.errors contains 'email' %} error{% endif %}" type="email" name="contact[email]" placeholder="{{ 'layout.footer.newsletter_placeholder' | t }}" autocorrect="off" autocapitalize="off">
+      <span class="input-group-btn">
+        <input type="submit" class="btn" value="{{ 'layout.footer.newsletter_submit' | t }}">
+      </span>
+
+    </div>
+    {% if form.errors %}
+      {% for field in form.errors %}
+        <div class="field-error">{{ form.errors.messages[field] }}</div>
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endform %}

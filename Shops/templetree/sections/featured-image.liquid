@@ -1,0 +1,38 @@
+<div class="featured-image {% if section.settings.with_padding %}with-padding{% endif %}" data-section-id="{{ section.id }}" data-section-type="featured-image">
+  {% if section.settings.link %}<a href="{{ section.settings.link }}">{% endif %}
+    {% if section.settings.image != blank %}
+      <img src="{{ section.settings.image | img_url: '2048x' }}">
+    {% else %}
+      {{ 'image' | placeholder_svg_tag: 'placeholder' }}
+    {% endif %}
+  {% if section.settings.link %}</a>{% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Featured image",
+  "class": "featured-image-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Link"
+    },
+    {
+      "type": "checkbox",
+      "id": "with_padding",
+      "label": "Show margins",
+      "default": false
+    }
+  ],
+  "presets": [{
+    "name": "Featured image",
+    "category": "Image"
+  }]
+}
+{% endschema %}

@@ -1,0 +1,27 @@
+<div class="boxes contact">
+  {% if page.content != blank %}
+    <div class="box">
+      <div class="left">
+        <h2>{{ page.title }}</h2>
+      </div>
+      <div class="right">
+        <div id="rte">
+          {{ page.content }}
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="box">
+    <div class="left">
+      {% if page.content == blank %}
+        <h2>{{ page.title }}</h2>
+      {% else %}
+        <h2>{{ 'contact.form.title_html' | t }}</h2>
+      {% endif %}
+    </div>
+    <div class="right">
+      {% include 'form-contact' %}
+      {% include 'return-to-store' %}
+    </div>
+  </div>
+</div>

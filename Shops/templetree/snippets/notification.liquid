@@ -1,0 +1,17 @@
+<div class="boxes">
+  <div class="box">
+    <div class="left">
+      <h2>{{ title | t }}</h2>
+    </div>
+    <div class="right">
+      <h3>{{ subtitle | t }}</h3>
+      <div class="row actions">
+        <a href="/" class="btn solid {{ settings.button_shape }}">{{ 'general.404.continue_shopping_html' | t }}</a>
+      </div>
+      <div class="row back">
+        {% capture link %}<a class="underline" href="/" data-action="toggle-browse">{{ 'general.404.open_menu' | t }}</a>{% endcapture %}
+        {{ 'general.navigation.cancel_html' | t: link: link }}
+      </div>
+    </div>
+  </div>
+</div>

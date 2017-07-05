@@ -1,0 +1,19 @@
+{% if settings.social_twitter_link != blank %}
+  <meta name="twitter:site" content="@{{ settings.social_twitter_link | split: 'twitter.com/' | last }}">
+{% endif %}
+  <meta name="twitter:card" content="summary">
+{% if template.name == 'product' %}
+  <meta name="twitter:title" content="{{ product.title }}">
+  {% if product.description != blank %}
+    <meta name="twitter:description" content="{{ product.description | strip_html | truncatewords: 140, '' | escape }}">
+  {% endif %}
+  <meta name="twitter:image" content="https:{{ product.featured_image.src | product_img_url: '240x240' }}">
+  <meta name="twitter:image:width" content="240">
+  <meta name="twitter:image:height" content="240">
+{% elsif template.name == 'article' %}
+  <meta name="twitter:title" content="{{ article.title }}">
+  <meta name="twitter:description" content="{{ article.excerpt_or_content | strip_html | truncatewords: 140, '' | escape }}">
+  {% if article.image %}
+    <meta property="twitter:image" content="http:{{ article.image.src | img_url: '1024x1024' }}">
+  {% endif %}
+{% endif %}

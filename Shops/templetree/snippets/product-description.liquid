@@ -1,0 +1,6 @@
+{% if product.description != blank %}
+  <div class="description" itemprop="description" id="rte">
+    <h3>{{ 'products.product.description_html' | t }}</h3>
+    {{ product.description }}
+  </div>
+{% endif %}

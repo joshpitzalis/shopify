@@ -1,0 +1,28 @@
+{% assign layout_class = "four" %}
+
+{% capture col_class %}{% cycle collection.handle: 'col-0', 'col-1', 'col-2', 'col-3', 'col-4', 'col-5', 'col-6', 'col-7', 'col-8', 'col-9', 'col-10', 'col-11' %}{% endcapture %}
+{% capture col_index %}{% cycle 'collection-index': '1', '2', '3', '4', '5', '6' %}{% endcapture %}
+
+<a class="collection-product dummie {{ layout_class }} {{ col_class }}" href="/admin/products" target="_blank">
+  <div class="inner">
+    <div class="table">
+      <div class="cell">
+        {{ 'product-' | append: col_index | placeholder_svg_tag: 'placeholder-svg' }}
+      </div>
+    </div>
+    {% if section.settings.product_grid_titles_enable or section.settings.product_grid_prices_enable %}
+      <div class="info">
+        <div class="metas">
+          {% if section.settings.product_grid_prices_enable %}
+            <div class="price">
+              <span class="money">{{ 1999 | money }}</span>
+            </div>
+          {% endif %}
+          {% if section.settings.product_grid_titles_enable %}
+            <div class="title">{{ 'home_page.onboarding.add_product' | t }}</div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+  </div>
+</a>

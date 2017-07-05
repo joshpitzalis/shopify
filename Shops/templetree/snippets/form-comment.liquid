@@ -1,0 +1,29 @@
+{% form 'new_comment', article %}
+  <div class="row">
+    <input class="text full{% if form.errors contains 'author' %} error{% endif %}" type="text" name="comment[author]" placeholder="{{ 'blogs.comment_form.name' | t }}" id="comment-author" value="{{ form.author }}" autocapitalize="words">
+    {% include 'form-field-error', field: 'author' %}
+  </div>
+  <div class="row">
+    <input class="text full{% if form.errors contains 'email' %} error{% endif %}" type="email" name="comment[email]" placeholder="{{ 'blogs.comment_form.email' | t }}" id="comment-email" value="{{ form.email }}" autocorrect="off" autocapitalize="off">
+    {% include 'form-field-error', field: 'email' %}
+  </div>
+  <div class="row">
+    <textarea class="text full{% if form.errors contains 'body' %} error{% endif %}" name="comment[body]" id="comment-body" placeholder="{{ 'blogs.comment_form.message' | t }}">{{ form.body }}</textarea>
+    {% include 'form-field-error', field: 'body' %}
+  </div>
+
+  {% if blog.moderated? %}
+    <div class="row">
+      <h4>{{ 'blogs.comment_form.moderated' | t }}</h4>
+    </div>
+  {% endif %}
+
+  {% include 'form-errors' %}
+
+  <div class="row actions">
+    <button type="submit" class="btn solid {{ settings.button_shape }}" formnovalidate="formnovalidate">
+      {{ 'blogs.comment_form.post' | t }}
+    </button>
+  </div>
+
+{% endform %}

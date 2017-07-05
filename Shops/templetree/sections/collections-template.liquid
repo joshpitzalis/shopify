@@ -1,0 +1,131 @@
+{% assign list = 'list-collections' %}
+{% include 'get-collections-count', list_name: list %}
+{% if collection_count > 0 %}
+  <div class="content list-collections" data-section-id="{{ section.id }}" data-section-type="collections">
+    <div class="inner">
+        <div class="collections-header">
+          <div class="section">
+            {% if section.settings.show_title %}
+              <h2>{{ 'collections.general.collections' | t }}</h2>
+            {% endif %}
+          </div>
+        </div>
+      {% include 'collections-items', list_name: list %}
+    </div>
+  </div>
+{% else %}
+  {% include 'notification', title: 'collections.general.collections' , subtitle: 'collections.general.no_collections' %}
+{% endif %}
+
+{% schema %}
+{
+  "name": "Collections page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_title",
+      "label": "Show title",
+      "default": true
+    },
+    {
+      "type": "select",
+      "id": "collection_alignment",
+      "label": "Collection title alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_height",
+      "label": "Collection height",
+      "default": "medium",
+      "options": [
+        {
+          "value": "short",
+          "label": "Short"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "tall",
+          "label": "Tall"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_image_size",
+      "label": "Collection image scale",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_image_opacity",
+      "label": "Collection image transparency",
+      "info": "Adjust to achieve a better readability",
+      "default": "90",
+      "options": [
+        {
+          "value": "100",
+          "label": "0%"
+        },
+        {
+          "value": "90",
+          "label": "10%"
+        },
+        {
+          "value": "80",
+          "label": "20%"
+        },
+        {
+          "value": "70",
+          "label": "30%"
+        },
+        {
+          "value": "60",
+          "label": "40%"
+        },
+        {
+          "value": "50",
+          "label": "50%"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Interactions"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_interactive_enable",
+      "label": "Show collection title on mouse over (desktop only)",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

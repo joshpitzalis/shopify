@@ -1,0 +1,24 @@
+{% assign collection_products_classes = '' %}
+
+{% if section.settings.product_grid_interactive_enable %}
+  {% capture collection_products_classes %}{{ collection_products_classes | append: ' with-interactions' }}{% endcapture %}
+{% endif %}
+
+{% if section.settings.product_grid_mouseover_gradient_enable %}
+  {% capture collection_products_classes %}{{ collection_products_classes | append: ' with-gradients' }}{% endcapture %}
+{% endif %}
+
+{% if section.settings.product_grid_preview_enable and with_previews %}
+  {% capture collection_products_classes %}{{ collection_products_classes | append: ' with-previews' }}{% endcapture %}
+{% endif %}
+
+{% unless section.settings.product_grid_titles_enable %}
+  {% capture collection_products_classes %}{{ collection_products_classes | append: ' without-title' }}{% endcapture %}
+{% endunless %}
+
+{% unless section.settings.product_grid_prices_enable %}
+  {% capture collection_products_classes %}{{ collection_products_classes | append: ' without-price' }}{% endcapture %}
+{% endunless %}
+
+{% capture collection_products_classes %}{{ collection_products_classes | append: ' align-' | append: section.settings.product_grid_text_alignment }}{% endcapture %}
+{% capture collection_products_classes %}{{ collection_products_classes | append: ' hover-opacity-' | append: section.settings.product_grid_mouseover_opacity }}{% endcapture %}

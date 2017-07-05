@@ -1,0 +1,29 @@
+{% unless section.settings.tagline == blank %}
+  <div class="rich-text">
+    <div id="rte" class="center">
+      <blockquote style="margin: 0;">{{ section.settings.tagline | escape }}</blockquote>
+    </div>
+  </div>
+{% else %}
+  {% include 'no-blocks' %}
+{% endunless %}
+
+{% schema %}
+{
+  "name": "Tagline",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Your Store Tagline."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tagline",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

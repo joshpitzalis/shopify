@@ -1,0 +1,14 @@
+{% capture class %}{% cycle blog.handle: 'col-0', 'col-1' %}{% endcapture %}
+
+<div class="post {{ section.settings.layout }} {{ class }}">
+
+  <h1 itemprop="headline">{{ 'home_page.onboarding.post_title' | t }}</h1>
+  {% capture date %}
+    <time pubdate datetime="{{ 'now' | date: format: 'day_month_and_year' }}" itemprop="datePublished">{{ 'now' | date: format: 'day_month_and_year' }}</time>
+  {% endcapture %}
+  <h3>{{ 'blogs.article.meta_html' | t: author: 'John Doe', date: date }}</h3>
+  <hr/>
+  <div itemprop="articleBody" id="rte">
+    {{ 'home_page.onboarding.post_excerpt' | t }}
+  </div>
+</div>

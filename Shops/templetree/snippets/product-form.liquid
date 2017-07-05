@@ -1,0 +1,27 @@
+{% assign current_variant = product.selected_or_first_available_variant %}
+{% assign variants_count = 0 %}
+{% for variant in product.variants %}
+  {% assign variants_count = variants_count | plus: 1 %}
+{% endfor %}
+
+<form action="/cart/add" method="post">
+  <input type="hidden" id="quantity" name="quantity" value="1">
+  {% if variants_count > 1 %}
+    <div class="row expanded">
+      {% include 'product-variants' %}
+    </div>
+  {% else %}
+    <input name="id" type="hidden" value="{{ current_variant.id }}">
+  {% endif %}
+  <div class="row expanded">
+    {% if current_variant.available %}
+      <button id="addToCart-{{ section.id }}" type="submit" class="btn accent {{ settings.button_shape }}" data-action="add-to-cart">
+        {{ 'products.product.add_to_cart_html' | t }}
+      </button>
+    {% else %}
+      <button id="addToCart-{{ section.id }}" type="submit" class="btn border disabled" disabled>
+        {{ 'products.product.unavailable' | t }}
+      </button>
+    {% endif %}
+  </div>
+</form>

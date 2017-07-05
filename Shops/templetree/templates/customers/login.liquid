@@ -1,0 +1,44 @@
+<div class="boxes">
+  <div id="login" class="box">
+    <div class="left">
+      <h2>{{ 'customer.login.title_html' | t }}</h2>
+    </div>
+    <div class="right">
+      <h3>{{ 'customer.login.subtitle' | t }}</h3>
+      <div class="row">
+        {% include 'form-login' %}
+      </div>      
+    </div>
+  </div>
+  <div id="recover_password" class="box hide">
+    <div class="left">
+      <h2>{{ 'customer.login.password_title_html' | t }}</h2>
+    </div>
+    <div class="right">
+      <h3>{{ 'customer.login.password_subtitle' | t }}</h3>
+      {% include 'form-recover-password' %}
+    </div>
+  </div>
+  <div id="register" class="box">
+    <div class="left">
+      <h2>{{ 'customer.login.register_title_html' | t }}</h2>
+    </div>
+    <div class="right">
+      <h3>{{ 'customer.login.register_subtitle' | t }}</h3>
+      <div class="row actions expanded-top">
+        <a class="btn solid {{ settings.button_shape }}" href="/account/register">{{ 'customer.login.register_action' | t }}</a>
+      </div>      
+    </div>
+  </div>
+  {% if shop.checkout.guest_login %}
+    <div id="guest" class="box">
+      <div class="left">
+        <h2>{{ 'customer.login.guest_title_html' | t }}</h2>
+      </div>
+      <div class="right">
+        <h3>{{ 'customer.login.guest_subtitle' | t }}</h3>
+        {% include 'form-guest-login' %}
+      </div>
+    </div>
+  {% endif %}
+</div>

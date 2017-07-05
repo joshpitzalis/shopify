@@ -1,0 +1,12 @@
+<script>
+  window.product = {{ product | json }};
+  window.product.money_format = "{{ shop.money_format }}";
+  window.product.add_label = {% if product.options.size == 1 %}true{% else %}false{% endif %};
+  window.product.label = "{{ product.options.first | escape }}";
+</script>
+
+{% unless product.empty? %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}

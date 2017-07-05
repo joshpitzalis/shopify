@@ -1,0 +1,18 @@
+{% if section.settings.social_sharing_products %}
+  {% assign current_url = shop.url | append: product.url %}
+   <div class="share">
+    <a target="_blank" href="//www.facebook.com/sharer.php?u={{ current_url }}" class="icon circle facebook" title="{{ 'products.product.share_on' | t: platform: 'Facebook' }}">
+      <i class="fc fc-facebook"></i>
+    </a>
+    <a target="_blank" href="//twitter.com/share?text={{ product.title | url_param_escape }}&amp;url={{ current_url }}&amp;media={{ product.featured_image.src | product_img_url: '1024x1024' }}" class="icon twitter" title="{{ 'products.product.share_on' | t: platform: 'Twitter' }}">
+      <i class="fc fc-twitter"></i>
+    </a>
+    <a target="_blank" href="//plus.google.com/share?url={{ current_url }}" class="icon google" title="{{ 'products.product.share_on' | t: platform: 'Google+' }}">
+      <i class="fc fc-google"></i>
+    </a>
+    <a target="_blank" href="//pinterest.com/pin/create/button/?url={{ current_url }}&amp;description={{ product.title | url_param_escape }}&amp;media={{ product.featured_image | img_url: '1024x1024' | prepend: 'http:' | split: '?' | first }}" class="icon pinterest" title="{{ 'products.product.share_on' | t: platform: 'Pinterest' }}">
+      <i class="fc fc-pinterest"></i>
+    </a>
+
+  </div>
+{% endif %}

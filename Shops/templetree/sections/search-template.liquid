@@ -1,0 +1,142 @@
+<div class="search content">
+  <div class="search-header">
+    <div class="section">
+      <h2>{{ 'general.search.title' | t }}</h2>
+      <h2 class="divider">:</h2>
+      <div class="search-bar-wrapper">
+        <form action="/search" method="get" class="search-bar" role="search">
+          <input type="hidden" name="type" value="product">
+          <input type="search" name="q" class="text" placeholder="{{ 'general.search.placeholder' | t }}" value="{{ search.terms }}">
+          <input type="hidden" class="btn" value="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+  {% if search.performed %}
+    {% if search.results_count > 0 %}
+      <div class="search-products">
+        {% paginate search.results by 12 %}
+          {% include 'get-collection-products-classes', with_previews: false %}
+          <div class="collection-products {{ collection_products_classes }}">
+            <div>
+              {% for product in search.results %}
+                {% include 'collection-product' %}
+              {% endfor %}
+            </div>
+            {% include 'pagination' %}
+          </div>
+        {% endpaginate %}      
+      </div>
+    {% else %}
+      <div class="search-empty">
+        <h3 class="empty">{{ 'general.search.no_results_for' | t: terms: search.terms }}</h3>
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Search template",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "product_grid_titles_enable",
+      "label": "Show products title",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "product_grid_prices_enable",
+      "label": "Show products price",
+      "default": true
+    },
+    {
+      "type": "select",
+      "label": "Products text alignent",
+      "id": "product_grid_text_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Interactions",
+      "info": "Desktop and tablet only."
+    },
+    {
+      "type": "checkbox",
+      "id": "product_grid_interactive_enable",
+      "label": "Show product info on mouse over"
+    },
+    {
+      "type": "select",
+      "id": "product_grid_mouseover_opacity",
+      "label": "Mouse over overlay opacity",
+      "default": "70",
+      "options": [
+        {
+          "value": "100",
+          "label": "0%"
+        },
+        {
+          "value": "90",
+          "label": "10%"
+        },
+        {
+          "value": "80",
+          "label": "20%"
+        },
+        {
+          "value": "70",
+          "label": "30%"
+        },
+        {
+          "value": "60",
+          "label": "40%"
+        },
+        {
+          "value": "50",
+          "label": "50%"
+        },
+        {
+          "value": "40",
+          "label": "60%"
+        },
+        {
+          "value": "30",
+          "label": "70%"
+        },
+        {
+          "value": "20",
+          "label": "80%"
+        },
+        {
+          "value": "10",
+          "label": "90%"
+        },
+        {
+          "value": "0",
+          "label": "100%"
+        }
+      ]
+    },{
+      "type": "checkbox",
+      "id": "product_grid_mouseover_gradient_enable",
+      "label": "Use gradient as mouse over overlay"
+    }
+  ]
+}
+{% endschema %}

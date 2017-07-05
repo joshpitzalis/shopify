@@ -1,0 +1,32 @@
+{% assign number_of_images = 0 %}
+{% for image in product.images %}
+  {% assign number_of_images = number_of_images | plus: 1 %}
+{% endfor %}
+
+{% assign current_variant = product.selected_or_first_available_variant %}
+
+<div class="product-images">
+  <div class="frame">
+    <div class="table">
+      <div class="cell">
+        {% assign featured_image = current_variant.featured_image | default: product.featured_image %}
+        <img id="{{ featured_image.id }}" src="{{ featured_image.src | product_img_url: '1024x1024' }}" alt="{{ featured_image.alt | escape }}" {% if section.settings.zoom_enable %}data-mfp-src="{{ featured_image.src | img_url: '2048x2048' }}"{% endif %}/>
+
+        {% for image in product.images %}
+          {% unless image contains featured_image %}
+            <img id="{{ image.id }}" class="hide" src="{{ image.src | product_img_url: '1024x1024' }}" alt="{{ image.alt | escape }}" {% if section.settings.zoom_enable %}data-mfp-src="{{ image.src | img_url: '2048x2048' }}"{% endif %} />
+          {% endunless %}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+  {% if number_of_images > 1 %}
+    <div class="gallery">
+      {% for image in product.images %}
+        <a href="{{ image.src | product_img_url: '1024x1024' }}" data-action="show-product-image" data-id="{{ image.id }}">
+          <div class="box" style="background-image: url('{{ image.src | product_img_url: '240x240' }}');"></div>
+        </a>
+      {% endfor %}    
+    </div>
+  {% endif %}
+</div>

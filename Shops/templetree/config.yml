@@ -1,0 +1,13 @@
+---
+:api_key: 5cbc00f8eec4e73d401a06a4bd210e49
+:password: f974a9b858b744ce3ce86b19254d1873
+:store: templetree.myshopify.com
+:theme_id:
+:whitelist_files:
+- layout/
+- assets/
+- config/
+- snippets/
+- templates/
+- locales/
+- sections/

@@ -1,0 +1,49 @@
+{% if section.settings.logo_max_width != blank %}
+  {% assign logo_max_width = section.settings.logo_max_width | plus: 0 %}
+  {% if logo_max_width > 2048 %}
+    {% assign logo_max_width = 2048 %}
+  {% endif %}
+{% else %}
+  {% assign logo_max_width = 150 %}
+{% endif %}
+
+<a href="{{ shop.url }}" itemprop="url" class="logo">
+  <h1 class="logo" itemscope itemtype="http://schema.org/Organization">
+    {% if section.settings.logo %}
+      {% capture image_size %}{{ logo_max_width }}x{% endcapture %}
+      <img src="{{ section.settings.logo | img_url: image_size }}"
+           srcset="{{ section.settings.logo | img_url: image_size }} 1x, {{ section.settings.logo | img_url: image_size, scale: 2 }} 2x"
+           alt="{{ section.settings.logo.alt | default: shop.name }}"
+           itemprop="logo">
+    {% else %}
+      {% if section.settings.use_uppercase %}
+        {{ shop.name | upcase }}
+      {% else %}
+        {{ shop.name }}
+      {% endif %}
+    {% endif %}
+  </h1>
+</a>
+
+{% if logo_max_width != blank %}
+  <style type="text/css">
+    .slide a.logo h1 img {
+      width: {{ logo_max_width }}px;
+    }
+    @media (max-width: 550px){
+      .slide a.logo h1 img {
+        max-width: {{ logo_max_width | times: 0.9 | round }}px;
+      }
+    }
+    @media (max-width: 420px){
+      .slide a.logo h1 img {
+        max-width: {{ logo_max_width | times: 0.8 | round }}px;
+      }
+    }
+    {% if section.settings.logo %}
+      .slide a.logo h1 {
+        line-height: 0;
+      }
+    {% endif %}
+  </style>
+{% endif %}

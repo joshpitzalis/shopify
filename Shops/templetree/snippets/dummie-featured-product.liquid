@@ -1,0 +1,38 @@
+<div class="featured-product" {{ block.shopify_attributes }}>
+  <div class="image">
+    <div class="container">
+      <div class="right">
+        <a href="/admin/products">
+          {{ product_id | placeholder_svg_tag: 'placeholder-svg' }}
+        </a>
+      </div>
+    </div>      
+  </div>
+  <div class="overlay"></div>
+  <a class="info" href="/admin/products" target="_blank">
+    <div class="container">
+      <div class="left">
+        <div class="table">
+          <div class="cell">
+            <div>
+              <div class="title">
+                {{ 'home_page.onboarding.product_title' | t }}
+              </div>
+              <div class="title mobile">
+                {{ 'home_page.onboarding.product_title' | t }}
+              </div>
+              <div class="price">
+                <span class="money">{{ 1999 | money }}</span>
+              </div>
+            </div>
+            <div class="button">
+              <span class="btn border {{ settings.button_shape }}">
+                {{ 'products.product.buy_html' | t }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

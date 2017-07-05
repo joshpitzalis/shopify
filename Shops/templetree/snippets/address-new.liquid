@@ -1,0 +1,14 @@
+ <div id="add_address" class="address hide">
+  {% include 'form-add-address' %}
+</div>
+<div class="row expanded-top">
+  <a href="#" class="btn solid {{ settings.button_shape }}" id="add_new_address_button" data-action='add-new-address'>
+    {{ 'customer.addresses.add_html' | t}}
+  </a>
+</div>
+<div class="row expanded-top back">
+  {% capture link %}
+    <a class="underline" href="/account">{{ 'customer.addresses.return' | t }}</a>
+  {% endcapture %}
+  {{ 'general.navigation.cancel_html' | t: link: link }}
+</div>

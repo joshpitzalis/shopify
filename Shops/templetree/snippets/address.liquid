@@ -1,0 +1,30 @@
+ <div class="address" id="view_address_{{address.id}}">
+  <p class="big">
+    <span class="highlight">{{ address.first_name }} {{address.last_name }}</span><br>
+    {% if address.company != "" %}
+      {{ address.company }}<br>
+    {% endif %}
+    {{ address.street }}<br>
+    {{ address.city | titlecase }}
+    {% if address.province_code %}
+      {{ address.province_code | upcase }}
+    {% endif %}
+    {{ address.zip | upcase }}
+    {{ address.country }}
+    {% if address.phone != '' %}
+      <br>{{ 'customer.addresses.phone_label' | t }} {{ address.phone }}
+    {% endif %}
+  </p>
+  <p class="options">
+    {% if address == customer.default_address %}
+      <span class="boxed">{{ 'customer.addresses.default' | t }}</span>
+    {% endif %}
+    <a href="#" data-action="edit-address" data-address-id="{{ address.id }}">
+      <i class="fc fc-pencil"></i>
+    </a> /
+    <a href="#" onclick="Shopify.CustomerAddress.destroy({{ address.id }}, '{{ 'customer.addresses.delete_question' | t }}');return false">
+    <i class="fc fc-trash"></i>
+    </a>
+  </p>
+  <hr class="short">
+</div>

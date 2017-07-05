@@ -1,0 +1,77 @@
+<div class="rich-text">
+  {% for block in section.blocks %}
+    <div id="rte" class="center" {{ block.shopify_attributes }}>
+      {% case block.type %}
+        {% when 'richtext' %}
+          <h1>{{ block.settings.title }}</h1>
+          {{ block.settings.richtext }}
+        {% when 'page' %}
+          {% if block.settings.page != blank %}
+            {% if block.settings.show_heading %}
+              <h1>{{ pages[block.settings.page].title }}</h1>
+            {% endif %}
+            {{ pages[block.settings.page].content }}
+          {% else %}
+            {% if block.settings.show_heading %}
+              <h1>{{ 'home_page.onboarding.page_title' | t }}</h1>
+            {% endif %}
+            <p>{{ 'home_page.onboarding.page_excerpt_html' | t }}</p>
+          {% endif %}
+      {% endcase %}
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Rich text",
+  "blocks": [
+    {
+      "type": "richtext",
+      "name": "Rich text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Rich text"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Text",
+          "default": "<p>Use this text to share information about your brand with your customers. Describe a product, share announcements, or welcome customers to your store.</p>"
+        }
+      ]
+    },
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "show_heading",
+          "label": "Show heading",
+          "default": true
+        },
+        {
+          "type": "page",
+          "id": "page",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Rich text",
+      "category": "Text",
+      "blocks": [
+        {
+          "type": "richtext"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,68 @@
+{% if product.available %}
+  {% assign sold_out = false %}
+{% else %}
+  {% assign sold_out = true %}
+{% endif %}
+
+{% if product.compare_at_price > product.price %}
+  {% if sold_out %}
+    {% assign on_sale = false %}
+  {% else %}
+    {% assign on_sale = true %}
+  {% endif %}  
+{% else %}
+  {% assign on_sale = false %}
+{% endif %}
+
+{% if template == 'collection' %}
+  {% assign product_url = product.url | within: collection %}
+{% else %}
+  {% assign product_url = product.url %}
+{% endif %}
+
+{% if collection.products_count == 2 %}
+  {% assign layout_class = "two" %}
+{% elsif collection.products_count == 3 %}
+  {% assign layout_class = "three" %}
+{% else %}
+  {% assign layout_class = "four" %}
+{% endif %}
+
+{% capture col_class %}{% cycle collection.handle: 'col-0', 'col-1', 'col-2', 'col-3', 'col-4', 'col-5', 'col-6', 'col-7', 'col-8', 'col-9', 'col-10', 'col-11' %}{% endcapture %}
+
+<a class="collection-product {{ layout_class }} {{ col_class }}" href="{{ product_url }}" data-action='show-product'>
+  <div class="inner">
+    <div class="table">
+      <div class="cell">
+        <img src="{{ product.featured_image.src | product_img_url: '600x600' }}" alt="{{ product.featured_image.alt | escape }}" class="opacity-{{ section.settings.product_grid_mouseover_opacity }}">
+          <div class="gradient"></div>
+      </div>
+    </div>
+    <div class="info">
+      <div class="metas">
+        <div class="price">
+          {% if on_sale %}
+            <div class="price striped"><span class='money'>{{ product.first_available_variant.compare_at_price | money }}</span></div>
+            <span class='money'>{{ product.first_available_variant.price | money }}</span>
+          {% elsif product.price_varies %}
+            {% capture price_min %}{{ product.price_min | money }}{% endcapture %}
+            {% capture price_max %}{{ product.price_max | money }}{% endcapture %}
+            <span class='money'>{{ price_min }}</span> - <span class='money'>{{ price_max}}</span>
+          {% else %}
+            <span class='money'>{{ product.price | money }}</span>
+          {% endif %}
+        </div>
+        <div class="title">{{ product.title }}</div>
+      </div>
+    </div>
+    {% if sold_out %}
+      <div class="tag">
+        <div class="shape solid {{ settings.product_tag_shape }} sold-out small">{{ 'products.product.sold_out_html' | t }}</div>      
+      </div>
+    {% elsif on_sale %}
+      <div class="tag">
+        <div class="shape solid {{ settings.product_tag_shape }} sale small">{{ 'products.product.on_sale_html' | t }}</div>
+      </div>
+    {% endif %}
+  </div>
+</a>

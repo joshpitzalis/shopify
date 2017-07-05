@@ -1,0 +1,69 @@
+<div class="content blog">
+  <div class="inner">
+    <div class="section">
+      <a href="{{ blog.url }}">
+        <h2>{{ blog.title }}</h2>
+      </a>
+      <a class="rss" href="{{ shop.url }}{{ blog.url }}.atom" target="_blank">
+        <h2><i class="fc fc-rss"></i></h2>
+      </a>
+      {% if current_tags %}
+        <h2 class="divider">/</h2>
+        <h2>{{ current_tags.first }}</h2>
+      {% endif %}      
+    </div>
+    {% if blog.articles_count > 0 %}
+      {% paginate blog.articles by 10 %}
+        <div class="excerpts">
+          {% for article in blog.articles %}
+            {% include 'post' %}
+          {% endfor %}      
+        </div>
+        {% include 'pagination' %}
+      {% endpaginate %}
+    {% else %}
+      <h3 class="empty">{{ 'blogs.general.no_articles' | t }}</h3>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Blog pages",
+  "settings": [
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "default": "grid",
+      "options": [
+        {
+          "value": "grid",
+          "label": "Grid"
+        },
+        {
+          "value": "list",
+          "label": "List"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Post featured images"
+    },
+    {
+      "type": "checkbox",
+      "id": "featured_images_fixed_height_enabled",
+      "label": "Enable fixed height",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "featured_images_fixed_height",
+      "label": "Fixed height",
+      "default": "360",
+      "info": "Defined in pixels. Do not add the 'px' unit. Max 800."
+    }
+  ]
+}
+{% endschema %}

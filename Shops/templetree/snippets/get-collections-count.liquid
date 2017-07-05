@@ -1,0 +1,10 @@
+{% assign collection_count = 0 %}
+{% if linklists[list_name].links.size > 0 %}
+  {% assign collection_count = linklists[list_name].links.size %}
+{% else %}
+  {% for collection in collections %}
+    {% unless collection.handle == 'frontpage' or collection.handle == settings.home_featured_collection %}
+      {% assign collection_count = collection_count | plus: 1 %}
+    {% endunless %}
+  {% endfor %}
+{% endif %}

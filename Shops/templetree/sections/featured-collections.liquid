@@ -1,0 +1,176 @@
+{% assign collection_count = section.blocks.size %}
+{% assign collection_index = 0 %}
+
+<div class="featured-collections" data-section-id="{{ section.id }}" data-section-type="collections">
+  {% if section.settings.title != blank %}
+    <div class="section">
+      <a href="/collections">
+        <h2>{{ section.settings.title | escape }}</h2>
+      </a>
+    </div>
+  {% endif %}
+
+  {% if section.blocks.size > 0 %}
+    <div class="collections-items {% if section.settings.collection_interactive_enable %}interactive{% endif %}">
+      {% for block in section.blocks limit: section.blocks.size %}
+        <div {{ block.shopify_attributes }}>
+          {% assign collection = collections[block.settings.collection] %}
+          {% if collection.empty? %}
+            {% include 'dummie-collections-item' %}
+          {% else %}
+            {% include 'collections-item' %}
+          {% endif %}
+          {% assign collection_index = collection_index | plus: 1 %}
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    {% include 'no-blocks' %}
+  {% endif %}
+
+</div>
+
+{% schema %}
+{
+  "name": "Collection list",
+  "max_blocks": 9,
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Collection list",
+      "info": "Optional"
+    },
+    {
+      "type": "select",
+      "id": "collection_alignment",
+      "label": "Title alignment",
+      "default": "center",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_height",
+      "label": "Height",
+      "default": "medium",
+      "options": [
+        {
+          "value": "short",
+          "label": "Short"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "tall",
+          "label": "Tall"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_image_size",
+      "label": "Image scale",
+      "default": "cover",
+      "options": [
+        {
+          "value": "cover",
+          "label": "Cover"
+        },
+        {
+          "value": "contain",
+          "label": "Contain"
+        }
+      ]
+    },
+    {
+      "type": "select",
+      "id": "collection_image_opacity",
+      "label": "Image transparency",
+      "info": "Adjust to achieve a better title readability",
+      "default": "90",
+      "options": [
+        {
+          "value": "100",
+          "label": "0%"
+        },
+        {
+          "value": "90",
+          "label": "10%"
+        },
+        {
+          "value": "80",
+          "label": "20%"
+        },
+        {
+          "value": "70",
+          "label": "30%"
+        },
+        {
+          "value": "60",
+          "label": "40%"
+        },
+        {
+          "value": "50",
+          "label": "50%"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Interactions"
+    },
+    {
+      "type": "checkbox",
+      "id": "collection_interactive_enable",
+      "label": "Show collection title on mouse over (desktop only)",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "collection",
+      "name": "Collection",
+      "settings": [
+        {
+          "label": "Collection",
+          "id": "collection",
+          "type": "collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection list",
+      "category": "Collection",
+      "blocks": [
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        },
+        {
+          "type": "collection"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

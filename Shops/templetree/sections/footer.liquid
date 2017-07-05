@@ -1,0 +1,158 @@
+{% assign menu = linklists[section.settings.footer_linklist] %}
+
+<div class="footer" data-section-id="{{ section.id }}" data-section-type="footer" role="contentinfo">
+  {% if section.blocks.size > 0 %}
+    <div class="top blocks-{{ section.blocks.size }}">
+      {% for block in section.blocks %}
+        {% case block.type %}
+
+          {% when 'menu' %}
+            {% assign menu = linklists[block.settings.menu] %}
+            <div class="col menu" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.menu_title }}</h3>
+              {% if menu.links.size > 3 %}
+                {% assign extra_link = menu.links.size | modulo: 2 %}
+                {% assign edge = menu.links.size | divided_by: 2 | plus: extra_link %}
+              {% else %}
+                {% assign edge = menu.links.size  %}
+              {% endif %}
+              <ul>
+                {% for link in menu.links limit: edge %}
+                  <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                {% endfor %}
+              </ul>
+              {% if edge < menu.links.size %}
+                <ul>
+                  {% for link in menu.links offset: edge %}
+                    <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                </ul>
+              {% endif %}
+            </div>
+
+          {% when 'text' %}
+            <div class="col contact" {{ block.shopify_attributes }}>
+              <h3>{{ block.settings.title }}</h3>
+              <div id="rte">{{ block.settings.richtext }}</div>
+            </div>
+
+         {% when 'newsletter' %}
+            <div class="col" {{ block.shopify_attributes }}>
+              <h3>{{ 'layout.footer.newsletter' | t }}</h3>
+              {% include 'footer-newsletter' %}
+            </div>
+
+          {% when 'social' %}
+            <div class="col {{ block.settings.align }}" {{ block.shopify_attributes }}>
+              {% include 'connect', title: 'layout.footer.social' %}
+            </div>
+
+        {% endcase %}
+      {% endfor %}
+    </div>
+  {% endif %}
+  <div class="bottom">
+    {% if section.settings.footer_show_payments %}
+      <div class="cards">
+        {% for type in shop.enabled_payment_types %}
+          <img src="{{ type | payment_type_img_url }}" />
+        {% endfor %}
+      </div>
+    {% endif %}
+    <div class="text left">
+      {% assign year = 'now' | date: '%Y' %}
+      {% capture shop_name %}
+        {{ shop.name | link_to: '/' }}
+      {% endcapture %}
+      {{ 'layout.footer.copyright_html' | t: year: year, shop_name: shop_name }}
+    </div>
+
+  </div>
+</div>
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "max_blocks": 4,
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "footer_show_payments",
+      "label": "Show payment icons",
+      "default": false,
+      "info": "When payments are enabled"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "menu",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "menu_title",
+          "label": "Heading",
+          "default": "Quick links"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Heading",
+          "default": "Contact info"
+        },
+        {
+          "type": "richtext",
+          "id": "richtext",
+          "label": "Text",
+          "default": "<p>1360 Lombard Street<br>San Francisco, CA 94109<br>support@company.com</p>"
+        }
+      ]
+    },
+    {
+      "type": "social",
+      "name": "Social icons",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Edit your social settings and accounts in General settings"
+        },
+        {
+          "type": "radio",
+          "id": "align",
+          "label": "Alignment",
+          "options": [
+            { "value": "left", "label": "Left" },
+            { "value": "center", "label": "Center" },
+            { "value": "right", "label": "Right" }
+          ],
+          "default": "left"
+        }
+      ]
+    },
+    {
+      "type": "newsletter",
+      "name": "Newsletter signup",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "paragraph",
+          "content": "Any customers who sign up will have an account created for them in Shopify. [View sign ups](/admin/customers?query=&tag=newsletter)."
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

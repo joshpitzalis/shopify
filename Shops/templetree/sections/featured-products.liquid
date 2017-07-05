@@ -1,0 +1,77 @@
+<div class="featured-products {% if section.settings.with_transition %}with-transition{% endif %} {% if settings.color_product_bg == settings.color_home_bg %}collapsed{% endif %}" data-section-id="{{ section.id }}" data-section-type="featured-products">
+  {% if section.blocks.size == 0 %}
+    {% include 'dummie-featured-product', product_id: 'product-5' %}
+    {% include 'dummie-featured-product', product_id: 'product-2' %}
+    {% include 'dummie-featured-product', product_id: 'product-3' %}
+  {% else %}
+    {% for block in section.blocks %}
+      {% assign product = all_products[block.settings.product] %}
+
+      {% if product != blank %}
+        {% if product.available %}
+          {% assign sold_out = false %}
+        {% else %}
+          {% assign sold_out = true %}
+        {% endif %}
+        {% if product.compare_at_price_min > product.price_min %}
+          {% if sold_out %}
+            {% assign on_sale = false %}
+          {% else %}
+            {% assign on_sale = true %}
+          {% endif %}  
+        {% else %}
+          {% assign on_sale = false %}
+        {% endif %}
+        {% include 'featured-product' %}
+      {% else %}
+        {% capture product_id %}product-{% cycle 'product-index': '5', '2', '3', '4', '1', '6' %}{% endcapture %}
+        {% include 'dummie-featured-product', product_id: product_id %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+</div>
+
+{% schema %}
+{
+  "name": "Product list",
+  "class": "section-featured-products",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "with_transition",
+      "label": "Enable scroll transition",
+      "info": "Desktop only"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Product"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product list",
+      "category": "Product",
+      "blocks": [
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        },
+        {
+          "type": "product"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

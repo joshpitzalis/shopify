@@ -1,0 +1,21 @@
+{% include 'get-collection-products-classes', with_previews: true %}
+<div class="collection-products {{ collection_products_classes }}" data-count="{{ collection.products_count }}">
+  {% if shop.products_count > 0 %}
+    {% if collection.products_count > 0 %}
+      {% paginate collection.products by 24 %}
+        <div>  
+          {% for product in collection.products %}
+            {% include 'collection-product' %}
+          {% endfor %}
+        </div>
+        {% include 'pagination' %}
+      {% endpaginate %}
+    {% else %}
+      <h3 class="empty">{{ 'collections.general.no_products' | t }}</h3>
+    {% endif %}
+  {% else %}
+    {% for i in (1..12) %}
+      {% include 'dummie-collection-product' %}
+    {% endfor %}
+  {% endif %}
+</div>
