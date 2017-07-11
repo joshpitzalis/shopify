@@ -1,0 +1,106 @@
+<div class="mh4">
+<div class='h1 bg-jungle'></div>
+<div class="dt-ns dt--fixed-ns ">
+  <div class="dtc-ns tc pv4 bg-dark-brown">
+    <img src="{{ section.settings.feature1image | img_url: '32x' }}" alt="" class='center pv3'>
+<p class='f3 near-white'>{{section.settings.feature1heading}}</p>
+<p class='pa3 near-white'>{{section.settings.feature1body}}</p>
+<a href={{section.settings.feature1link}} class='near-white'>Learn More...</a>
+  </div>
+  <div class="dtc-ns tc pv4 bg-brown">
+    <img src="{{ section.settings.feature2image | img_url: '32x' }}" alt="" class='center pv3'>
+<p class='f3 near-white'>{{section.settings.feature2heading}}</p>
+<p class='pa3 near-white'>{{section.settings.feature2body}}</p>
+<a href={{section.settings.feature2link}} class='near-white'>Learn More...</a>
+  </div>
+  <div class="dtc-ns tc pv4 bg-dark-brown">
+    <img src="{{ section.settings.feature3image | img_url: '32x' }}" alt="" class='center pv3'>
+<p class='f3 near-white'>{{section.settings.feature3heading}}</p>
+<p class='pa3 near-white'>{{section.settings.feature3body}}</p>
+<a href={{section.settings.feature3link}} class='near-white'>Learn More...</a>
+  </div>
+</div>
+</div>
+
+{% schema %}
+{
+  "name": "TriFeatures",
+  "settings": [
+  {
+      "type": "image_picker",
+      "id": "feature1image",
+      "label": "Icon"
+    },
+  {
+      "type": "textarea",
+      "id": "feature1heading",
+      "label": "Feature 1 Heading",
+      "default": "Save Our Tigers."
+    },
+    {
+      "type": "textarea",
+      "id": "feature1body",
+      "label": "Feature 1 Body",
+      "default": "Ipsum Lorem."
+    },
+     {
+          "type": "url",
+          "id": "feature1link",
+          "label": "Feature 1 link",
+          "info": "Optional"
+        },
+        {
+      "type": "image_picker",
+      "id": "feature2image",
+      "label": "Icon"
+    },
+  {
+      "type": "textarea",
+      "id": "feature2heading",
+      "label": "Feature 2 Heading",
+      "default": "Save Our Tigers."
+    },
+    {
+      "type": "textarea",
+      "id": "feature2body",
+      "label": "Feature 2 Body",
+      "default": "Ipsum Lorem."
+    },
+     {
+          "type": "url",
+          "id": "feature2link",
+          "label": "Feature 2 link",
+          "info": "Optional"
+        },
+        {
+      "type": "image_picker",
+      "id": "feature3image",
+      "label": "Icon"
+    },
+  {
+      "type": "textarea",
+      "id": "feature3heading",
+      "label": "Feature 3 Heading",
+      "default": "Save Our Tigers."
+    },
+    {
+      "type": "textarea",
+      "id": "feature3body",
+      "label": "Feature 3 Body",
+      "default": "Ipsum Lorem."
+    },
+     {
+          "type": "url",
+          "id": "feature3link",
+          "label": "Feature 3 link",
+          "info": "Optional"
+        }
+  ],
+  "presets": [
+    {
+      "name": "TriFeature",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}

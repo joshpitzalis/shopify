@@ -8,9 +8,9 @@
   {% include 'metas' %}
   {% include 'javascript' %}
   {{ "font.css"  | asset_url | stylesheet_tag }}
+  {{ "stylesheet.css"  | asset_url | stylesheet_tag }}
   {{ content_for_header }}
   <link rel="stylesheet" href="https://unpkg.com/tachyons@4.7.0/css/tachyons.min.css"/>
-
 </head>
 
 <body id="{{ page_title | handle }}" class="template-{{ template | replace: '.', ' ' | truncatewords: 1, '' | handle }} no-outlines">

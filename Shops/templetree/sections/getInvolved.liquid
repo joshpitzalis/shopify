@@ -1,0 +1,116 @@
+
+
+<div class="mh4-ns pa5-ns bg-gold">
+<div class="dtc-ns w1 h1"></div>
+<div class="dt-ns dt--fixed-ns">
+  <div class="dtc-ns v-top tl ph3 pv5" style='background-image: url({{ section.settings.donateImage | img_url: 'original'}}); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover'>
+   
+<p class='f2 near-white ttu gold pv2'>{{section.settings.donateHeading}}</p>
+<p class='f4 near-white pv2'>{{section.settings.donatebyline}}</p>
+<p class='near-white pv2'>{{section.settings.donatebody}}</p>
+<a href={{section.settings.donatelink}} class='near-white btn border pv2'><button class='btn border gold ttu'>{{section.settings.donatelinktext}} </button></a>
+  </div>
+  <div class="dtc-ns w1 h1"></div>
+  <div class="dtc-ns v-top tl ph3 pv5" style='background-image: url({{ section.settings.involvedImage | img_url: 'original'}}); 
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover'>
+   
+<p class='f2 ttu jungle pv2'>{{section.settings.involvedHeading}}</p>
+<p class='f4 near-white pv2'>{{section.settings.involvedbyline}}</p>
+<p class='near-white pv2'>{{section.settings.involvedbody}}</p>
+<a href={{section.settings.involvedlink}} class='near-white btn border pv2'><button class='btn border jungle ttu'>{{section.settings.involvedlinktext}} </button></a>
+  </div>
+</div>
+<div class="dtc-ns w1 h1"></div>
+</div>
+
+{% schema %}
+{
+  "name": "Get Involved",
+  "settings": [
+  {
+      "type": "image_picker",
+      "id": "donateImage",
+      "label": "Donate Background Image"
+    },
+  {
+      "type": "textarea",
+      "id": "donateHeading",
+      "label": "Donate Heading",
+      "default": "Save Our Tigers."
+    },
+    {
+      "type": "textarea",
+      "id": "donatebyline",
+      "label": "Donate Byline",
+      "default": "Ipsum Lorem."
+    },
+    {
+      "type": "textarea",
+      "id": "donatebody",
+      "label": "Donate Body",
+      "default": "Ipsum Lorem."
+    },
+   {
+      "type": "url",
+      "id": "donatelink",
+      "label": "Donate link"
+    },
+    {
+      "type": "text",
+      "id": "donatelinktext",
+      "label": "Donate link text"
+    },
+    {
+      "type": "image_picker",
+      "id": "involvedImage",
+      "label": "involved Background Image"
+    },
+  {
+      "type": "textarea",
+      "id": "involvedHeading",
+      "label": "involved Heading",
+      "default": "Save Our Tigers."
+    },
+    {
+      "type": "textarea",
+      "id": "involvedbyline",
+      "label": "involved Byline",
+      "default": "Ipsum Lorem."
+    },
+    {
+      "type": "textarea",
+      "id": "involvedbody",
+      "label": "involved Body",
+      "default": "Ipsum Lorem."
+    },
+   {
+      "type": "url",
+      "id": "involvedlink",
+      "label": "involved link"
+    },
+    {
+      "type": "text",
+      "id": "involvedlinktext",
+      "label": "involved link text"
+    }
+
+  ],
+  "presets": [
+    {
+      "name": "Get Involved",
+      "category": "Text"
+    }
+  ]
+}
+{% endschema %}
