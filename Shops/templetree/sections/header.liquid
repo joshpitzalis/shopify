@@ -1,4 +1,10 @@
+{% if page_description contains 'tiger' %}
+{% assign menu = linklists.save-tigers-menu %}
+{% else %}
 {% assign menu = linklists[section.settings.side_nav_linklist] %}
+{% endif %}
+
+
 {% unless menu.empty? %}{% include 'side-nav' %}{% endunless %}
 {% include 'side-cart' %}
 {% include 'search-overlay' %}
@@ -26,6 +32,10 @@
         </a>
       {% endunless %}
     </div>
+    {% if page_description contains 'tiger' %}
+    {% else %}
+
+
     <div class="right">
       <a class="icon-search" href="/search" data-action="toggle-search">
         <i class="fc fc-search"></i>
@@ -38,6 +48,30 @@
         {% include 'currency-picker' %}
       {% endif %}
     </div>
+    {% endif %}
+
+    {% if page_description contains 'tiger' %}
+    <div class="center" itemscope itemtype="http://schema.org/Organization">
+      <a class="logo" href="/" itemprop="url" tabindex="-1">
+        <h1 class="logo">
+          {% if section.settings.logo2 %}
+            {% capture image_size %}{{ logo_max_width }}x{% endcapture %}
+            <img src="{{ section.settings.logo2 | img_url: image_size }}"
+                 srcset="{{ section.settings.logo2 | img_url: image_size }} 1x, {{ section.settings.logo2 | img_url: image_size, scale: 2 }} 2x"
+                 alt="{{ section.settings.logo2.alt | default: 'MARIAMMA CHARITABLE TRUST' }}"
+                 itemprop="logo">
+          {% else %}
+            {% if section.settings.use_uppercase %}
+              <span>MARIAMMA CHARITABLE TRUST</span>
+            {% else %}
+              <span style="text-transform: none;">MARIAMMA CHARITABLE TRUST</span>
+            {% endif %}
+          {% endif %}
+        </h1>
+      </a>
+    </div>
+{% else %}
+
     <div class="center" itemscope itemtype="http://schema.org/Organization">
       <a class="logo" href="/" itemprop="url" tabindex="-1">
         <h1 class="logo">
@@ -57,6 +91,7 @@
         </h1>
       </a>
     </div>
+    {% endif %}
   </div>
   <div class="background"></div>
 </div>
@@ -88,6 +123,11 @@
         "type": "image_picker",
         "id": "logo",
         "label": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo2",
+        "label": "Logo for Trust"
       },
       {
         "type": "text",

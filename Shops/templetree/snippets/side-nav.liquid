@@ -15,6 +15,9 @@
         {% endif %}
       </li>
     {% endfor %}
+    {% if page_description contains 'tiger' %}
+{% else %}
+
     {% if shop.customer_accounts_enabled %}
       {% if customer %}
         <li><a href="/account" tabindex="{{ index }}"><span>{{ 'layout.side_nav.account' | t }}</span></a></li>
@@ -23,6 +26,7 @@
       {% else %}
         <li><a href="/account/login" tabindex="{{ index }}"><span>{{ 'layout.side_nav.signin' | t }}</span></a></li>
       {% endif %}
+    {% endif %}
     {% endif %}
   </ul>
 

@@ -1,15 +1,23 @@
 .bg-brown {
-	background-color: #403222;
+  background-color: #403222;
 }
 
 .bg-dark-brown {
-	background-color: #2C2417;
+  background-color: #2c2417;
 }
 
 .bg-jungle {
-	background-color: #AAC985;
+  background-color: #aac985;
 }
 
 .jungle {
-	color: #AAC985;
+  color: #aac985;
+}
+
+.bg-orangy {
+  background-color: #fead29;
+}
+
+.orangy {
+  color: #fead29;
 }
