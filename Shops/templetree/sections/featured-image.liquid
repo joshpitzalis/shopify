@@ -3,6 +3,7 @@
     {% if section.settings.image != blank %}
       <img src="{{ section.settings.image | img_url: '2048x' }}">
     {% else %}
+
       {{ 'image' | placeholder_svg_tag: 'placeholder' }}
     {% endif %}
   {% if section.settings.link %}</a>{% endif %}

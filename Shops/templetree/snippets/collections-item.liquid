@@ -2,6 +2,6 @@
 {% include 'get-collection-item-image-url' %}
 
 <a href="{{ collection.url }}" class="collections-item {{ collection_item_width }} {{ section.settings.collection_height }} {{ section.settings.collection_alignment }} {{ section.settings.collection_image_size }}">
-  <h4>{{ collection.title }}</h4>
+  <h4><img src={{ 'leaf.svg' | asset_url }} alt="" class="dib pr3">{{ collection.title }}</h4>
   <div class="image opacity-{{ section.settings.collection_image_opacity }}" style="background-image: url('{{ collection_item_image_url }}');"></div>
 </a>

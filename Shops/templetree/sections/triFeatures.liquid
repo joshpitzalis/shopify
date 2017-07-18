@@ -2,6 +2,7 @@
 <div class='h1 bg-jungle'></div>
 <div class="dt-ns dt--fixed-ns ">
   <div class="dtc-ns tc pv4 bg-dark-brown">
+    <div class="h2"><img src={{ 'yellowLeaf.svg' | asset_url }} alt="yellow leaves" class="ml4 dn db-ns absolute "></div>
     <img src="{{ section.settings.feature1image | img_url: '32x' }}" alt="" class='center pv3'>
 <p class='f3 near-white'>{{section.settings.feature1heading}}</p>
 <p class='pa3 near-white'>{{section.settings.feature1body}}</p>
@@ -20,6 +21,11 @@
 <a href={{section.settings.feature3link}} class='near-white'>Learn More...</a>
   </div>
 </div>
+</div>
+<div class='dn flex-l relative mxe'>
+    <div class="absolute top--4 z-999 h-100 w-25">
+      <img src={{ 'rightCloud.png' | asset_url }} alt="small cloud">
+    </div>
 </div>
 
 {% schema %}

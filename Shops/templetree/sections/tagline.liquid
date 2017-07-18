@@ -1,9 +1,19 @@
 {% unless section.settings.tagline == blank %}
-  <div class="rich-text bg-gold">
-    <div id="rte" class="center">
-      <blockquote style="margin: 0;">{{ section.settings.tagline | escape }}</blockquote>
-    </div>
+<div class='h1 dn db-ns tr'>
+  <img src={{ 'indiaMap.png' | asset_url }} alt="map of the indian peninsula" class="dib">
+</div>
+<div class="rich-text bg-orangy ">
+  <div id="rte" class="center">
+    <div class="f3 tracked">{{ section.settings.tagline | escape }}</div>
   </div>
+</div>
+<div class='dn db-l relative ml0'>
+    <div class="absolute bottom-5 z-999 h-100 w-25 ">
+      <img src={{ 'leftCloud.png' | asset_url }} alt="small cloud">
+    </div>
+</div>
+
+
 {% else %}
   {% include 'no-blocks' %}
 {% endunless %}
